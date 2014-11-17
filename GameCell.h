@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GameCell.h
 //  ReadInRainbow
 //
 //  Created by Audrey Jun on 2014-11-17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface GameCell : UICollectionViewCell
 
 @end
-

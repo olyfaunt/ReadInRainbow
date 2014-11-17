@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		99885C551A1A921A0043D837 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C541A1A921A0043D837 /* main.m */; };
 		99885C581A1A921A0043D837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C571A1A921A0043D837 /* AppDelegate.m */; };
-		99885C5B1A1A921A0043D837 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C5A1A1A921A0043D837 /* ViewController.m */; };
+		99885C5B1A1A921A0043D837 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C5A1A1A921A0043D837 /* MainViewController.m */; };
 		99885C5E1A1A921A0043D837 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99885C5C1A1A921A0043D837 /* Main.storyboard */; };
 		99885C601A1A921A0043D837 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99885C5F1A1A921A0043D837 /* Images.xcassets */; };
 		99885C631A1A921A0043D837 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99885C611A1A921A0043D837 /* LaunchScreen.xib */; };
 		99885C6F1A1A921A0043D837 /* ReadInRainbowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C6E1A1A921A0043D837 /* ReadInRainbowTests.m */; };
+		99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7C1A1AA95F0043D837 /* ChartCell.m */; };
+		99885C801A1AA9690043D837 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7F1A1AA9690043D837 /* GameCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,18 @@
 		99885C541A1A921A0043D837 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99885C561A1A921A0043D837 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99885C571A1A921A0043D837 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		99885C591A1A921A0043D837 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		99885C5A1A1A921A0043D837 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		99885C591A1A921A0043D837 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		99885C5A1A1A921A0043D837 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		99885C5D1A1A921A0043D837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99885C5F1A1A921A0043D837 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		99885C621A1A921A0043D837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		99885C681A1A921A0043D837 /* ReadInRainbowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadInRainbowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99885C6D1A1A921A0043D837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99885C6E1A1A921A0043D837 /* ReadInRainbowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadInRainbowTests.m; sourceTree = "<group>"; };
+		99885C7B1A1AA95F0043D837 /* ChartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChartCell.h; path = ../ChartCell.h; sourceTree = "<group>"; };
+		99885C7C1A1AA95F0043D837 /* ChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartCell.m; path = ../ChartCell.m; sourceTree = "<group>"; };
+		99885C7E1A1AA9690043D837 /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCell.h; path = ../GameCell.h; sourceTree = "<group>"; };
+		99885C7F1A1AA9690043D837 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCell.m; path = ../GameCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +89,12 @@
 			children = (
 				99885C561A1A921A0043D837 /* AppDelegate.h */,
 				99885C571A1A921A0043D837 /* AppDelegate.m */,
-				99885C591A1A921A0043D837 /* ViewController.h */,
-				99885C5A1A1A921A0043D837 /* ViewController.m */,
+				99885C591A1A921A0043D837 /* MainViewController.h */,
+				99885C5A1A1A921A0043D837 /* MainViewController.m */,
+				99885C7E1A1AA9690043D837 /* GameCell.h */,
+				99885C7F1A1AA9690043D837 /* GameCell.m */,
+				99885C7B1A1AA95F0043D837 /* ChartCell.h */,
+				99885C7C1A1AA95F0043D837 /* ChartCell.m */,
 				99885C5C1A1A921A0043D837 /* Main.storyboard */,
 				99885C5F1A1A921A0043D837 /* Images.xcassets */,
 				99885C611A1A921A0043D837 /* LaunchScreen.xib */,
@@ -219,7 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99885C5B1A1A921A0043D837 /* ViewController.m in Sources */,
+				99885C5B1A1A921A0043D837 /* MainViewController.m in Sources */,
+				99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */,
+				99885C801A1AA9690043D837 /* GameCell.m in Sources */,
 				99885C581A1A921A0043D837 /* AppDelegate.m in Sources */,
 				99885C551A1A921A0043D837 /* main.m in Sources */,
 			);
