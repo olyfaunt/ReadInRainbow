@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ChartCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIView *colourView;
 
 @end
