@@ -55,7 +55,7 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     if(collectionView == self.chartCollectionView)
     {
         //return cell for chartCollectionView
-        return 47;
+        return self.soundsArray.count;
     }
     else
     {
@@ -90,14 +90,7 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
-    //get index path of cell
-    //get and play associated sound item that relates to index path
-
     Sound *sound = self.soundsArray[indexPath.item];
-//    NSString *soundPath = sound.
-//    NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"ah" ofType:@"caf"];
-//    NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
-//    AudioServicesCreateSystemSoundID((__bridge CFURLRef)defaultURL, &_defaultSound);
     AudioServicesPlaySystemSound(sound.soundFileObject);
     [sound playSound];
     
