@@ -48,6 +48,7 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
+    //making change for commit
 }
 
 
