@@ -10,4 +10,15 @@
 
 @implementation ChartCell
 
+//-(void)setFrame:(CGRect)frame {
+//    [super setFrame:frame];
+//    [self setNeedsDisplay]; // force drawRect:
+//}
+//
+//- (void)prepareForReuse {
+//    
+//    self.colourView = nil;
+//    // add remaining properties
+//}
+
 @end
