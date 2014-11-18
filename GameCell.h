@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface GameCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *gameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *gameView;
 
 @end

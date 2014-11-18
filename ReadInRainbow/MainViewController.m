@@ -48,6 +48,7 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
+    //making change for commit
 }
 
 
@@ -55,12 +56,12 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     if(collectionView == self.chartCollectionView)
     {
         //return cell for chartCollectionView
-        return 47;
+        return self.soundsArray.count;
     }
     else
     {
         //return cell for gamesCollectionview
-        return 20;
+        return 15;
     }
 }
 
@@ -68,39 +69,51 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     
     if(collectionView == self.chartCollectionView)
     {
-        Sound *sound = self.soundsArray[indexPath.item];
         ChartCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-        
+        Sound *sound = self.soundsArray[indexPath.row];
         if (!sound.hasSecondaryColor) {
-            cell.colourView.firstColor = sound.soundColor;
+            [cell.colourView setFirstColor:sound.soundColor];
+            cell.colourView.secondColor = nil;
         } else {
-            cell.colourView.firstColor = sound.soundColor;
+            [cell.colourView setFirstColor:sound.soundColor];
             cell.colourView.secondColor = sound.secondaryColor;
         }
+        [cell.colourView setNeedsDisplay]; //to redraw rect!!!!!!
         return cell;
-
     }
     else
     {
         GameCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier2 forIndexPath:indexPath];
+        cell.backgroundView.backgroundColor = [UIColor grayColor];
+        cell.gameLabel.text = @"Test Game Name";
+        cell.gameView.contentMode = UIViewContentModeScaleAspectFill;
+        cell.gameView.clipsToBounds = YES;
+        cell.gameView.image = [UIImage imageNamed:@"testicon"];
         return cell;
     }
-
+    
 }
 
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
     //get index path of cell
     //get and play associated sound item that relates to index path
-
-    Sound *sound = self.soundsArray[indexPath.item];
-//    NSString *soundPath = sound.
-//    NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"ah" ofType:@"caf"];
-//    NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
-//    AudioServicesCreateSystemSoundID((__bridge CFURLRef)defaultURL, &_defaultSound);
-    [sound playSound];
-    
+    if(collectionView == self.chartCollectionView)
+    {
+        Sound *sound = self.soundsArray[indexPath.row];
+        [sound playSound];
+    }
+    else
+    {
+        
+    }
 }
+
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+//    [collectionView.collectionViewLayout invalidateLayout];
+//}
 
 /*
  // Uncomment this method to specify if the specified item should be highlighted during tracking
