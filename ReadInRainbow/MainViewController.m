@@ -7,8 +7,15 @@
 //
 
 #import "MainViewController.h"
+#import "SoundLibrary.h"
+#import "Sound.h"
+#import "Phoneme.h"
+#import "Word.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface MainViewController ()
+
+@property (assign) SystemSoundID pewPewSound;
 
 @end
 
@@ -24,7 +31,10 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     self.gamesCollectionView.delegate = self;
     self.chartCollectionView.dataSource = self;
     self.gamesCollectionView.dataSource = self;
-
+    
+//    SoundLibrary *soundDictionary = [[SoundLibrary alloc] init];
+//    self.soundsArray = [soundDictionary.soundLibrary allValues];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,8 +66,29 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     
     if(collectionView == self.chartCollectionView)
     {
+//        Sound *sound = self.soundsArray[indexPath.item];
         ChartCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+        
+//        if (sound.secondaryColor==[UIColor colorWithRed:1.000f green:1.000f blue:1.000f alpha:1.00f]) {
+//            cell.colourView.backgroundColor = sound.soundColor;
+//        } else {
+//            CAGradientLayer *gradient = [CAGradientLayer layer];
+//            gradient.frame = cell.colourView.frame;
+//            gradient.colors = [NSArray arrayWithObjects:(id)[sound.soundColor CGColor], (id)[sound.secondaryColor CGColor], nil];
+//            [cell.colourView.layer insertSublayer:gradient atIndex:0];
+//        }
+
+        if (indexPath.row > 5) {
+            cell.colourView.backgroundColor = [UIColor blueColor];
+        } else {
+            CAGradientLayer *gradient = [CAGradientLayer layer];
+            gradient.frame = cell.colourView.bounds;
+            gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor redColor] CGColor], (id)[[UIColor yellowColor] CGColor], nil];
+            [cell.colourView.layer insertSublayer:gradient atIndex:0];
+        }
+    
         return cell;
+
     }
     else
     {
@@ -68,6 +99,16 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 }
 
 #pragma mark <UICollectionViewDelegate>
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
+    //get index path of cell
+    //get and play associated sound item that relates to index path
+
+    NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:@"pew-pew-lei" ofType:@"caf"];
+    NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &_pewPewSound);
+    AudioServicesPlaySystemSound(self.pewPewSound);
+    
+}
 
 /*
  // Uncomment this method to specify if the specified item should be highlighted during tracking
