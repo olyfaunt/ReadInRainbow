@@ -64,7 +64,7 @@
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mm1-hD-yPk">
                                 <rect key="frame" x="20" y="88" width="728" height="450"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.10519679649999999" blue="0.36168563069999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="e3R-DD-q3y"/>
                                 </constraints>
@@ -82,7 +82,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xah-Gb-ac1">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xah-Gb-ac1" customClass="ColorBlockView">
                                                     <rect key="frame" x="8" y="8" width="84" height="29"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>

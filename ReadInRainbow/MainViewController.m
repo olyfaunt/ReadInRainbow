@@ -12,10 +12,12 @@
 #import "Phoneme.h"
 #import "Word.h"
 #import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import "ColorBlockView.h"
 
 @interface MainViewController ()
 
-@property (assign) SystemSoundID pewPewSound;
+@property (assign) SystemSoundID defaultSound;
 
 @end
 
@@ -79,12 +81,16 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 //        }
 
         if (indexPath.row > 5) {
-            cell.colourView.backgroundColor = [UIColor blueColor];
+            //do not assign .secondColor if none
+            cell.colourView.firstColor = [UIColor blueColor];
         } else {
-            CAGradientLayer *gradient = [CAGradientLayer layer];
-            gradient.frame = cell.colourView.bounds;
-            gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor redColor] CGColor], (id)[[UIColor yellowColor] CGColor], nil];
-            [cell.colourView.layer insertSublayer:gradient atIndex:0];
+            
+            cell.colourView.firstColor = [UIColor purpleColor];
+            cell.colourView.secondColor = [UIColor orangeColor];
+//            CAGradientLayer *gradient = [CAGradientLayer layer];
+//            gradient.frame = cell.colourView.bounds;
+//            gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor redColor] CGColor], (id)[[UIColor yellowColor] CGColor], nil];
+//            [cell.colourView.layer insertSublayer:gradient atIndex:0];
         }
     
         return cell;
@@ -103,10 +109,10 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     //get index path of cell
     //get and play associated sound item that relates to index path
 
-    NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:@"pew-pew-lei" ofType:@"caf"];
-    NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &_pewPewSound);
-    AudioServicesPlaySystemSound(self.pewPewSound);
+    NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"ah" ofType:@"caf"];
+    NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)defaultURL, &_defaultSound);
+    AudioServicesPlaySystemSound(self.defaultSound);
     
 }
 
