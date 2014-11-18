@@ -32,7 +32,7 @@
     self = [super init];
     
     if(self) {
-        NSURL * soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf" inDirectory:@"Sounds"]];
+        NSURL * soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"]];
         self.soundFileURLRef = (__bridge CFURLRef)soundURL;
         AudioServicesCreateSystemSoundID(self.soundFileURLRef, &(_soundFileObject));
         self.identifier = [fileName copy];
