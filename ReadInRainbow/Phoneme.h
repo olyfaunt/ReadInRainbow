@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString * letters;
 @property (nonatomic, strong) NSString * soundIdentifier;
 
++ (instancetype)phonemeWithLetters:(NSString *)letters andSoundIdentifier:(NSString *)soundIdentifier;
 - (instancetype)initWithLetters:(NSString *)letters andSoundIdentifier:(NSString *)soundIdentifier;
 
 @end
