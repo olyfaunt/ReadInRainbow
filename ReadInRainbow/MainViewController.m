@@ -34,8 +34,8 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     self.chartCollectionView.dataSource = self;
     self.gamesCollectionView.dataSource = self;
     
-//    SoundLibrary *soundDictionary = [[SoundLibrary alloc] init];
-//    self.soundsArray = [soundDictionary.soundLibrary allValues];
+    SoundLibrary *soundDictionary = [[SoundLibrary alloc] init];
+    self.soundsArray = [soundDictionary.soundLibrary allValues];
     
 }
 
@@ -55,7 +55,7 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     if(collectionView == self.chartCollectionView)
     {
         //return cell for chartCollectionView
-        return 48;
+        return 47;
     }
     else
     {
@@ -68,31 +68,15 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     
     if(collectionView == self.chartCollectionView)
     {
-//        Sound *sound = self.soundsArray[indexPath.item];
+        Sound *sound = self.soundsArray[indexPath.item];
         ChartCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
         
-//        if (sound.secondaryColor==[UIColor colorWithRed:1.000f green:1.000f blue:1.000f alpha:1.00f]) {
-//            cell.colourView.backgroundColor = sound.soundColor;
-//        } else {
-//            CAGradientLayer *gradient = [CAGradientLayer layer];
-//            gradient.frame = cell.colourView.frame;
-//            gradient.colors = [NSArray arrayWithObjects:(id)[sound.soundColor CGColor], (id)[sound.secondaryColor CGColor], nil];
-//            [cell.colourView.layer insertSublayer:gradient atIndex:0];
-//        }
-
-        if (indexPath.row > 5) {
-            //do not assign .secondColor if none
-            cell.colourView.firstColor = [UIColor blueColor];
+        if (!sound.hasSecondaryColor) {
+            cell.colourView.firstColor = sound.soundColor;
         } else {
-            
-            cell.colourView.firstColor = [UIColor purpleColor];
-            cell.colourView.secondColor = [UIColor orangeColor];
-//            CAGradientLayer *gradient = [CAGradientLayer layer];
-//            gradient.frame = cell.colourView.bounds;
-//            gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor redColor] CGColor], (id)[[UIColor yellowColor] CGColor], nil];
-//            [cell.colourView.layer insertSublayer:gradient atIndex:0];
+            cell.colourView.firstColor = sound.soundColor;
+            cell.colourView.secondColor = sound.secondaryColor;
         }
-    
         return cell;
 
     }
@@ -109,10 +93,13 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     //get index path of cell
     //get and play associated sound item that relates to index path
 
-    NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"ah" ofType:@"caf"];
-    NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)defaultURL, &_defaultSound);
-    AudioServicesPlaySystemSound(self.defaultSound);
+    Sound *sound = self.soundsArray[indexPath.item];
+//    NSString *soundPath = sound.
+//    NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"ah" ofType:@"caf"];
+//    NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
+//    AudioServicesCreateSystemSoundID((__bridge CFURLRef)defaultURL, &_defaultSound);
+    AudioServicesPlaySystemSound(sound.soundFileObject);
+    [sound playSound];
     
 }
 
