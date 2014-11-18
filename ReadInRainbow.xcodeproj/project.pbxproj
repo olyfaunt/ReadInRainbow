@@ -157,6 +157,7 @@
 		99885C7C1A1AA95F0043D837 /* ChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartCell.m; path = ../ChartCell.m; sourceTree = "<group>"; };
 		99885C7E1A1AA9690043D837 /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCell.h; path = ../GameCell.h; sourceTree = "<group>"; };
 		99885C7F1A1AA9690043D837 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCell.m; path = ../GameCell.m; sourceTree = "<group>"; };
+		CA60EFFB1A1BE132001DC1D2 /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
 		CAD608DC1A1BD57100D2E16C /* ah.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ah.caf; sourceTree = "<group>"; };
 		CAD608DD1A1BD57100D2E16C /* ahh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ahh.caf; sourceTree = "<group>"; };
 		CAD608DE1A1BD57100D2E16C /* ar.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ar.caf; sourceTree = "<group>"; };
@@ -175,7 +176,6 @@
 		CAD608EB1A1BD57100D2E16C /* ir.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ir.caf; sourceTree = "<group>"; };
 		CAD608EC1A1BD57100D2E16C /* je.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = je.caf; sourceTree = "<group>"; };
 		CAD608ED1A1BD57100D2E16C /* k.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = k.caf; sourceTree = "<group>"; };
-		CAD608EE1A1BD57100D2E16C /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
 		CAD608EF1A1BD57100D2E16C /* longe.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longe.caf; sourceTree = "<group>"; };
 		CAD608F01A1BD57100D2E16C /* longi.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longi.caf; sourceTree = "<group>"; };
 		CAD608F11A1BD57100D2E16C /* longo.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longo.caf; sourceTree = "<group>"; };
@@ -309,7 +309,7 @@
 				CAD608EB1A1BD57100D2E16C /* ir.caf */,
 				CAD608EC1A1BD57100D2E16C /* je.caf */,
 				CAD608ED1A1BD57100D2E16C /* k.caf */,
-				CAD608EE1A1BD57100D2E16C /* longa.caf */,
+				CA60EFFB1A1BE132001DC1D2 /* longa.caf */,
 				CAD608EF1A1BD57100D2E16C /* longe.caf */,
 				CAD608F01A1BD57100D2E16C /* longi.caf */,
 				CAD608F11A1BD57100D2E16C /* longo.caf */,

@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface Sound : NSObject
 
-@property (nonatomic, assign) SystemSoundID soundFileObject;
-@property (nonatomic, assign) CFURLRef soundFileURLRef;
 @property (nonatomic, strong) UIColor * soundColor;
 @property (nonatomic, strong) UIColor * secondaryColor;
 @property (nonatomic, assign) BOOL hasSecondaryColor;
 @property (nonatomic, strong) NSString * identifier;
+@property (nonatomic, strong) AVAudioPlayer * audioPlayer;
 
 +(instancetype)SoundWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor;
 -(instancetype)initWithSoundFileNamed:(NSString *)fileName;

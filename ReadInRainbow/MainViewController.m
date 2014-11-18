@@ -98,7 +98,6 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 //    NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"ah" ofType:@"caf"];
 //    NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
 //    AudioServicesCreateSystemSoundID((__bridge CFURLRef)defaultURL, &_defaultSound);
-    AudioServicesPlaySystemSound(sound.soundFileObject);
     [sound playSound];
     
 }
