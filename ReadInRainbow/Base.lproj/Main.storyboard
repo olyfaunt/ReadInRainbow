@@ -99,7 +99,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="e3R-DD-q3y"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dB1-HY-Krm">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="8" id="dB1-HY-Krm">
                                     <size key="itemSize" width="100" height="45"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
