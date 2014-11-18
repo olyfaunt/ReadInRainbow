@@ -28,9 +28,26 @@
     return self;
 }
 
-//-(instancetype)initWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor {
-//    
-//}
+-(instancetype)initWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor {
+    self = [super init];
+    
+    if(self) {
+        NSURL * soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf" inDirectory:@"Sounds"]];
+        self.soundFileURLRef = (__bridge CFURLRef)soundURL;
+        AudioServicesCreateSystemSoundID(self.soundFileURLRef, &(_soundFileObject));
+        self.identifier = [fileName copy];
+        // Needs logic to take the sound file and get the color for it, and also set a secondary color if there is one
+        self.soundColor = firstColor;
+        if(secondColor != nil){
+            self.secondaryColor = secondColor;
+            self.hasSecondaryColor = YES;
+        } else {
+            self.secondaryColor = [UIColor whiteColor];
+            self.hasSecondaryColor = NO;
+        }
+    }
+    return self;
+}
 
 -(void)playSound {
     AudioServicesPlaySystemSound(self.soundFileObject);
