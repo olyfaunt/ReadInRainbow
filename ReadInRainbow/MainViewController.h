@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *chartCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *gamesCollectionView;
 
+@property (nonatomic) NSArray *soundsArray;
+
 @end
 

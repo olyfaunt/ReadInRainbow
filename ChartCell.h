@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ColorBlockView.h"
 
 @interface ChartCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIView *colourView;
+@property (weak, nonatomic) IBOutlet ColorBlockView *colourView;
 
 @end
