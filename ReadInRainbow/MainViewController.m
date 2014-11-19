@@ -16,6 +16,7 @@
 #import "ColorBlockView.h"
 #import "AppDelegate.h"
 #import "Game1ViewController.h"
+#import "Game2ViewController.h"
 
 @interface MainViewController ()
 
@@ -116,6 +117,14 @@ static NSString * const reuseIdentifier2 = @"GameCell";
                 game1VC.soundsArray = self.soundsArray;
                 AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
                 appDelegateTemp.window.rootViewController = game1VC;
+                break;
+            }
+            case 1:
+            {
+                Game2ViewController *game2VC = [[UIStoryboard storyboardWithName:@"Game2Storyboard.storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"Game2ViewController"];
+                game2VC.soundsArray = self.soundsArray;
+                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+                appDelegateTemp.window.rootViewController = game2VC;
                 break;
             }
             default:
