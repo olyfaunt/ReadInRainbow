@@ -22,9 +22,7 @@
         NSURL * soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"]];
         NSError * error;
         self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
-        NSLog(@"AudioPlayer error is %@", error);
-        //NSAssert((error == nil),@"AVAudioPlayer failed to initialize");
-        self.audioPlayer.volume=1.0f; //between 0 and 1
+        self.audioPlayer .volume=1.0f; //between 0 and 1
         self.identifier = [fileName copy];
         // Needs logic to take the sound file and get the color for it, and also set a secondary color if there is one
     }
@@ -38,8 +36,7 @@
         NSURL * soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"]];
         NSError * error;
         self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
-        self.audioPlayer.volume=1.0f;
-        NSLog(@"AudioPlayer error is %@", error);
+        self.audioPlayer .volume=1.0f;
         self.identifier = [fileName copy];
         // Needs logic to take the sound file and get the color for it, and also set a secondary color if there is one
         self.soundColor = firstColor;
@@ -56,8 +53,8 @@
 
 -(void)playSound {
     [self.audioPlayer prepareToPlay];
-//    self.audioPlayer.numberOfLoops=0; //or more if needed
-//    
+    self.audioPlayer.numberOfLoops=0; //or more if needed
+    
     [self.audioPlayer play];
 }
 
