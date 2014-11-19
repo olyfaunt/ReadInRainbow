@@ -22,6 +22,8 @@
 		99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7C1A1AA95F0043D837 /* ChartCell.m */; };
 		99885C801A1AA9690043D837 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7F1A1AA9690043D837 /* GameCell.m */; };
 		99D594831A1C0D87001CFBED /* Game1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D594821A1C0D87001CFBED /* Game1ViewController.m */; };
+		CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */; };
+		CA60F0001A1D21F9001DC1D2 /* Game2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */; };
 		CAE9A5B71A1AD32400898AC3 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9A5B41A1AD32400898AC3 /* Sound.m */; };
 		CAE9A5B81A1AD32400898AC3 /* SoundLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9A5B61A1AD32400898AC3 /* SoundLibrary.m */; };
 		CAE9A5BD1A1AD34400898AC3 /* Phoneme.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9A5BA1A1AD34400898AC3 /* Phoneme.m */; };
@@ -65,6 +67,9 @@
 		99D594811A1C0D87001CFBED /* Game1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game1ViewController.h; path = ../Game1ViewController.h; sourceTree = "<group>"; };
 		99D594821A1C0D87001CFBED /* Game1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game1ViewController.m; path = ../Game1ViewController.m; sourceTree = "<group>"; };
 		CA60EFFB1A1BE132001DC1D2 /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
+		CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game2Storyboard.storyboard; sourceTree = "<group>"; };
+		CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game2ViewController.h; sourceTree = "<group>"; };
+		CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game2ViewController.m; sourceTree = "<group>"; };
 		CAD608DC1A1BD57100D2E16C /* ah.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ah.caf; sourceTree = "<group>"; };
 		CAD608DD1A1BD57100D2E16C /* ahh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ahh.caf; sourceTree = "<group>"; };
 		CAD608DE1A1BD57100D2E16C /* ar.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ar.caf; sourceTree = "<group>"; };
@@ -192,6 +197,9 @@
 				CAE9A5BA1A1AD34400898AC3 /* Phoneme.m */,
 				CAE9A5BB1A1AD34400898AC3 /* Word.h */,
 				CAE9A5BC1A1AD34400898AC3 /* Word.m */,
+				CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */,
+				CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */,
+				CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */,
 				99885C521A1A921A0043D837 /* Supporting Files */,
 			);
 			path = ReadInRainbow;
@@ -354,6 +362,7 @@
 			files = (
 				99885C5E1A1A921A0043D837 /* Main.storyboard in Resources */,
 				99885C631A1A921A0043D837 /* LaunchScreen.xib in Resources */,
+				CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */,
 				99885C601A1A921A0043D837 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +392,7 @@
 				99885C581A1A921A0043D837 /* AppDelegate.m in Sources */,
 				99885C551A1A921A0043D837 /* main.m in Sources */,
 				CAE9A5BE1A1AD34400898AC3 /* Word.m in Sources */,
+				CA60F0001A1D21F9001DC1D2 /* Game2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
