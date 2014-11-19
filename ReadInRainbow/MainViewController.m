@@ -17,6 +17,7 @@
 #import "AppDelegate.h"
 #import "Game1ViewController.h"
 #import "Game2ViewController.h"
+#import "Game3ViewController.h"
 
 @interface MainViewController ()
 
@@ -123,6 +124,14 @@ static NSString * const reuseIdentifier2 = @"GameCell";
                 game2VC.soundsArray = self.soundsArray;
                 AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
                 appDelegateTemp.window.rootViewController = game2VC;
+                break;
+            }
+            case 2:
+            {
+                Game3ViewController *game3VC = [[UIStoryboard storyboardWithName:@"Game3Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"Game3ViewController"];
+                game3VC.soundsArray = self.soundsArray;
+                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+                appDelegateTemp.window.rootViewController = game3VC;
                 break;
             }
             default:

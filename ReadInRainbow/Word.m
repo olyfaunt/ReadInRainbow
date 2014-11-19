@@ -17,6 +17,20 @@
     self = [super init];
     if(self) {
         self.phonemeArray = phonemeArray;
+        int numberLetters;
+        NSString *makeWordString;
+        for (Phoneme *phoneme in self.phonemeArray) {
+            numberLetters += phoneme.letters.length;
+            if (makeWordString==nil) {
+                makeWordString = [NSString stringWithString:phoneme.letters];
+            } else {
+                makeWordString = [makeWordString stringByAppendingString:phoneme.letters];
+            }
+        }
+        self.numberOfLetters = numberLetters;
+        self.wordString = makeWordString;
+        self.stringSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:120]}];
+        
     }
     return self;
 }

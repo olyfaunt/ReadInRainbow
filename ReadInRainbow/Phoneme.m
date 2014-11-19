@@ -9,6 +9,8 @@
 #import "Phoneme.h"
 #import "SoundLibrary.h"
 
+const int fontSize = 120;
+
 @implementation Phoneme
 
 +(instancetype)phonemeWithLetters:(NSString *)letters andSoundIdentifier:(NSString *)soundIdentifier {
@@ -22,6 +24,7 @@
         self.soundIdentifier = soundIdentifier;
         self.letters = letters;
         self.coloredString = [self buildAttributedString];
+        self.stringSize = [self.letters sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:fontSize]}];
     }
     return self;
 }
@@ -31,12 +34,14 @@
     NSAttributedString * returnString;
     if(currentSound.hasSecondaryColor){
         returnString = [[NSAttributedString alloc] initWithString:self.letters attributes:@{
+                        NSFontAttributeName:[UIFont boldSystemFontOfSize:fontSize],
                         NSForegroundColorAttributeName:currentSound.soundColor,
-                        NSStrokeWidthAttributeName:[NSNumber numberWithFloat:-3.0],
+                        NSStrokeWidthAttributeName:[NSNumber numberWithFloat:-6.0],
                         NSStrokeColorAttributeName:currentSound.secondaryColor
                         }];
     } else {
-        returnString = [[NSAttributedString alloc] initWithString:self.letters attributes:@{NSForegroundColorAttributeName:currentSound.soundColor}];
+        returnString = [[NSAttributedString alloc] initWithString:self.letters attributes:@{
+                        NSFontAttributeName:[UIFont boldSystemFontOfSize:fontSize],NSForegroundColorAttributeName:currentSound.soundColor}];
     }
     return returnString;
 }
