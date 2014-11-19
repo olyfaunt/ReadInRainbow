@@ -36,8 +36,10 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     self.chartCollectionView.dataSource = self;
     self.gamesCollectionView.dataSource = self;
     
-    SoundLibrary *soundDictionary = [[SoundLibrary alloc] init];
-    self.soundsArray = [soundDictionary.soundLibrary allValues];
+//    SoundLibrary *soundDictionary = [[SoundLibrary alloc] init];
+//    self.soundsArray = [soundDictionary.soundLibrary allValues];
+//    Sound * ahh = [[SoundLibrary sharedLibrary] soundLibrary][@"ahh"];
+    self.soundsArray = [[[SoundLibrary sharedLibrary] soundLibrary] allValues];
     
 }
 
