@@ -56,8 +56,8 @@
 
 -(void)playSound {
     [self.audioPlayer prepareToPlay];
-    self.audioPlayer.numberOfLoops=0; //or more if needed
-    
+//    self.audioPlayer.numberOfLoops=0; //or more if needed
+//    
     [self.audioPlayer play];
 }
 
