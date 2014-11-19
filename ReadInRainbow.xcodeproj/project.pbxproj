@@ -21,6 +21,7 @@
 		99885C6F1A1A921A0043D837 /* ReadInRainbowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C6E1A1A921A0043D837 /* ReadInRainbowTests.m */; };
 		99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7C1A1AA95F0043D837 /* ChartCell.m */; };
 		99885C801A1AA9690043D837 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7F1A1AA9690043D837 /* GameCell.m */; };
+		99D594831A1C0D87001CFBED /* Game1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D594821A1C0D87001CFBED /* Game1ViewController.m */; };
 		CAE9A5B71A1AD32400898AC3 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9A5B41A1AD32400898AC3 /* Sound.m */; };
 		CAE9A5B81A1AD32400898AC3 /* SoundLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9A5B61A1AD32400898AC3 /* SoundLibrary.m */; };
 		CAE9A5BD1A1AD34400898AC3 /* Phoneme.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9A5BA1A1AD34400898AC3 /* Phoneme.m */; };
@@ -61,6 +62,8 @@
 		99885C7C1A1AA95F0043D837 /* ChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartCell.m; path = ../ChartCell.m; sourceTree = "<group>"; };
 		99885C7E1A1AA9690043D837 /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCell.h; path = ../GameCell.h; sourceTree = "<group>"; };
 		99885C7F1A1AA9690043D837 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCell.m; path = ../GameCell.m; sourceTree = "<group>"; };
+		99D594811A1C0D87001CFBED /* Game1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game1ViewController.h; path = ../Game1ViewController.h; sourceTree = "<group>"; };
+		99D594821A1C0D87001CFBED /* Game1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game1ViewController.m; path = ../Game1ViewController.m; sourceTree = "<group>"; };
 		CA60EFFB1A1BE132001DC1D2 /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
 		CAD608DC1A1BD57100D2E16C /* ah.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ah.caf; sourceTree = "<group>"; };
 		CAD608DD1A1BD57100D2E16C /* ahh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ahh.caf; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				99885C571A1A921A0043D837 /* AppDelegate.m */,
 				99885C591A1A921A0043D837 /* MainViewController.h */,
 				99885C5A1A1A921A0043D837 /* MainViewController.m */,
+				99D594811A1C0D87001CFBED /* Game1ViewController.h */,
+				99D594821A1C0D87001CFBED /* Game1ViewController.m */,
 				99885C7E1A1AA9690043D837 /* GameCell.h */,
 				99885C7F1A1AA9690043D837 /* GameCell.m */,
 				99885C7B1A1AA95F0043D837 /* ChartCell.h */,
@@ -245,54 +250,6 @@
 				CAD6090B1A1BD57100D2E16C /* zh.caf */,
 				99885C531A1A921A0043D837 /* Info.plist */,
 				99885C541A1A921A0043D837 /* main.m */,
-				99D594511A1BDDD6001CFBED /* ah.caf */,
-				99D594521A1BDDD6001CFBED /* ahh.caf */,
-				99D594531A1BDDD6001CFBED /* ar.caf */,
-				99D594541A1BDDD6001CFBED /* au.caf */,
-				99D594551A1BDDD6001CFBED /* b.caf */,
-				99D594561A1BDDD6001CFBED /* ch.caf */,
-				99D594571A1BDDD6001CFBED /* d.caf */,
-				99D594581A1BDDD6001CFBED /* eh.caf */,
-				99D594591A1BDDD6001CFBED /* el.caf */,
-				99D5945A1A1BDDD6001CFBED /* er.caf */,
-				99D5945B1A1BDDD6001CFBED /* euh.caf */,
-				99D5945C1A1BDDD6001CFBED /* f.caf */,
-				99D5945D1A1BDDD6001CFBED /* g.caf */,
-				99D5945E1A1BDDD6001CFBED /* h.caf */,
-				99D5945F1A1BDDD6001CFBED /* ih.caf */,
-				99D594601A1BDDD6001CFBED /* ir.caf */,
-				99D594611A1BDDD6001CFBED /* je.caf */,
-				99D594621A1BDDD6001CFBED /* k.caf */,
-				99D594631A1BDDD6001CFBED /* longa.caf */,
-				99D594641A1BDDD6001CFBED /* longe.caf */,
-				99D594651A1BDDD6001CFBED /* longi.caf */,
-				99D594661A1BDDD6001CFBED /* longo.caf */,
-				99D594671A1BDDD6001CFBED /* m.caf */,
-				99D594681A1BDDD6001CFBED /* n.caf */,
-				99D594691A1BDDD6001CFBED /* ng.caf */,
-				99D5946A1A1BDDD6001CFBED /* oo.caf */,
-				99D5946B1A1BDDD6001CFBED /* or.caf */,
-				99D5946C1A1BDDD6001CFBED /* our.caf */,
-				99D5946D1A1BDDD6001CFBED /* oy.caf */,
-				99D5946E1A1BDDD6001CFBED /* p.caf */,
-				99D5946F1A1BDDD6001CFBED /* r.caf */,
-				99D594701A1BDDD6001CFBED /* s.caf */,
-				99D594711A1BDDD6001CFBED /* schwa.caf */,
-				99D594721A1BDDD6001CFBED /* schwar.caf */,
-				99D594731A1BDDD6001CFBED /* sh.caf */,
-				99D594741A1BDDD6001CFBED /* t.caf */,
-				99D594751A1BDDD6001CFBED /* th.caf */,
-				99D594761A1BDDD6001CFBED /* th1.caf */,
-				99D594771A1BDDD6001CFBED /* thth.caf */,
-				99D594781A1BDDD6001CFBED /* uh.caf */,
-				99D594791A1BDDD6001CFBED /* ur.caf */,
-				99D5947A1A1BDDD6001CFBED /* v.caf */,
-				99D5947B1A1BDDD6001CFBED /* w.caf */,
-				99D5947C1A1BDDD6001CFBED /* weaki.caf */,
-				99D5947D1A1BDDD6001CFBED /* weaku.caf */,
-				99D5947E1A1BDDD6001CFBED /* yod.caf */,
-				99D5947F1A1BDDD6001CFBED /* z.caf */,
-				99D594801A1BDDD6001CFBED /* zh.caf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -419,6 +376,7 @@
 				99885C5B1A1A921A0043D837 /* MainViewController.m in Sources */,
 				9915F4E71A1B0E15008A0354 /* ColorBlockView.m in Sources */,
 				99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */,
+				99D594831A1C0D87001CFBED /* Game1ViewController.m in Sources */,
 				99885C801A1AA9690043D837 /* GameCell.m in Sources */,
 				CAE9A5B81A1AD32400898AC3 /* SoundLibrary.m in Sources */,
 				CAE9A5B71A1AD32400898AC3 /* Sound.m in Sources */,

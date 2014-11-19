@@ -14,6 +14,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import "ColorBlockView.h"
+#import "AppDelegate.h"
+#import "Game1ViewController.h"
 
 @interface MainViewController ()
 
@@ -105,6 +107,20 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     }
     else
     {
+        switch (indexPath.row) {
+            case 0:
+            {
+                Game1ViewController *game1VC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Game1ViewController"];
+                game1VC.soundsArray = self.soundsArray;
+                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+                appDelegateTemp.window.rootViewController = game1VC;
+                break;
+            }
+            default:
+                break;
+        }
+        
+        
         
     }
 }

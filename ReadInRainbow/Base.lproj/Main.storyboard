@@ -6,6 +6,102 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Game1 View Controller-->
+        <scene sceneID="IwX-Py-VPW">
+            <objects>
+                <viewController storyboardIdentifier="Game1ViewController" id="b3J-Pl-Wju" customClass="Game1ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ntx-8A-8TT"/>
+                        <viewControllerLayoutGuide type="bottom" id="2W0-UV-wh7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xTU-WM-Ml0">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Review" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLe-nd-GFj">
+                                <rect key="frame" x="283" y="40" width="201.5" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="Pby-tf-zCd"/>
+                                    <constraint firstAttribute="width" constant="201.5" id="neX-Aa-SNW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P10-u3-Rrj" customClass="ColorBlockView">
+                                <rect key="frame" x="209" y="131" width="350" height="350"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsl-uQ-X3c">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="BXU-p0-YFQ"/>
+                                            <constraint firstAttribute="height" constant="350" id="tpp-Or-GBo"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickedColor:" destination="b3J-Pl-Wju" eventType="touchUpInside" id="nWc-DV-0es"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Qsl-uQ-X3c" secondAttribute="bottom" id="3wM-nd-YGz"/>
+                                    <constraint firstAttribute="width" constant="350" id="97B-Cx-ZXw"/>
+                                    <constraint firstItem="Qsl-uQ-X3c" firstAttribute="leading" secondItem="P10-u3-Rrj" secondAttribute="leading" id="Bkq-VH-0X3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qsl-uQ-X3c" secondAttribute="trailing" id="bbi-1J-2mx"/>
+                                    <constraint firstItem="Qsl-uQ-X3c" firstAttribute="top" secondItem="P10-u3-Rrj" secondAttribute="top" id="ovs-wm-V0c"/>
+                                    <constraint firstAttribute="height" constant="350" id="sf6-nQ-qk0"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gR-tp-xxW">
+                                <rect key="frame" x="70" y="874" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="HBt-pU-v6w"/>
+                                    <constraint firstAttribute="height" constant="100" id="yI4-fH-mrl"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="menu">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToMenu:" destination="b3J-Pl-Wju" eventType="touchUpInside" id="PDS-IM-ocT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMy-E1-5aA">
+                                <rect key="frame" x="334" y="526" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="TEr-Qf-jZ1"/>
+                                    <constraint firstAttribute="height" constant="100" id="bdD-A0-7IC"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playNext:" destination="b3J-Pl-Wju" eventType="touchUpInside" id="4Pq-sd-fbU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2W0-UV-wh7" firstAttribute="top" secondItem="0gR-tp-xxW" secondAttribute="bottom" constant="50" id="5x0-ud-1XD"/>
+                            <constraint firstItem="P10-u3-Rrj" firstAttribute="top" secondItem="ZLe-nd-GFj" secondAttribute="bottom" constant="50" id="LbC-2Z-Utz"/>
+                            <constraint firstItem="ZLe-nd-GFj" firstAttribute="top" secondItem="ntx-8A-8TT" secondAttribute="bottom" constant="20" id="Twf-9x-HYb"/>
+                            <constraint firstItem="FMy-E1-5aA" firstAttribute="top" secondItem="P10-u3-Rrj" secondAttribute="bottom" constant="45" id="hBe-YF-lVL"/>
+                            <constraint firstItem="0gR-tp-xxW" firstAttribute="leading" secondItem="xTU-WM-Ml0" secondAttribute="leadingMargin" constant="50" id="hs2-R7-ZAp"/>
+                            <constraint firstAttribute="centerX" secondItem="ZLe-nd-GFj" secondAttribute="centerX" id="pHE-ji-ZyS"/>
+                            <constraint firstAttribute="centerX" secondItem="FMy-E1-5aA" secondAttribute="centerX" id="pyi-Uy-Gyy"/>
+                            <constraint firstAttribute="centerX" secondItem="P10-u3-Rrj" secondAttribute="centerX" id="zOR-oV-bvZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="colorView" destination="P10-u3-Rrj" id="XNU-Oq-OT7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kjI-dB-pbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="843"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -24,7 +120,7 @@
                                     <constraint firstAttribute="height" constant="38" id="hp4-zG-6Sp"/>
                                     <constraint firstAttribute="width" constant="240" id="yrp-7x-pQs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -161,9 +257,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234" y="1015"/>
+            <point key="canvasLocation" x="-548" y="1136"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="962" height="965"/>
+        <image name="play" width="512" height="512"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
