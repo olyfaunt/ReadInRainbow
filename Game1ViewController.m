@@ -15,6 +15,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "ColorBlockView.h"
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface Game1ViewController ()
 
@@ -73,6 +74,18 @@
     
     [self.currentSound playSound];
     
+}
+
+- (IBAction)playBack:(id)sender {
+    if (self.currentIndex > 0) {
+        self.currentIndex -= 1;
+        self.currentSound = self.soundsArray[self.currentIndex];
+        [self changedColor];
+    } else {
+        self.currentIndex = (int)self.soundsArray.count-1;
+        self.currentSound = self.soundsArray[self.currentIndex];
+        [self changedColor];
+    }
 }
 
 -(void)changedColor {

@@ -15,5 +15,6 @@
 - (IBAction)playNext:(id)sender;
 - (IBAction)goToMenu:(id)sender;
 - (IBAction)clickedColor:(id)sender;
+- (IBAction)playBack:(id)sender;
 
 @end
