@@ -11,6 +11,15 @@
 
 @implementation SoundLibrary
 
++ (id)sharedLibrary {
+    static SoundLibrary *sharedLibrary = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedLibrary = [[self alloc] init];
+    });
+    return sharedLibrary;
+}
+
 -(instancetype)init {
     self = [super init];
     if(self) {

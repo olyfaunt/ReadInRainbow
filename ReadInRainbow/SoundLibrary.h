@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSDictionary * soundLibrary;
 
++ (id)sharedLibrary;
+
 @end

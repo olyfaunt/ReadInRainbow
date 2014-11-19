@@ -13,8 +13,11 @@
 
 @property (nonatomic, strong) NSString * letters;
 @property (nonatomic, strong) NSString * soundIdentifier;
+@property (nonatomic, strong) NSAttributedString * coloredString;
 
 + (instancetype)phonemeWithLetters:(NSString *)letters andSoundIdentifier:(NSString *)soundIdentifier;
 - (instancetype)initWithLetters:(NSString *)letters andSoundIdentifier:(NSString *)soundIdentifier;
+
+- (NSAttributedString *)buildAttributedString;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "Phoneme.h"
+#import "SoundLibrary.h"
 
 @implementation Phoneme
 
@@ -20,8 +21,24 @@
     if(self) {
         self.soundIdentifier = soundIdentifier;
         self.letters = letters;
+        self.coloredString = [self buildAttributedString];
     }
     return self;
+}
+
+-(NSAttributedString *)buildAttributedString {
+    Sound * currentSound = [[SoundLibrary sharedLibrary] soundLibrary][self.soundIdentifier];
+    NSAttributedString * returnString;
+    if(currentSound.hasSecondaryColor){
+        returnString = [[NSAttributedString alloc] initWithString:self.letters attributes:@{
+                        NSForegroundColorAttributeName:currentSound.soundColor,
+                        NSStrokeWidthAttributeName:[NSNumber numberWithFloat:-3.0],
+                        NSStrokeColorAttributeName:currentSound.secondaryColor
+                        }];
+    } else {
+        returnString = [[NSAttributedString alloc] initWithString:self.letters attributes:@{NSForegroundColorAttributeName:currentSound.soundColor}];
+    }
+    return returnString;
 }
 
 @end
