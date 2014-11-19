@@ -7,8 +7,14 @@
 //
 
 #import "Game2ViewController.h"
+#import "Word.h"
+#import "Phoneme.h"
+#import "Sound.h"
+#import "SoundLibrary.h"
 
 @interface Game2ViewController ()
+
+@property (weak, nonatomic) IBOutlet UIView *WordView;
 
 @end
 
@@ -17,6 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    Word * theWord = [[Word alloc] initWithPhonemeArray:@[[Phoneme phonemeWithLetters:@"d" andSoundIdentifier:@"d"], [Phoneme phonemeWithLetters:@"ay" andSoundIdentifier:@"longa"]]];
+//    for(Phoneme * currentPhoneme in theWord.phonemeArray){
+//        Sound * phonemeSound = [[SoundLibrary sharedLibrary] soundLibrary][currentPhoneme.soundIdentifier];
+//        UIButton * newButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        newButton.translatesAutoresizingMaskIntoConstraints = NO;
+//        [newButton setAttributedTitle:[currentPhoneme buildAttributedString] forState:UIControlStateNormal];
+//        [newButton sizeToFit];
+//        newButton.center = CGPointMake(100, 100);
+//        [self.view addSubview:newButton];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

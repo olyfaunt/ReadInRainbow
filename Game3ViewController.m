@@ -35,7 +35,7 @@
     Word *day = [[Word alloc] initWithPhonemeArray:@[day1, day2, day3]];
     for (Phoneme *phoneme in day.phonemeArray) {
         UIButton *justMadeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [justMadeButton setTagString:phoneme.soundIdentifier];
+        justMadeButton.tagString = phoneme.soundIdentifier;
         [justMadeButton setAttributedTitle:[phoneme buildAttributedString] forState:UIControlStateNormal];
         if (lastButton ==nil) {
             [justMadeButton setFrame:CGRectMake(self.view.frame.size.width/2-day.stringSize.width/2,self.view.frame.size.height/2,phoneme.stringSize.width, phoneme.stringSize.height)];
@@ -50,11 +50,8 @@
 
 -(void) buttonClicked:(UIButton*)sender {
     NSString *idString = sender.tagString;
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifer == %@", idString];
-//    NSArray *filteredArray = [self.soundsArray filteredArrayUsingPredicate:predicate];
-    Sound *firstFoundObject = [[SoundLibrary sharedLibrary] soundLibrary][idString];
-//    firstFoundObject = filteredArray.count > 0 ? filteredArray.firstObject : nil;
-    [firstFoundObject playSound];
+    Sound *soundOfButton = [[SoundLibrary sharedLibrary] soundLibrary][idString];
+    [soundOfButton playSound];
 }
 
 - (void)didReceiveMemoryWarning {

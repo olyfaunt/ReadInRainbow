@@ -7,13 +7,18 @@
 //
 
 #import "UIButton+setTag.h"
+#import <objc/runtime.h>
 
 @implementation UIButton (setTag)
 
 @dynamic tagString;
 
 -(void)setTagString:(NSString *)tagString {
-    self.tagString = tagString;
+    objc_setAssociatedObject(self, @selector(tagString), tagString, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSString *)tagString {
+    return objc_getAssociatedObject(self, @selector(tagString));
 }
 
 @end
