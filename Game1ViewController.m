@@ -30,8 +30,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    SoundLibrary *soundDictionary = [[SoundLibrary alloc] init];
-//    self.soundsArray = [soundDictionary.soundLibrary allValues];
     self.currentIndex = 0;
     self.currentSound = self.soundsArray[self.currentIndex];
     [self changedColor];
@@ -71,9 +69,7 @@
 }
 
 - (IBAction)clickedColor:(id)sender {
-    
     [self.currentSound playSound];
-    
 }
 
 - (IBAction)playBack:(id)sender {

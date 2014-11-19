@@ -22,6 +22,9 @@
 		99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7C1A1AA95F0043D837 /* ChartCell.m */; };
 		99885C801A1AA9690043D837 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7F1A1AA9690043D837 /* GameCell.m */; };
 		99D594831A1C0D87001CFBED /* Game1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D594821A1C0D87001CFBED /* Game1ViewController.m */; };
+		99F46EDB1A1D251500379256 /* Game3Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F46EDA1A1D251500379256 /* Game3Storyboard.storyboard */; };
+		99F46EDE1A1D253300379256 /* Game3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46EDD1A1D253300379256 /* Game3ViewController.m */; };
+		99F46EE41A1D3E3000379256 /* UIButton+setTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46EE31A1D3E3000379256 /* UIButton+setTag.m */; };
 		CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */; };
 		CA60F0001A1D21F9001DC1D2 /* Game2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */; };
 		CAE9A5B71A1AD32400898AC3 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9A5B41A1AD32400898AC3 /* Sound.m */; };
@@ -66,6 +69,11 @@
 		99885C7F1A1AA9690043D837 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCell.m; path = ../GameCell.m; sourceTree = "<group>"; };
 		99D594811A1C0D87001CFBED /* Game1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game1ViewController.h; path = ../Game1ViewController.h; sourceTree = "<group>"; };
 		99D594821A1C0D87001CFBED /* Game1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game1ViewController.m; path = ../Game1ViewController.m; sourceTree = "<group>"; };
+		99F46EDA1A1D251500379256 /* Game3Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game3Storyboard.storyboard; sourceTree = "<group>"; };
+		99F46EDC1A1D253300379256 /* Game3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game3ViewController.h; path = ../Game3ViewController.h; sourceTree = "<group>"; };
+		99F46EDD1A1D253300379256 /* Game3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game3ViewController.m; path = ../Game3ViewController.m; sourceTree = "<group>"; };
+		99F46EE21A1D3E3000379256 /* UIButton+setTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+setTag.h"; path = "../UIButton+setTag.h"; sourceTree = "<group>"; };
+		99F46EE31A1D3E3000379256 /* UIButton+setTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+setTag.m"; path = "../UIButton+setTag.m"; sourceTree = "<group>"; };
 		CA60EFFB1A1BE132001DC1D2 /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
 		CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game2Storyboard.storyboard; sourceTree = "<group>"; };
 		CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game2ViewController.h; sourceTree = "<group>"; };
@@ -182,11 +190,19 @@
 				99885C5A1A1A921A0043D837 /* MainViewController.m */,
 				99D594811A1C0D87001CFBED /* Game1ViewController.h */,
 				99D594821A1C0D87001CFBED /* Game1ViewController.m */,
+				CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */,
+				CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */,
+				99F46EDC1A1D253300379256 /* Game3ViewController.h */,
+				99F46EDD1A1D253300379256 /* Game3ViewController.m */,
+				99F46EE21A1D3E3000379256 /* UIButton+setTag.h */,
+				99F46EE31A1D3E3000379256 /* UIButton+setTag.m */,
 				99885C7E1A1AA9690043D837 /* GameCell.h */,
 				99885C7F1A1AA9690043D837 /* GameCell.m */,
 				99885C7B1A1AA95F0043D837 /* ChartCell.h */,
 				99885C7C1A1AA95F0043D837 /* ChartCell.m */,
 				99885C5C1A1A921A0043D837 /* Main.storyboard */,
+				CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */,
+				99F46EDA1A1D251500379256 /* Game3Storyboard.storyboard */,
 				99885C5F1A1A921A0043D837 /* Images.xcassets */,
 				99885C611A1A921A0043D837 /* LaunchScreen.xib */,
 				CAE9A5B31A1AD32400898AC3 /* Sound.h */,
@@ -197,9 +213,6 @@
 				CAE9A5BA1A1AD34400898AC3 /* Phoneme.m */,
 				CAE9A5BB1A1AD34400898AC3 /* Word.h */,
 				CAE9A5BC1A1AD34400898AC3 /* Word.m */,
-				CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */,
-				CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */,
-				CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */,
 				99885C521A1A921A0043D837 /* Supporting Files */,
 			);
 			path = ReadInRainbow;
@@ -360,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F46EDB1A1D251500379256 /* Game3Storyboard.storyboard in Resources */,
 				99885C5E1A1A921A0043D837 /* Main.storyboard in Resources */,
 				99885C631A1A921A0043D837 /* LaunchScreen.xib in Resources */,
 				CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */,
@@ -388,6 +402,8 @@
 				99D594831A1C0D87001CFBED /* Game1ViewController.m in Sources */,
 				99885C801A1AA9690043D837 /* GameCell.m in Sources */,
 				CAE9A5B81A1AD32400898AC3 /* SoundLibrary.m in Sources */,
+				99F46EE41A1D3E3000379256 /* UIButton+setTag.m in Sources */,
+				99F46EDE1A1D253300379256 /* Game3ViewController.m in Sources */,
 				CAE9A5B71A1AD32400898AC3 /* Sound.m in Sources */,
 				99885C581A1A921A0043D837 /* AppDelegate.m in Sources */,
 				99885C551A1A921A0043D837 /* main.m in Sources */,

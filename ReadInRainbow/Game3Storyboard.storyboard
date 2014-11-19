@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game3 View Controller-->
+        <scene sceneID="G0b-N8-HPb">
+            <objects>
+                <viewController storyboardIdentifier="Game3ViewController" id="erQ-du-B6c" customClass="Game3ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ovI-Pa-3wU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yak-9V-Ogs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hp3-MI-ExH">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhP-9N-xVq">
+                                <rect key="frame" x="40" y="904" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="8bQ-TU-lgm"/>
+                                    <constraint firstAttribute="width" constant="100" id="fDc-QQ-8II"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="menu2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToMenu:" destination="erQ-du-B6c" eventType="touchUpInside" id="v4y-r9-O51"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsJ-j4-OSj">
+                                <rect key="frame" x="280" y="120" width="208" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="208" id="G7w-st-egO"/>
+                                    <constraint firstAttribute="height" constant="65" id="Sj8-Zx-bSo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yak-9V-Ogs" firstAttribute="top" secondItem="dhP-9N-xVq" secondAttribute="bottom" constant="20" id="NbG-aA-yNb"/>
+                            <constraint firstItem="dhP-9N-xVq" firstAttribute="leading" secondItem="Hp3-MI-ExH" secondAttribute="leadingMargin" constant="20" id="VAZ-Z9-nQx"/>
+                            <constraint firstAttribute="centerX" secondItem="EsJ-j4-OSj" secondAttribute="centerX" id="ery-jw-VmP"/>
+                            <constraint firstItem="EsJ-j4-OSj" firstAttribute="top" secondItem="ovI-Pa-3wU" secondAttribute="bottom" constant="100" id="oaT-sc-gQb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FoK-8U-XUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286" y="460"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="menu2" width="680" height="680"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
