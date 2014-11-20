@@ -25,20 +25,49 @@
 -(instancetype)init {
     self = [super init];
     if(self) {
-        self.wordLibrary = @{
-                              @"demo":[Word WordWithWordFileNamed:@"demo" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"d" andSoundIdentifier:@"d"], [Phoneme phonemeWithLetters:@"e" andSoundIdentifier:@"eh"], [Phoneme phonemeWithLetters:@"m" andSoundIdentifier:@"m"], [Phoneme phonemeWithLetters:@"o" andSoundIdentifier:@"longo"]]],
-                              @"day":[Word WordWithWordFileNamed:@"day" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"d" andSoundIdentifier:@"d"], [Phoneme phonemeWithLetters:@"ay" andSoundIdentifier:@"longa"]]],
-                              @"lighthouse":[Word WordWithWordFileNamed:@"lighthouse" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"l" andSoundIdentifier:@"el"], [Phoneme phonemeWithLetters:@"igh" andSoundIdentifier:@"longi"], [Phoneme phonemeWithLetters:@"t" andSoundIdentifier:@"t"], [Phoneme phonemeWithLetters:@"h" andSoundIdentifier:@"h"], [Phoneme phonemeWithLetters:@"ou" andSoundIdentifier:@"au"], [Phoneme phonemeWithLetters:@"se" andSoundIdentifier:@"s"]]],
-                              @"labs":[Word WordWithWordFileNamed:@"labs" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"l" andSoundIdentifier:@"el"], [Phoneme phonemeWithLetters:@"a" andSoundIdentifier:@"ah"], [Phoneme phonemeWithLetters:@"b" andSoundIdentifier:@"b"], [Phoneme phonemeWithLetters:@"s" andSoundIdentifier:@"s"]]],
-                              @"egg":[Word WordWithWordFileNamed:@"egg" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"e" andSoundIdentifier:@"eh"], [Phoneme phonemeWithLetters:@"gg" andSoundIdentifier:@"g"]]],
-                              @"book":[Word WordWithWordFileNamed:@"book" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"b" andSoundIdentifier:@"b"], [Phoneme phonemeWithLetters:@"oo" andSoundIdentifier:@"euh"], [Phoneme phonemeWithLetters:@"k" andSoundIdentifier:@"k"]]],
-                              @"north":[Word WordWithWordFileNamed:@"north" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"n" andSoundIdentifier:@"n"], [Phoneme phonemeWithLetters:@"or" andSoundIdentifier:@"or"], [Phoneme phonemeWithLetters:@"th" andSoundIdentifier:@"th"]]],
-                              @"shoe":[Word WordWithWordFileNamed:@"shoe" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"sh" andSoundIdentifier:@"sh"], [Phoneme phonemeWithLetters:@"oe" andSoundIdentifier:@"oo"]]],
-                              @"father":[Word WordWithWordFileNamed:@"father" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"f" andSoundIdentifier:@"f"], [Phoneme phonemeWithLetters:@"a" andSoundIdentifier:@"ahh"], [Phoneme phonemeWithLetters:@"th" andSoundIdentifier:@"thth"], [Phoneme phonemeWithLetters:@"er" andSoundIdentifier:@"schwar"]]],
-                              @"team":[Word WordWithWordFileNamed:@"team" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"t" andSoundIdentifier:@"t"], [Phoneme phonemeWithLetters:@"ea" andSoundIdentifier:@"longe"], [Phoneme phonemeWithLetters:@"m" andSoundIdentifier:@"m"]]],
-                              @"zipper":[Word WordWithWordFileNamed:@"zipper" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"z" andSoundIdentifier:@"z"], [Phoneme phonemeWithLetters:@"i" andSoundIdentifier:@"ih"], [Phoneme phonemeWithLetters:@"pp" andSoundIdentifier:@"p"], [Phoneme phonemeWithLetters:@"er" andSoundIdentifier:@"schwar"]]],
-                              @"choice":[Word WordWithWordFileNamed:@"choice" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"ch" andSoundIdentifier:@"ch"], [Phoneme phonemeWithLetters:@"oi" andSoundIdentifier:@"oy"], [Phoneme phonemeWithLetters:@"ce" andSoundIdentifier:@"s"]]],
-                              };
+        NSMutableDictionary * temporaryDictionary = [[NSMutableDictionary alloc] init];
+        NSString *file = [[NSBundle mainBundle] pathForResource:@"Word" ofType:@"plist"];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if ([fileManager fileExistsAtPath:file]) {
+            NSLog(@"The file exists");
+        } else {
+            NSLog(@"The file does not exist");
+        }
+        
+        NSDictionary * unFormattedWords = [[NSDictionary alloc] initWithContentsOfFile:file];
+        
+        for(NSString * currentWord in unFormattedWords){
+            NSMutableArray * phonemeArray = [[NSMutableArray alloc] init];
+            NSLog(@"%@", currentWord);
+            for(int i=0;i<[unFormattedWords[currentWord] count];i++){
+                if(i == 0){
+                    continue;
+                } else {
+                    Phoneme * newPhoneme = [Phoneme phonemeWithLetters:unFormattedWords[currentWord][i][0] andSoundIdentifier:unFormattedWords[currentWord][i][1]];
+                    [phonemeArray addObject:newPhoneme];
+                }
+            }
+            Word * newWord = [Word WordWithWordFileNamed:unFormattedWords[currentWord][0] andPhonemeArray:phonemeArray];
+            [temporaryDictionary setObject:newWord forKey:unFormattedWords[currentWord][0]];
+        }
+        
+        self.wordLibrary = [temporaryDictionary copy];
+        
+//        self.wordLibrary = @{
+//                              @"demo":[Word WordWithWordFileNamed:@"demo" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"d" andSoundIdentifier:@"d"], [Phoneme phonemeWithLetters:@"e" andSoundIdentifier:@"eh"], [Phoneme phonemeWithLetters:@"m" andSoundIdentifier:@"m"], [Phoneme phonemeWithLetters:@"o" andSoundIdentifier:@"longo"]]],
+//                              @"day":[Word WordWithWordFileNamed:@"day" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"d" andSoundIdentifier:@"d"], [Phoneme phonemeWithLetters:@"ay" andSoundIdentifier:@"longa"]]],
+//                              @"lighthouse":[Word WordWithWordFileNamed:@"lighthouse" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"l" andSoundIdentifier:@"el"], [Phoneme phonemeWithLetters:@"igh" andSoundIdentifier:@"longi"], [Phoneme phonemeWithLetters:@"t" andSoundIdentifier:@"t"], [Phoneme phonemeWithLetters:@"h" andSoundIdentifier:@"h"], [Phoneme phonemeWithLetters:@"ou" andSoundIdentifier:@"au"], [Phoneme phonemeWithLetters:@"se" andSoundIdentifier:@"s"]]],
+//                              @"labs":[Word WordWithWordFileNamed:@"labs" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"l" andSoundIdentifier:@"el"], [Phoneme phonemeWithLetters:@"a" andSoundIdentifier:@"ah"], [Phoneme phonemeWithLetters:@"b" andSoundIdentifier:@"b"], [Phoneme phonemeWithLetters:@"s" andSoundIdentifier:@"s"]]],
+//                              @"egg":[Word WordWithWordFileNamed:@"egg" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"e" andSoundIdentifier:@"eh"], [Phoneme phonemeWithLetters:@"gg" andSoundIdentifier:@"g"]]],
+//                              @"book":[Word WordWithWordFileNamed:@"book" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"b" andSoundIdentifier:@"b"], [Phoneme phonemeWithLetters:@"oo" andSoundIdentifier:@"euh"], [Phoneme phonemeWithLetters:@"k" andSoundIdentifier:@"k"]]],
+//                              @"north":[Word WordWithWordFileNamed:@"north" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"n" andSoundIdentifier:@"n"], [Phoneme phonemeWithLetters:@"or" andSoundIdentifier:@"or"], [Phoneme phonemeWithLetters:@"th" andSoundIdentifier:@"th"]]],
+//                              @"shoe":[Word WordWithWordFileNamed:@"shoe" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"sh" andSoundIdentifier:@"sh"], [Phoneme phonemeWithLetters:@"oe" andSoundIdentifier:@"oo"]]],
+//                              @"father":[Word WordWithWordFileNamed:@"father" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"f" andSoundIdentifier:@"f"], [Phoneme phonemeWithLetters:@"a" andSoundIdentifier:@"ahh"], [Phoneme phonemeWithLetters:@"th" andSoundIdentifier:@"thth"], [Phoneme phonemeWithLetters:@"er" andSoundIdentifier:@"schwar"]]],
+//                              @"team":[Word WordWithWordFileNamed:@"team" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"t" andSoundIdentifier:@"t"], [Phoneme phonemeWithLetters:@"ea" andSoundIdentifier:@"longe"], [Phoneme phonemeWithLetters:@"m" andSoundIdentifier:@"m"]]],
+//                              @"zipper":[Word WordWithWordFileNamed:@"zipper" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"z" andSoundIdentifier:@"z"], [Phoneme phonemeWithLetters:@"i" andSoundIdentifier:@"ih"], [Phoneme phonemeWithLetters:@"pp" andSoundIdentifier:@"p"], [Phoneme phonemeWithLetters:@"er" andSoundIdentifier:@"schwar"]]],
+//                              @"choice":[Word WordWithWordFileNamed:@"choice" andPhonemeArray:@[[Phoneme phonemeWithLetters:@"ch" andSoundIdentifier:@"ch"], [Phoneme phonemeWithLetters:@"oi" andSoundIdentifier:@"oy"], [Phoneme phonemeWithLetters:@"ce" andSoundIdentifier:@"s"]]],
+//                              };
     }
     return self;
 }
