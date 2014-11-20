@@ -25,6 +25,58 @@
 		99F46EDB1A1D251500379256 /* Game3Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F46EDA1A1D251500379256 /* Game3Storyboard.storyboard */; };
 		99F46EDE1A1D253300379256 /* Game3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46EDD1A1D253300379256 /* Game3ViewController.m */; };
 		99F46EE41A1D3E3000379256 /* UIButton+setTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46EE31A1D3E3000379256 /* UIButton+setTag.m */; };
+		99F46EE81A1D544600379256 /* WordLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46EE71A1D544600379256 /* WordLibrary.m */; };
+		99F46EEB1A1D5ED100379256 /* WordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46EEA1A1D5ED100379256 /* WordViewController.m */; };
+		99F46EED1A1D5F2500379256 /* WordStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F46EEC1A1D5F2500379256 /* WordStoryboard.storyboard */; };
+		99F46EEE1A1D64E300379256 /* longo.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F11A1BD57100D2E16C /* longo.caf */; };
+		99F46EEF1A1D64E800379256 /* ah.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608DC1A1BD57100D2E16C /* ah.caf */; };
+		99F46EF01A1D64F900379256 /* ahh.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608DD1A1BD57100D2E16C /* ahh.caf */; };
+		99F46EF11A1D64FE00379256 /* ar.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608DE1A1BD57100D2E16C /* ar.caf */; };
+		99F46EF21A1D650100379256 /* au.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608DF1A1BD57100D2E16C /* au.caf */; };
+		99F46EF31A1D650400379256 /* b.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E01A1BD57100D2E16C /* b.caf */; };
+		99F46EF41A1D650700379256 /* ch.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E11A1BD57100D2E16C /* ch.caf */; };
+		99F46EF51A1D650900379256 /* d.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E21A1BD57100D2E16C /* d.caf */; };
+		99F46EF61A1D650C00379256 /* eh.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E31A1BD57100D2E16C /* eh.caf */; };
+		99F46EF71A1D650E00379256 /* el.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E41A1BD57100D2E16C /* el.caf */; };
+		99F46EF81A1D651200379256 /* er.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E51A1BD57100D2E16C /* er.caf */; };
+		99F46EF91A1D651500379256 /* euh.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E61A1BD57100D2E16C /* euh.caf */; };
+		99F46EFA1A1D651800379256 /* f.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E71A1BD57100D2E16C /* f.caf */; };
+		99F46EFB1A1D651A00379256 /* g.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E81A1BD57100D2E16C /* g.caf */; };
+		99F46EFC1A1D652000379256 /* longa.caf in Resources */ = {isa = PBXBuildFile; fileRef = CA60EFFB1A1BE132001DC1D2 /* longa.caf */; };
+		99F46EFD1A1D654700379256 /* h.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608E91A1BD57100D2E16C /* h.caf */; };
+		99F46EFE1A1D654900379256 /* ih.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608EA1A1BD57100D2E16C /* ih.caf */; };
+		99F46EFF1A1D654B00379256 /* ir.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608EB1A1BD57100D2E16C /* ir.caf */; };
+		99F46F001A1D654F00379256 /* je.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608EC1A1BD57100D2E16C /* je.caf */; };
+		99F46F011A1D655100379256 /* k.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608ED1A1BD57100D2E16C /* k.caf */; };
+		99F46F021A1D655500379256 /* longe.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608EF1A1BD57100D2E16C /* longe.caf */; };
+		99F46F031A1D655800379256 /* longi.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F01A1BD57100D2E16C /* longi.caf */; };
+		99F46F041A1D655B00379256 /* m.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F21A1BD57100D2E16C /* m.caf */; };
+		99F46F051A1D655D00379256 /* n.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F31A1BD57100D2E16C /* n.caf */; };
+		99F46F061A1D655F00379256 /* ng.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F41A1BD57100D2E16C /* ng.caf */; };
+		99F46F071A1D656100379256 /* oo.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F51A1BD57100D2E16C /* oo.caf */; };
+		99F46F081A1D656300379256 /* or.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F61A1BD57100D2E16C /* or.caf */; };
+		99F46F091A1D656500379256 /* our.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F71A1BD57100D2E16C /* our.caf */; };
+		99F46F0A1A1D656700379256 /* oy.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F81A1BD57100D2E16C /* oy.caf */; };
+		99F46F0B1A1D656900379256 /* p.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608F91A1BD57100D2E16C /* p.caf */; };
+		99F46F0C1A1D656D00379256 /* r.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608FA1A1BD57100D2E16C /* r.caf */; };
+		99F46F0D1A1D656F00379256 /* s.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608FB1A1BD57100D2E16C /* s.caf */; };
+		99F46F0E1A1D657200379256 /* schwa.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608FC1A1BD57100D2E16C /* schwa.caf */; };
+		99F46F0F1A1D657400379256 /* schwar.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608FD1A1BD57100D2E16C /* schwar.caf */; };
+		99F46F101A1D657600379256 /* sh.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608FE1A1BD57100D2E16C /* sh.caf */; };
+		99F46F111A1D657A00379256 /* t.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD608FF1A1BD57100D2E16C /* t.caf */; };
+		99F46F121A1D657C00379256 /* th.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609001A1BD57100D2E16C /* th.caf */; };
+		99F46F131A1D657F00379256 /* th1.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609011A1BD57100D2E16C /* th1.caf */; };
+		99F46F141A1D658100379256 /* thth.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609021A1BD57100D2E16C /* thth.caf */; };
+		99F46F151A1D658300379256 /* uh.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609031A1BD57100D2E16C /* uh.caf */; };
+		99F46F161A1D658500379256 /* ur.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609041A1BD57100D2E16C /* ur.caf */; };
+		99F46F171A1D658700379256 /* v.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609051A1BD57100D2E16C /* v.caf */; };
+		99F46F181A1D658900379256 /* w.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609061A1BD57100D2E16C /* w.caf */; };
+		99F46F191A1D658B00379256 /* weaki.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609071A1BD57100D2E16C /* weaki.caf */; };
+		99F46F1A1A1D658D00379256 /* weaku.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609081A1BD57100D2E16C /* weaku.caf */; };
+		99F46F1B1A1D658F00379256 /* yod.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD609091A1BD57100D2E16C /* yod.caf */; };
+		99F46F1C1A1D659100379256 /* z.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD6090A1A1BD57100D2E16C /* z.caf */; };
+		99F46F1D1A1D659300379256 /* zh.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD6090B1A1BD57100D2E16C /* zh.caf */; };
+		99F46F1F1A1D6A8700379256 /* Word.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F1E1A1D6A8700379256 /* Word.plist */; };
 		CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */; };
 		CA60F0001A1D21F9001DC1D2 /* Game2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */; };
 		CAE9A5B71A1AD32400898AC3 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9A5B41A1AD32400898AC3 /* Sound.m */; };
@@ -74,6 +126,12 @@
 		99F46EDD1A1D253300379256 /* Game3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game3ViewController.m; path = ../Game3ViewController.m; sourceTree = "<group>"; };
 		99F46EE21A1D3E3000379256 /* UIButton+setTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+setTag.h"; path = "../UIButton+setTag.h"; sourceTree = "<group>"; };
 		99F46EE31A1D3E3000379256 /* UIButton+setTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+setTag.m"; path = "../UIButton+setTag.m"; sourceTree = "<group>"; };
+		99F46EE61A1D544600379256 /* WordLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordLibrary.h; path = ../WordLibrary.h; sourceTree = "<group>"; };
+		99F46EE71A1D544600379256 /* WordLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordLibrary.m; path = ../WordLibrary.m; sourceTree = "<group>"; };
+		99F46EE91A1D5ED100379256 /* WordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordViewController.h; path = ../WordViewController.h; sourceTree = "<group>"; };
+		99F46EEA1A1D5ED100379256 /* WordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordViewController.m; path = ../WordViewController.m; sourceTree = "<group>"; };
+		99F46EEC1A1D5F2500379256 /* WordStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = WordStoryboard.storyboard; path = ../WordStoryboard.storyboard; sourceTree = "<group>"; };
+		99F46F1E1A1D6A8700379256 /* Word.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Word.plist; sourceTree = "<group>"; };
 		CA60EFFB1A1BE132001DC1D2 /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
 		CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game2Storyboard.storyboard; sourceTree = "<group>"; };
 		CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game2ViewController.h; sourceTree = "<group>"; };
@@ -194,6 +252,8 @@
 				CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */,
 				99F46EDC1A1D253300379256 /* Game3ViewController.h */,
 				99F46EDD1A1D253300379256 /* Game3ViewController.m */,
+				99F46EE91A1D5ED100379256 /* WordViewController.h */,
+				99F46EEA1A1D5ED100379256 /* WordViewController.m */,
 				99F46EE21A1D3E3000379256 /* UIButton+setTag.h */,
 				99F46EE31A1D3E3000379256 /* UIButton+setTag.m */,
 				99885C7E1A1AA9690043D837 /* GameCell.h */,
@@ -203,12 +263,16 @@
 				99885C5C1A1A921A0043D837 /* Main.storyboard */,
 				CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */,
 				99F46EDA1A1D251500379256 /* Game3Storyboard.storyboard */,
+				99F46EEC1A1D5F2500379256 /* WordStoryboard.storyboard */,
 				99885C5F1A1A921A0043D837 /* Images.xcassets */,
 				99885C611A1A921A0043D837 /* LaunchScreen.xib */,
 				CAE9A5B31A1AD32400898AC3 /* Sound.h */,
 				CAE9A5B41A1AD32400898AC3 /* Sound.m */,
 				CAE9A5B51A1AD32400898AC3 /* SoundLibrary.h */,
 				CAE9A5B61A1AD32400898AC3 /* SoundLibrary.m */,
+				99F46EE61A1D544600379256 /* WordLibrary.h */,
+				99F46EE71A1D544600379256 /* WordLibrary.m */,
+				99F46F1E1A1D6A8700379256 /* Word.plist */,
 				CAE9A5B91A1AD34400898AC3 /* Phoneme.h */,
 				CAE9A5BA1A1AD34400898AC3 /* Phoneme.m */,
 				CAE9A5BB1A1AD34400898AC3 /* Word.h */,
@@ -373,11 +437,61 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F46EF41A1D650700379256 /* ch.caf in Resources */,
 				99F46EDB1A1D251500379256 /* Game3Storyboard.storyboard in Resources */,
+				99F46F0F1A1D657400379256 /* schwar.caf in Resources */,
+				99F46F171A1D658700379256 /* v.caf in Resources */,
+				99F46F151A1D658300379256 /* uh.caf in Resources */,
 				99885C5E1A1A921A0043D837 /* Main.storyboard in Resources */,
+				99F46EF81A1D651200379256 /* er.caf in Resources */,
+				99F46EFE1A1D654900379256 /* ih.caf in Resources */,
+				99F46EFB1A1D651A00379256 /* g.caf in Resources */,
+				99F46EF51A1D650900379256 /* d.caf in Resources */,
+				99F46F191A1D658B00379256 /* weaki.caf in Resources */,
 				99885C631A1A921A0043D837 /* LaunchScreen.xib in Resources */,
+				99F46F111A1D657A00379256 /* t.caf in Resources */,
+				99F46EFA1A1D651800379256 /* f.caf in Resources */,
+				99F46EF61A1D650C00379256 /* eh.caf in Resources */,
+				99F46F101A1D657600379256 /* sh.caf in Resources */,
+				99F46EF31A1D650400379256 /* b.caf in Resources */,
+				99F46EFC1A1D652000379256 /* longa.caf in Resources */,
+				99F46EFD1A1D654700379256 /* h.caf in Resources */,
+				99F46F181A1D658900379256 /* w.caf in Resources */,
+				99F46F091A1D656500379256 /* our.caf in Resources */,
+				99F46F021A1D655500379256 /* longe.caf in Resources */,
+				99F46F141A1D658100379256 /* thth.caf in Resources */,
+				99F46F1B1A1D658F00379256 /* yod.caf in Resources */,
+				99F46F031A1D655800379256 /* longi.caf in Resources */,
+				99F46F051A1D655D00379256 /* n.caf in Resources */,
+				99F46F0C1A1D656D00379256 /* r.caf in Resources */,
+				99F46F121A1D657C00379256 /* th.caf in Resources */,
+				99F46EEE1A1D64E300379256 /* longo.caf in Resources */,
+				99F46EED1A1D5F2500379256 /* WordStoryboard.storyboard in Resources */,
+				99F46EF11A1D64FE00379256 /* ar.caf in Resources */,
+				99F46F061A1D655F00379256 /* ng.caf in Resources */,
+				99F46F0B1A1D656900379256 /* p.caf in Resources */,
 				CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */,
+				99F46EFF1A1D654B00379256 /* ir.caf in Resources */,
+				99F46EF01A1D64F900379256 /* ahh.caf in Resources */,
+				99F46F041A1D655B00379256 /* m.caf in Resources */,
+				99F46F1F1A1D6A8700379256 /* Word.plist in Resources */,
 				99885C601A1A921A0043D837 /* Images.xcassets in Resources */,
+				99F46F0E1A1D657200379256 /* schwa.caf in Resources */,
+				99F46F011A1D655100379256 /* k.caf in Resources */,
+				99F46F081A1D656300379256 /* or.caf in Resources */,
+				99F46F001A1D654F00379256 /* je.caf in Resources */,
+				99F46EF21A1D650100379256 /* au.caf in Resources */,
+				99F46F0A1A1D656700379256 /* oy.caf in Resources */,
+				99F46F1D1A1D659300379256 /* zh.caf in Resources */,
+				99F46F1C1A1D659100379256 /* z.caf in Resources */,
+				99F46F071A1D656100379256 /* oo.caf in Resources */,
+				99F46F0D1A1D656F00379256 /* s.caf in Resources */,
+				99F46F131A1D657F00379256 /* th1.caf in Resources */,
+				99F46EF91A1D651500379256 /* euh.caf in Resources */,
+				99F46F1A1A1D658D00379256 /* weaku.caf in Resources */,
+				99F46EEF1A1D64E800379256 /* ah.caf in Resources */,
+				99F46EF71A1D650E00379256 /* el.caf in Resources */,
+				99F46F161A1D658500379256 /* ur.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,11 +513,13 @@
 				99885C5B1A1A921A0043D837 /* MainViewController.m in Sources */,
 				9915F4E71A1B0E15008A0354 /* ColorBlockView.m in Sources */,
 				99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */,
+				99F46EE81A1D544600379256 /* WordLibrary.m in Sources */,
 				99D594831A1C0D87001CFBED /* Game1ViewController.m in Sources */,
 				99885C801A1AA9690043D837 /* GameCell.m in Sources */,
 				CAE9A5B81A1AD32400898AC3 /* SoundLibrary.m in Sources */,
 				99F46EE41A1D3E3000379256 /* UIButton+setTag.m in Sources */,
 				99F46EDE1A1D253300379256 /* Game3ViewController.m in Sources */,
+				99F46EEB1A1D5ED100379256 /* WordViewController.m in Sources */,
 				CAE9A5B71A1AD32400898AC3 /* Sound.m in Sources */,
 				99885C581A1A921A0043D837 /* AppDelegate.m in Sources */,
 				99885C551A1A921A0043D837 /* main.m in Sources */,
