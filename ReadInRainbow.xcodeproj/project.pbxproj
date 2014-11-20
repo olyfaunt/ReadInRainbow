@@ -77,6 +77,19 @@
 		99F46F1C1A1D659100379256 /* z.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD6090A1A1BD57100D2E16C /* z.caf */; };
 		99F46F1D1A1D659300379256 /* zh.caf in Resources */ = {isa = PBXBuildFile; fileRef = CAD6090B1A1BD57100D2E16C /* zh.caf */; };
 		99F46F1F1A1D6A8700379256 /* Word.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F1E1A1D6A8700379256 /* Word.plist */; };
+		99F46F2E1A1D90E200379256 /* book.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F211A1D8D6100379256 /* book.caf */; };
+		99F46F2F1A1D90E400379256 /* choice.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F221A1D8D6100379256 /* choice.caf */; };
+		99F46F301A1D90E600379256 /* cough.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F231A1D8D6100379256 /* cough.caf */; };
+		99F46F311A1D90E900379256 /* day.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F241A1D8D6100379256 /* day.caf */; };
+		99F46F321A1D90EB00379256 /* demo.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F251A1D8D6100379256 /* demo.caf */; };
+		99F46F331A1D90ED00379256 /* egg.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F261A1D8D6100379256 /* egg.caf */; };
+		99F46F341A1D90EF00379256 /* father.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F271A1D8D6100379256 /* father.caf */; };
+		99F46F351A1D90F100379256 /* labs.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F281A1D8D6100379256 /* labs.caf */; };
+		99F46F361A1D90F300379256 /* lighthouse.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F291A1D8D6100379256 /* lighthouse.caf */; };
+		99F46F371A1D90F500379256 /* north.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F2A1A1D8D6100379256 /* north.caf */; };
+		99F46F381A1D90F700379256 /* shoe.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F2B1A1D8D6100379256 /* shoe.caf */; };
+		99F46F391A1D90F900379256 /* team.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F2C1A1D8D6100379256 /* team.caf */; };
+		99F46F3A1A1D90FB00379256 /* zipper.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F2D1A1D8D6100379256 /* zipper.caf */; };
 		CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */; };
 		CA60F0001A1D21F9001DC1D2 /* Game2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */; };
 		CAE9A5B71A1AD32400898AC3 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9A5B41A1AD32400898AC3 /* Sound.m */; };
@@ -132,6 +145,19 @@
 		99F46EEA1A1D5ED100379256 /* WordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordViewController.m; path = ../WordViewController.m; sourceTree = "<group>"; };
 		99F46EEC1A1D5F2500379256 /* WordStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = WordStoryboard.storyboard; path = ../WordStoryboard.storyboard; sourceTree = "<group>"; };
 		99F46F1E1A1D6A8700379256 /* Word.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Word.plist; sourceTree = "<group>"; };
+		99F46F211A1D8D6100379256 /* book.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = book.caf; sourceTree = "<group>"; };
+		99F46F221A1D8D6100379256 /* choice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = choice.caf; sourceTree = "<group>"; };
+		99F46F231A1D8D6100379256 /* cough.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cough.caf; sourceTree = "<group>"; };
+		99F46F241A1D8D6100379256 /* day.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = day.caf; sourceTree = "<group>"; };
+		99F46F251A1D8D6100379256 /* demo.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.caf; sourceTree = "<group>"; };
+		99F46F261A1D8D6100379256 /* egg.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = egg.caf; sourceTree = "<group>"; };
+		99F46F271A1D8D6100379256 /* father.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = father.caf; sourceTree = "<group>"; };
+		99F46F281A1D8D6100379256 /* labs.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = labs.caf; sourceTree = "<group>"; };
+		99F46F291A1D8D6100379256 /* lighthouse.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lighthouse.caf; sourceTree = "<group>"; };
+		99F46F2A1A1D8D6100379256 /* north.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = north.caf; sourceTree = "<group>"; };
+		99F46F2B1A1D8D6100379256 /* shoe.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoe.caf; sourceTree = "<group>"; };
+		99F46F2C1A1D8D6100379256 /* team.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = team.caf; sourceTree = "<group>"; };
+		99F46F2D1A1D8D6100379256 /* zipper.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = zipper.caf; sourceTree = "<group>"; };
 		CA60EFFB1A1BE132001DC1D2 /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
 		CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game2Storyboard.storyboard; sourceTree = "<group>"; };
 		CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game2ViewController.h; sourceTree = "<group>"; };
@@ -285,6 +311,7 @@
 		99885C521A1A921A0043D837 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				99F46F201A1D8D5400379256 /* Words */,
 				CAD608DC1A1BD57100D2E16C /* ah.caf */,
 				CAD608DD1A1BD57100D2E16C /* ahh.caf */,
 				CAD608DE1A1BD57100D2E16C /* ar.caf */,
@@ -354,6 +381,26 @@
 				99885C6D1A1A921A0043D837 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		99F46F201A1D8D5400379256 /* Words */ = {
+			isa = PBXGroup;
+			children = (
+				99F46F211A1D8D6100379256 /* book.caf */,
+				99F46F221A1D8D6100379256 /* choice.caf */,
+				99F46F231A1D8D6100379256 /* cough.caf */,
+				99F46F241A1D8D6100379256 /* day.caf */,
+				99F46F251A1D8D6100379256 /* demo.caf */,
+				99F46F261A1D8D6100379256 /* egg.caf */,
+				99F46F271A1D8D6100379256 /* father.caf */,
+				99F46F281A1D8D6100379256 /* labs.caf */,
+				99F46F291A1D8D6100379256 /* lighthouse.caf */,
+				99F46F2A1A1D8D6100379256 /* north.caf */,
+				99F46F2B1A1D8D6100379256 /* shoe.caf */,
+				99F46F2C1A1D8D6100379256 /* team.caf */,
+				99F46F2D1A1D8D6100379256 /* zipper.caf */,
+			);
+			name = Words;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,17 +484,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F46F3A1A1D90FB00379256 /* zipper.caf in Resources */,
 				99F46EF41A1D650700379256 /* ch.caf in Resources */,
 				99F46EDB1A1D251500379256 /* Game3Storyboard.storyboard in Resources */,
 				99F46F0F1A1D657400379256 /* schwar.caf in Resources */,
 				99F46F171A1D658700379256 /* v.caf in Resources */,
+				99F46F331A1D90ED00379256 /* egg.caf in Resources */,
 				99F46F151A1D658300379256 /* uh.caf in Resources */,
 				99885C5E1A1A921A0043D837 /* Main.storyboard in Resources */,
 				99F46EF81A1D651200379256 /* er.caf in Resources */,
 				99F46EFE1A1D654900379256 /* ih.caf in Resources */,
+				99F46F351A1D90F100379256 /* labs.caf in Resources */,
 				99F46EFB1A1D651A00379256 /* g.caf in Resources */,
 				99F46EF51A1D650900379256 /* d.caf in Resources */,
 				99F46F191A1D658B00379256 /* weaki.caf in Resources */,
+				99F46F2E1A1D90E200379256 /* book.caf in Resources */,
 				99885C631A1A921A0043D837 /* LaunchScreen.xib in Resources */,
 				99F46F111A1D657A00379256 /* t.caf in Resources */,
 				99F46EFA1A1D651800379256 /* f.caf in Resources */,
@@ -459,6 +510,7 @@
 				99F46F181A1D658900379256 /* w.caf in Resources */,
 				99F46F091A1D656500379256 /* our.caf in Resources */,
 				99F46F021A1D655500379256 /* longe.caf in Resources */,
+				99F46F371A1D90F500379256 /* north.caf in Resources */,
 				99F46F141A1D658100379256 /* thth.caf in Resources */,
 				99F46F1B1A1D658F00379256 /* yod.caf in Resources */,
 				99F46F031A1D655800379256 /* longi.caf in Resources */,
@@ -468,6 +520,9 @@
 				99F46EEE1A1D64E300379256 /* longo.caf in Resources */,
 				99F46EED1A1D5F2500379256 /* WordStoryboard.storyboard in Resources */,
 				99F46EF11A1D64FE00379256 /* ar.caf in Resources */,
+				99F46F361A1D90F300379256 /* lighthouse.caf in Resources */,
+				99F46F311A1D90E900379256 /* day.caf in Resources */,
+				99F46F321A1D90EB00379256 /* demo.caf in Resources */,
 				99F46F061A1D655F00379256 /* ng.caf in Resources */,
 				99F46F0B1A1D656900379256 /* p.caf in Resources */,
 				CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */,
@@ -475,17 +530,22 @@
 				99F46EF01A1D64F900379256 /* ahh.caf in Resources */,
 				99F46F041A1D655B00379256 /* m.caf in Resources */,
 				99F46F1F1A1D6A8700379256 /* Word.plist in Resources */,
+				99F46F381A1D90F700379256 /* shoe.caf in Resources */,
 				99885C601A1A921A0043D837 /* Images.xcassets in Resources */,
 				99F46F0E1A1D657200379256 /* schwa.caf in Resources */,
+				99F46F341A1D90EF00379256 /* father.caf in Resources */,
 				99F46F011A1D655100379256 /* k.caf in Resources */,
 				99F46F081A1D656300379256 /* or.caf in Resources */,
 				99F46F001A1D654F00379256 /* je.caf in Resources */,
 				99F46EF21A1D650100379256 /* au.caf in Resources */,
+				99F46F2F1A1D90E400379256 /* choice.caf in Resources */,
 				99F46F0A1A1D656700379256 /* oy.caf in Resources */,
 				99F46F1D1A1D659300379256 /* zh.caf in Resources */,
 				99F46F1C1A1D659100379256 /* z.caf in Resources */,
 				99F46F071A1D656100379256 /* oo.caf in Resources */,
 				99F46F0D1A1D656F00379256 /* s.caf in Resources */,
+				99F46F301A1D90E600379256 /* cough.caf in Resources */,
+				99F46F391A1D90F900379256 /* team.caf in Resources */,
 				99F46F131A1D657F00379256 /* th1.caf in Resources */,
 				99F46EF91A1D651500379256 /* euh.caf in Resources */,
 				99F46F1A1A1D658D00379256 /* weaku.caf in Resources */,

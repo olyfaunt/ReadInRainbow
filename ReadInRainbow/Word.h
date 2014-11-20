@@ -8,15 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface Word : NSObject
 
-@property (nonatomic, strong) NSArray * phonemeArray;
+@property (nonatomic, strong) NSArray *phonemeArray;
 @property (nonatomic) NSString *wordString;
 @property (nonatomic, assign) int numberOfLetters;
 @property (nonatomic, assign) CGSize stringSize;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property (nonatomic, strong) NSString *identifier;
 
-- (instancetype)initWithPhonemeArray:(NSArray *)phonemeArray;
-- (NSAttributedString *)buildAttributedStringFromPhonemeArray;
-
++(instancetype)WordWithWordFileNamed:(NSString*)fileName andPhonemeArray:(NSArray*)phonemeArray;
+-(instancetype)initWithWordFileNamed:(NSString*)fileName andPhonemeArray:(NSArray*)phonemeArray;
+-(void)playSound;
+//- (instancetype)initWithPhonemeArray:(NSArray *)phonemeArray;
 @end
