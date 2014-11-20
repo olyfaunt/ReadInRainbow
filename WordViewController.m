@@ -18,6 +18,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIButton+setTag.h"
 #import "WordLibrary.h"
+#import "Util.h"
 
 @interface WordViewController ()
 
@@ -39,6 +40,8 @@
     [self createButtonForWord:self.currentWord];
 }
 
+/////////////////SPACING///////////////////////////////////////////////////
+////if SPACING between the words is needed, in ELSE, just add +Spacing after lastButton.frame.size.width/2, and in IF, change word.stringSize to word.spacedStringSize
 -(void) createButtonForWord:(Word*)word {
     UIButton *lastButton;
     for (Phoneme *phoneme in word.phonemeArray) {
@@ -46,8 +49,10 @@
         [justMadeButton setTagString:phoneme.soundIdentifier];
         [justMadeButton setAttributedTitle:[phoneme buildAttributedString] forState:UIControlStateNormal];
         if (lastButton ==nil) {
+            //first button/phoneme of the word is placed at X half of the word's width leftwards from half of the screen's width (so the word is centered) - its Y is at half of the frame's height minus half of the phoneme's stringSize height
             [justMadeButton setFrame:CGRectMake(self.view.frame.size.width/2-word.stringSize.width/2,self.view.frame.size.height/2-(phoneme.stringSize.height/2),phoneme.stringSize.width, phoneme.stringSize.height)];
         } else {
+            //each consecutive button after the first button is placed just after it
             [justMadeButton setFrame:CGRectMake(lastButton.center.x+lastButton.frame.size.width/2,self.view.frame.size.height/2-(phoneme.stringSize.height/2),phoneme.stringSize.width, phoneme.stringSize.height)];
         }
         [justMadeButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -124,7 +129,7 @@
         NSString *myString = button.currentAttributedTitle.string;
         button.enabled = NO;
         [button setAttributedTitle:[[NSAttributedString alloc] initWithString:myString attributes:@{
-                NSFontAttributeName:[UIFont boldSystemFontOfSize:120],
+                NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize],
                 NSForegroundColorAttributeName:[UIColor whiteColor],
                 NSStrokeWidthAttributeName:[NSNumber numberWithFloat:-6.0],
                 NSStrokeColorAttributeName:[UIColor grayColor]}] forState:UIControlStateDisabled];

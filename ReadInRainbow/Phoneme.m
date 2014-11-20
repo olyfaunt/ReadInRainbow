@@ -8,8 +8,7 @@
 
 #import "Phoneme.h"
 #import "SoundLibrary.h"
-
-const int fontSize = 120;
+#import "Util.h"
 
 @implementation Phoneme
 
@@ -24,7 +23,7 @@ const int fontSize = 120;
         self.soundIdentifier = soundIdentifier;
         self.letters = letters;
         self.coloredString = [self buildAttributedString];
-        self.stringSize = [self.letters sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:fontSize]}];
+        self.stringSize = [self.letters sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize]}];
     }
     return self;
 }
@@ -34,14 +33,14 @@ const int fontSize = 120;
     NSAttributedString * returnString;
     if(currentSound.hasSecondaryColor){
         returnString = [[NSAttributedString alloc] initWithString:self.letters attributes:@{
-                        NSFontAttributeName:[UIFont boldSystemFontOfSize:fontSize],
+                        NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize],
                         NSForegroundColorAttributeName:currentSound.soundColor,
-                        NSStrokeWidthAttributeName:[NSNumber numberWithFloat:-6.0],
+                        NSStrokeWidthAttributeName:[NSNumber numberWithFloat:StrokeWidth],
                         NSStrokeColorAttributeName:currentSound.secondaryColor
                         }];
     } else {
         returnString = [[NSAttributedString alloc] initWithString:self.letters attributes:@{
-                        NSFontAttributeName:[UIFont boldSystemFontOfSize:fontSize],NSForegroundColorAttributeName:currentSound.soundColor}];
+                        NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize],NSForegroundColorAttributeName:currentSound.soundColor}];
     }
     return returnString;
 }
@@ -49,9 +48,9 @@ const int fontSize = 120;
 -(NSAttributedString *)buildEmptyAttributedString {
     NSAttributedString * returnString =
     [[NSAttributedString alloc] initWithString:self.letters attributes:@{
-                        NSFontAttributeName:[UIFont boldSystemFontOfSize:fontSize],
+                        NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize],
                         NSForegroundColorAttributeName:[UIColor whiteColor],
-                        NSStrokeWidthAttributeName:[NSNumber numberWithFloat:-6.0],
+                        NSStrokeWidthAttributeName:[NSNumber numberWithFloat:StrokeWidth],
                         NSStrokeColorAttributeName:[UIColor grayColor]}];
     return returnString;
 }

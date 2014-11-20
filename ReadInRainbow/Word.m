@@ -10,6 +10,7 @@
 #import "Phoneme.h"
 #import "Sound.h"
 #import "SoundLibrary.h"
+#import "Util.h"
 
 @implementation Word
 
@@ -41,7 +42,12 @@
         }
         self.numberOfLetters = numberLetters;
         self.wordString = makeWordString;
-        self.stringSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:120]}];
+        
+        ///test
+        self.stringSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize]}];
+        CGSize newSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize]}];
+        newSize.width += (Spacing*(self.phonemeArray.count-1));
+        self.spacedStringSize = newSize;
 
     }
     return self;
