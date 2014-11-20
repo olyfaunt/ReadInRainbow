@@ -29,6 +29,8 @@ const int numberOfButtons = 3;
 
 @property (nonatomic, strong) NSString * correctAnswerIdentifier;
 
+@property (nonatomic, assign) BOOL hasCorrectAnswer;
+
 - (IBAction)answerOptionOnePressed:(id)sender;
 - (IBAction)answerOptionTwoPressed:(id)sender;
 - (IBAction)answerOptionThreePressed:(id)sender;
@@ -55,6 +57,7 @@ const int numberOfButtons = 3;
 }
 
 - (void)setUpSoundAndColorAndChoices {
+    self.hasCorrectAnswer = NO;
     int soundIndex = arc4random_uniform(self.soundsArray.count);
     Sound * correctSound = self.soundsArray[soundIndex];
     self.correctAnswerIdentifier = correctSound.identifier;
@@ -143,6 +146,7 @@ const int numberOfButtons = 3;
 - (IBAction)answerOptionOnePressed:(id)sender {
     if([self.answerOneIdentifier isEqualToString:self.correctAnswerIdentifier]){
         self.isCorrectImageView.image = [UIImage imageNamed:@"smiling36"];
+        self.hasCorrectAnswer = YES;
     } else {
         self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
     }
@@ -151,6 +155,7 @@ const int numberOfButtons = 3;
 - (IBAction)answerOptionTwoPressed:(id)sender {
     if([self.answerTwoIdentifier isEqualToString:self.correctAnswerIdentifier]){
         self.isCorrectImageView.image = [UIImage imageNamed:@"smiling36"];
+        self.hasCorrectAnswer = YES;
     } else {
         self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
     }
@@ -159,13 +164,16 @@ const int numberOfButtons = 3;
 - (IBAction)answerOptionThreePressed:(id)sender {
     if([self.answerThreeIdentifier isEqualToString:self.correctAnswerIdentifier]){
         self.isCorrectImageView.image = [UIImage imageNamed:@"smiling36"];
+        self.hasCorrectAnswer = YES;
     } else {
         self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
     }
 }
 
 - (IBAction)newQuestionPressed:(id)sender {
-    [self setUpSoundAndColorAndChoices];
+    if(self.hasCorrectAnswer){
+        [self setUpSoundAndColorAndChoices];
+    }
 }
 
 - (IBAction)playCurrentSound:(id)sender {
