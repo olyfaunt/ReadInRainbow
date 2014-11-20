@@ -63,15 +63,6 @@
     }
 }
 
-- (IBAction)goToMenu:(id)sender {
-    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-    appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-}
-
-- (IBAction)clickedColor:(id)sender {
-    [self.currentSound playSound];
-}
-
 - (IBAction)playBack:(id)sender {
     if (self.currentIndex > 0) {
         self.currentIndex -= 1;
@@ -82,6 +73,15 @@
         self.currentSound = self.soundsArray[self.currentIndex];
         [self changedColor];
     }
+}
+
+- (IBAction)goToMenu:(id)sender {
+    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+    appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+}
+
+- (IBAction)clickedColor:(id)sender {
+    [self.currentSound playSound];
 }
 
 -(void)changedColor {

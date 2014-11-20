@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Word View Controller-->
+        <scene sceneID="F1F-Yu-vVW">
+            <objects>
+                <viewController storyboardIdentifier="WordViewController" id="Lqj-Xm-XbF" customClass="WordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l3f-5a-VgD"/>
+                        <viewControllerLayoutGuide type="bottom" id="JQO-O0-dyg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cg7-ZZ-rkm">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Display" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwN-zD-zWN">
+                                <rect key="frame" x="288" y="120" width="191.5" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="MlH-tq-i0C"/>
+                                    <constraint firstAttribute="width" constant="191.5" id="WQ4-Ef-lNw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6S-Ux-qjK">
+                                <rect key="frame" x="40" y="904" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="9aK-0d-rLC"/>
+                                    <constraint firstAttribute="height" constant="100" id="hrh-MM-b2X"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="menu2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToMenu:" destination="Lqj-Xm-XbF" eventType="touchUpInside" id="pOR-0s-rsu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6c-UC-myr">
+                                <rect key="frame" x="40" y="474" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="9qj-CO-afG"/>
+                                    <constraint firstAttribute="height" constant="75" id="uEk-hA-koW"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="backarrow">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backWord:" destination="Lqj-Xm-XbF" eventType="touchUpInside" id="Ut5-wx-MrF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpf-Sp-oE3">
+                                <rect key="frame" x="653" y="474.5" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="3PX-Yc-Fox"/>
+                                    <constraint firstAttribute="height" constant="75" id="qhw-12-XH8"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="next2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextWord:" destination="Lqj-Xm-XbF" eventType="touchUpInside" id="ARJ-8I-2zx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="zpf-Sp-oE3" secondAttribute="trailing" constant="20" id="3Rc-Ic-ekN"/>
+                            <constraint firstAttribute="centerY" secondItem="J6c-UC-myr" secondAttribute="centerY" id="LP7-Kq-SaX"/>
+                            <constraint firstAttribute="centerY" secondItem="zpf-Sp-oE3" secondAttribute="centerY" id="NDc-U2-yf1"/>
+                            <constraint firstItem="J6c-UC-myr" firstAttribute="leading" secondItem="Cg7-ZZ-rkm" secondAttribute="leadingMargin" constant="20" id="RMW-J5-Ufj"/>
+                            <constraint firstItem="JQO-O0-dyg" firstAttribute="top" secondItem="P6S-Ux-qjK" secondAttribute="bottom" constant="20" id="Rfa-lL-w9q"/>
+                            <constraint firstItem="cwN-zD-zWN" firstAttribute="top" secondItem="l3f-5a-VgD" secondAttribute="bottom" constant="100" id="dOy-N0-MWP"/>
+                            <constraint firstAttribute="centerX" secondItem="cwN-zD-zWN" secondAttribute="centerX" id="drq-os-hd2"/>
+                            <constraint firstItem="P6S-Ux-qjK" firstAttribute="leading" secondItem="Cg7-ZZ-rkm" secondAttribute="leadingMargin" constant="20" id="kuc-uh-2Bg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bu-xb-Y86" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="481.92000000000002" y="564.90666666666675"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backarrow" width="512" height="663"/>
+        <image name="menu2" width="680" height="680"/>
+        <image name="next2" width="512" height="663"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

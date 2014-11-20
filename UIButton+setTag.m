@@ -15,6 +15,13 @@
 
 -(void)setTagString:(NSString *)tagString {
     objc_setAssociatedObject(self, @selector(tagString), tagString, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+<<<<<<< HEAD
+}
+
+-(NSString *)tagString {
+    return objc_getAssociatedObject(self, @selector(tagString));
+=======
+>>>>>>> Multicolor
 }
 
 -(NSString *)tagString {

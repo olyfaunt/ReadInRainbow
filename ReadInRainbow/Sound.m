@@ -15,25 +15,11 @@
     return newSound;
 }
 
--(instancetype)initWithSoundFileNamed:(NSString *)fileName {
-    self = [super init];
-    
-    if(self) {
-        NSURL * soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"]];
-        NSError * error;
-        self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
-        self.audioPlayer .volume=1.0f; //between 0 and 1
-        self.identifier = [fileName copy];
-        // Needs logic to take the sound file and get the color for it, and also set a secondary color if there is one
-    }
-    return self;
-}
-
 -(instancetype)initWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor {
     self = [super init];
     
     if(self) {
-        NSURL * soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"]];
+        NSURL *soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"]];
         NSError * error;
         self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
         self.audioPlayer .volume=1.0f;

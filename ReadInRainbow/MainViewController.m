@@ -18,6 +18,7 @@
 #import "Game1ViewController.h"
 #import "Game2ViewController.h"
 #import "Game3ViewController.h"
+#import "WordViewController.h"
 
 @interface MainViewController ()
 
@@ -38,9 +39,15 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     self.chartCollectionView.dataSource = self;
     self.gamesCollectionView.dataSource = self;
     
+<<<<<<< HEAD
 //    SoundLibrary *soundDictionary = [[SoundLibrary alloc] init];
 //    self.soundsArray = [soundDictionary.soundLibrary allValues];
 //    Sound * ahh = [[SoundLibrary sharedLibrary] soundLibrary][@"ahh"];
+=======
+    //    SoundLibrary *soundDictionary = [[SoundLibrary alloc] init];
+    //    self.soundsArray = [soundDictionary.soundLibrary allValues];
+    //    Sound * ahh = [[SoundLibrary sharedLibrary] soundLibrary][@"ahh"];
+>>>>>>> Multicolor
     self.soundsArray = [[[SoundLibrary sharedLibrary] soundLibrary] allValues];
     
 }
@@ -134,6 +141,14 @@ static NSString * const reuseIdentifier2 = @"GameCell";
                 game3VC.soundsArray = self.soundsArray;
                 AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
                 appDelegateTemp.window.rootViewController = game3VC;
+                break;
+            }
+            case 3:
+            {
+                WordViewController *wordVC = [[UIStoryboard storyboardWithName:@"WordStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"WordViewController"];
+                wordVC.soundsArray = self.soundsArray;
+                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+                appDelegateTemp.window.rootViewController = wordVC;
                 break;
             }
             default:

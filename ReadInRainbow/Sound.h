@@ -20,7 +20,6 @@
 @property (nonatomic, strong) AVAudioPlayer * audioPlayer;
 
 +(instancetype)SoundWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor;
--(instancetype)initWithSoundFileNamed:(NSString *)fileName;
 -(instancetype)initWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor;
 -(void)playSound;
 
