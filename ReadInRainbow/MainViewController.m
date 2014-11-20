@@ -120,7 +120,7 @@ static NSString * const reuseIdentifier2 = @"GameCell";
             }
             case 1:
             {
-                Game2ViewController *game2VC = [[UIStoryboard storyboardWithName:@"Game2Storyboard.storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"Game2ViewController"];
+                Game2ViewController *game2VC = [[UIStoryboard storyboardWithName:@"Game2Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"Game2ViewController"];
                 game2VC.soundsArray = self.soundsArray;
                 AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
                 appDelegateTemp.window.rootViewController = game2VC;
