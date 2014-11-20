@@ -29,14 +29,17 @@ const int numberOfButtons = 3;
 
 @property (nonatomic, strong) NSString * correctAnswerIdentifier;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *nextQuestionButton;
 @property (nonatomic, assign) BOOL hasCorrectAnswer;
 
 - (IBAction)answerOptionOnePressed:(id)sender;
 - (IBAction)answerOptionTwoPressed:(id)sender;
 - (IBAction)answerOptionThreePressed:(id)sender;
 
-- (IBAction)newQuestionPressed:(id)sender;
+
 - (IBAction)playCurrentSound:(id)sender;
+- (IBAction)nextButtonPressed:(id)sender;
 
 - (IBAction)returnToMenu:(id)sender;
 
@@ -58,6 +61,7 @@ const int numberOfButtons = 3;
 
 - (void)setUpSoundAndColorAndChoices {
     self.hasCorrectAnswer = NO;
+    self.nextQuestionButton.hidden = YES;
     int soundIndex = arc4random_uniform(self.soundsArray.count);
     Sound * correctSound = self.soundsArray[soundIndex];
     self.correctAnswerIdentifier = correctSound.identifier;
@@ -147,6 +151,7 @@ const int numberOfButtons = 3;
     if([self.answerOneIdentifier isEqualToString:self.correctAnswerIdentifier]){
         self.isCorrectImageView.image = [UIImage imageNamed:@"smiling36"];
         self.hasCorrectAnswer = YES;
+        self.nextQuestionButton.hidden = NO;
     } else {
         self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
     }
@@ -156,6 +161,7 @@ const int numberOfButtons = 3;
     if([self.answerTwoIdentifier isEqualToString:self.correctAnswerIdentifier]){
         self.isCorrectImageView.image = [UIImage imageNamed:@"smiling36"];
         self.hasCorrectAnswer = YES;
+        self.nextQuestionButton.hidden = NO;
     } else {
         self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
     }
@@ -165,19 +171,20 @@ const int numberOfButtons = 3;
     if([self.answerThreeIdentifier isEqualToString:self.correctAnswerIdentifier]){
         self.isCorrectImageView.image = [UIImage imageNamed:@"smiling36"];
         self.hasCorrectAnswer = YES;
+        self.nextQuestionButton.hidden = NO;
     } else {
         self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
     }
 }
 
-- (IBAction)newQuestionPressed:(id)sender {
+- (IBAction)playCurrentSound:(id)sender {
+    [[[SoundLibrary sharedLibrary] soundLibrary][self.correctAnswerIdentifier] playSound];
+}
+
+- (IBAction)nextButtonPressed:(id)sender {
     if(self.hasCorrectAnswer){
         [self setUpSoundAndColorAndChoices];
     }
-}
-
-- (IBAction)playCurrentSound:(id)sender {
-    [[[SoundLibrary sharedLibrary] soundLibrary][self.correctAnswerIdentifier] playSound];
 }
 
 - (IBAction)returnToMenu:(id)sender {

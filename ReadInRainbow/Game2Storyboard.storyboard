@@ -32,7 +32,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="newQuestionPressed:" destination="l8o-jd-qEB" eventType="touchUpInside" id="sto-Ms-Wri"/>
+                                    <action selector="nextButtonPressed:" destination="l8o-jd-qEB" eventType="touchUpInside" id="xZT-DG-MQL"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9y-dY-BwB" customClass="ColorBlockView">
@@ -98,6 +98,7 @@
                         <outlet property="answerOptionThree" destination="eYn-OV-j5d" id="mbI-pm-4Ug"/>
                         <outlet property="answerOptionTwo" destination="3LF-iR-Vcm" id="K3U-XR-gvU"/>
                         <outlet property="isCorrectImageView" destination="Gqz-j8-J1O" id="A2S-9U-mhX"/>
+                        <outlet property="nextQuestionButton" destination="FIE-qo-wMX" id="EaW-s8-F89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgR-wy-nxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
