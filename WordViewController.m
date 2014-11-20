@@ -37,7 +37,6 @@
     self.wordsArray = [[[WordLibrary sharedLibrary] wordLibrary] allValues];
     self.currentWord = self.wordsArray[self.currentIndex];
     [self createButtonForWord:self.currentWord];
-
 }
 
 -(void) createButtonForWord:(Word*)word {
@@ -114,5 +113,9 @@
         self.currentWord = self.wordsArray[self.currentIndex];
         [self createButtonForWord:self.currentWord];
     }
+}
+
+- (IBAction)playWord:(id)sender {
+    [self.currentWord playSound];
 }
 @end

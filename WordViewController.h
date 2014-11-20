@@ -14,5 +14,6 @@
 - (IBAction)goToMenu:(id)sender;
 - (IBAction)backWord:(id)sender;
 - (IBAction)nextWord:(id)sender;
+- (IBAction)playWord:(id)sender;
 
 @end

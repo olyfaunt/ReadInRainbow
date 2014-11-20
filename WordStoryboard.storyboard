@@ -55,7 +55,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpf-Sp-oE3">
-                                <rect key="frame" x="653" y="474.5" width="75" height="75"/>
+                                <rect key="frame" x="653" y="474" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="3PX-Yc-Fox"/>
                                     <constraint firstAttribute="height" constant="75" id="qhw-12-XH8"/>
@@ -67,10 +67,25 @@
                                     <action selector="nextWord:" destination="Lqj-Xm-XbF" eventType="touchUpInside" id="ARJ-8I-2zx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyA-RZ-ZNU">
+                                <rect key="frame" x="334" y="261" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Xgz-Wb-NMN"/>
+                                    <constraint firstAttribute="width" constant="100" id="dIp-9B-yq3"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playWord:" destination="Lqj-Xm-XbF" eventType="touchUpInside" id="D61-8e-wcK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="zpf-Sp-oE3" secondAttribute="trailing" constant="20" id="3Rc-Ic-ekN"/>
+                            <constraint firstItem="AyA-RZ-ZNU" firstAttribute="top" secondItem="cwN-zD-zWN" secondAttribute="bottom" constant="100" id="5di-mu-9Q4"/>
+                            <constraint firstAttribute="centerX" secondItem="AyA-RZ-ZNU" secondAttribute="centerX" id="HYc-2h-bob"/>
                             <constraint firstAttribute="centerY" secondItem="J6c-UC-myr" secondAttribute="centerY" id="LP7-Kq-SaX"/>
                             <constraint firstAttribute="centerY" secondItem="zpf-Sp-oE3" secondAttribute="centerY" id="NDc-U2-yf1"/>
                             <constraint firstItem="J6c-UC-myr" firstAttribute="leading" secondItem="Cg7-ZZ-rkm" secondAttribute="leadingMargin" constant="20" id="RMW-J5-Ufj"/>
@@ -90,6 +105,7 @@
         <image name="backarrow" width="512" height="663"/>
         <image name="menu2" width="680" height="680"/>
         <image name="next2" width="512" height="663"/>
+        <image name="play" width="256" height="256"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

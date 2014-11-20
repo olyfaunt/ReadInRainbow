@@ -32,7 +32,7 @@
     Phoneme *day1 = [Phoneme phonemeWithLetters:@"d" andSoundIdentifier:@"d"];
     Phoneme *day2 = [Phoneme phonemeWithLetters:@"aylasdkjfsd" andSoundIdentifier:@"longa"];
     Phoneme *day3 = [Phoneme phonemeWithLetters:@"lal" andSoundIdentifier:@"er"];
-    Word *day = [[Word alloc] initWithPhonemeArray:@[day1, day2, day3]];
+    Word *day = [Word WordWithWordFileNamed:@"day" andPhonemeArray:@[day1, day2, day3]];
     for (Phoneme *phoneme in day.phonemeArray) {
         UIButton *justMadeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         justMadeButton.tagString = phoneme.soundIdentifier;

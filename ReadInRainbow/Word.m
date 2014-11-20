@@ -13,9 +13,21 @@
 
 @implementation Word
 
--(instancetype)initWithPhonemeArray:(NSArray *)phonemeArray {
++(instancetype)WordWithWordFileNamed:(NSString*)fileName andPhonemeArray:(NSArray*)phonemeArray {
+    Word *newWord = [[self alloc] initWithWordFileNamed:fileName andPhonemeArray:phonemeArray];
+    return newWord;
+}
+-(instancetype)initWithWordFileNamed:(NSString*)fileName andPhonemeArray:(NSArray*)phonemeArray {
     self = [super init];
+    
     if(self) {
+        NSURL *soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"]];
+        NSError * error;
+        self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
+        self.audioPlayer.volume=1.0f;
+        self.identifier = [fileName copy];
+        // Needs logic to take the sound file and get the color for it, and also set a secondary color if there is one
+        
         self.phonemeArray = phonemeArray;
         int numberLetters;
         NSString *makeWordString;
@@ -30,18 +42,38 @@
         self.numberOfLetters = numberLetters;
         self.wordString = makeWordString;
         self.stringSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:120]}];
-        
+
     }
     return self;
 }
 
-//-(NSAttributedString *)buildAttributedStringFromPhonemeArray {
-//    NSMutableAttributedString * returnString = [[NSMutableAttributedString alloc] init];
-//    SoundLibrary * newLibrary = [[SoundLibrary alloc]init];
-//    for(Phoneme * currentPhoneme in self.phonemeArray) {
-//        Sound * currentSound = newLibrary.soundLibrary[currentPhoneme.soundIdentifier];
+-(void)playSound {
+    [self.audioPlayer prepareToPlay];
+    self.audioPlayer.numberOfLoops=0; //or more if needed
+    [self.audioPlayer play];
+}
+
+//-(instancetype)initWithPhonemeArray:(NSArray *)phonemeArray {
+//    self = [super init];
+//    if(self) {
+//        self.phonemeArray = phonemeArray;
+//        int numberLetters;
+//        NSString *makeWordString;
+//        for (Phoneme *phoneme in self.phonemeArray) {
+//            numberLetters += phoneme.letters.length;
+//            if (makeWordString==nil) {
+//                makeWordString = [NSString stringWithString:phoneme.letters];
+//            } else {
+//                makeWordString = [makeWordString stringByAppendingString:phoneme.letters];
+//            }
+//        }
+//        self.numberOfLetters = numberLetters;
+//        self.wordString = makeWordString;
+//        self.stringSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:120]}];
 //        
 //    }
+//    return self;
 //}
+
 
 @end
