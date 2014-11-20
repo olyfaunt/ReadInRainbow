@@ -15,5 +15,6 @@
 - (IBAction)backWord:(id)sender;
 - (IBAction)nextWord:(id)sender;
 - (IBAction)playWord:(id)sender;
+- (IBAction)changeTest:(id)sender;
 
 @end

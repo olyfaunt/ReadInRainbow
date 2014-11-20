@@ -10,5 +10,7 @@
 
 @interface UIButton (setTag)
 @property(nonatomic, retain) NSString *tagString;
+@property (nonatomic) BOOL outlined;
+@property UIControlState customState;
 -(void)setTagString:(NSString *)tagString;
 @end

@@ -46,9 +46,9 @@
         [justMadeButton setTagString:phoneme.soundIdentifier];
         [justMadeButton setAttributedTitle:[phoneme buildAttributedString] forState:UIControlStateNormal];
         if (lastButton ==nil) {
-            [justMadeButton setFrame:CGRectMake(self.view.frame.size.width/2-word.stringSize.width/2,self.view.frame.size.height/2,phoneme.stringSize.width, phoneme.stringSize.height)];
+            [justMadeButton setFrame:CGRectMake(self.view.frame.size.width/2-word.stringSize.width/2,self.view.frame.size.height/2-(phoneme.stringSize.height/2),phoneme.stringSize.width, phoneme.stringSize.height)];
         } else {
-            [justMadeButton setFrame:CGRectMake(lastButton.center.x+lastButton.frame.size.width/2,self.view.frame.size.height/2,phoneme.stringSize.width, phoneme.stringSize.height)];
+            [justMadeButton setFrame:CGRectMake(lastButton.center.x+lastButton.frame.size.width/2,self.view.frame.size.height/2-(phoneme.stringSize.height/2),phoneme.stringSize.width, phoneme.stringSize.height)];
         }
         [justMadeButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.buttonsArray addObject:justMadeButton];
@@ -117,5 +117,17 @@
 
 - (IBAction)playWord:(id)sender {
     [self.currentWord playSound];
+}
+
+- (IBAction)changeTest:(id)sender {
+    for (UIButton *button in self.buttonsArray) {
+        NSString *myString = button.currentAttributedTitle.string;
+        button.enabled = NO;
+        [button setAttributedTitle:[[NSAttributedString alloc] initWithString:myString attributes:@{
+                NSFontAttributeName:[UIFont boldSystemFontOfSize:120],
+                NSForegroundColorAttributeName:[UIColor whiteColor],
+                NSStrokeWidthAttributeName:[NSNumber numberWithFloat:-6.0],
+                NSStrokeColorAttributeName:[UIColor grayColor]}] forState:UIControlStateDisabled];
+    }
 }
 @end

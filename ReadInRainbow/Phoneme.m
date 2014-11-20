@@ -46,4 +46,14 @@ const int fontSize = 120;
     return returnString;
 }
 
+-(NSAttributedString *)buildEmptyAttributedString {
+    NSAttributedString * returnString =
+    [[NSAttributedString alloc] initWithString:self.letters attributes:@{
+                        NSFontAttributeName:[UIFont boldSystemFontOfSize:fontSize],
+                        NSForegroundColorAttributeName:[UIColor whiteColor],
+                        NSStrokeWidthAttributeName:[NSNumber numberWithFloat:-6.0],
+                        NSStrokeColorAttributeName:[UIColor grayColor]}];
+    return returnString;
+}
+
 @end
