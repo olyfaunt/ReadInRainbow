@@ -11,9 +11,9 @@
 
 @interface Phoneme : NSObject
 
-@property (nonatomic, strong) NSString * letters;
-@property (nonatomic, strong) NSString * soundIdentifier;
-@property (nonatomic, strong) NSAttributedString * coloredString;
+@property (nonatomic, strong) NSString *letters;
+@property (nonatomic, strong) NSString *soundIdentifier;
+@property (nonatomic, strong) NSAttributedString *coloredString;
 @property (nonatomic, assign) CGSize stringSize;
 
 + (instancetype)phonemeWithLetters:(NSString *)letters andSoundIdentifier:(NSString *)soundIdentifier;

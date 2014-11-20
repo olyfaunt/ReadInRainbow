@@ -26,12 +26,10 @@ const int numberOfButtons = 3;
 @property (nonatomic, strong) NSString * answerTwoIdentifier;
 @property (weak, nonatomic) IBOutlet ColorBlockView *answerOptionThree;
 @property (nonatomic, strong) NSString * answerThreeIdentifier;
-
 @property (nonatomic, strong) NSString * correctAnswerIdentifier;
-
-
 @property (weak, nonatomic) IBOutlet UIButton *nextQuestionButton;
 @property (nonatomic, assign) BOOL hasCorrectAnswer;
+@property (nonatomic, assign) int lives;
 
 - (IBAction)answerOptionOnePressed:(id)sender;
 - (IBAction)answerOptionTwoPressed:(id)sender;
@@ -51,6 +49,9 @@ const int numberOfButtons = 3;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setUpSoundAndColorAndChoices];
+    self.livesImageView.image = [UIImage imageNamed:@"heart4"];
+    self.lives = 4;
+    self.gameOverButton.hidden = YES;
     
 }
 
@@ -154,6 +155,13 @@ const int numberOfButtons = 3;
         self.nextQuestionButton.hidden = NO;
     } else {
         self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
+        
+        
+        self.lives--;
+        [self setHeartImage];
+        if(self.lives == 0){
+            [self showGameOver];
+        }
     }
 }
 
@@ -164,6 +172,11 @@ const int numberOfButtons = 3;
         self.nextQuestionButton.hidden = NO;
     } else {
         self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
+        self.lives--;
+        [self setHeartImage];
+        if(self.lives == 0){
+            [self showGameOver];
+        }
     }
 }
 
@@ -174,7 +187,24 @@ const int numberOfButtons = 3;
         self.nextQuestionButton.hidden = NO;
     } else {
         self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
+        self.lives--;
+        [self setHeartImage];
+        if(self.lives == 0){
+            [self showGameOver];
+        }
     }
+}
+
+-(void)showGameOver {
+    self.gameOverButton.hidden = NO;
+    self.lives = 4;
+    [self.gameOverButton setNeedsDisplay];
+}
+
+-(void) setHeartImage {
+    NSString *heartImage = [NSString stringWithFormat:@"heart%d",self.lives];
+    self.livesImageView.image = [UIImage imageNamed:heartImage];
+    [self.livesImageView setNeedsDisplay];
 }
 
 - (IBAction)playCurrentSound:(id)sender {
@@ -192,4 +222,9 @@ const int numberOfButtons = 3;
     appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
 }
 
+- (IBAction)gameOver:(id)sender {
+    self.gameOverButton.hidden = YES;
+    [self setHeartImage];
+    [self setUpSoundAndColorAndChoices];
+}
 @end

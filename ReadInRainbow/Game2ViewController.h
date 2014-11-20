@@ -11,5 +11,8 @@
 @interface Game2ViewController : UIViewController
 
 @property (nonatomic, strong) NSArray * soundsArray;
+@property (weak, nonatomic) IBOutlet UIImageView *livesImageView;
+- (IBAction)gameOver:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *gameOverButton;
 
 @end
