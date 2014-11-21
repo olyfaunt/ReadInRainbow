@@ -16,11 +16,16 @@
 #import "ColorBlockView.h"
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
+#import "WordLibrary.h"
 
 @interface Game1ViewController ()
 
 @property (nonatomic) Sound *currentSound;
 @property (nonatomic) int currentIndex;
+@property (nonatomic) NSMutableArray *matchingWordsArray;
+@property (nonatomic) Word *currentWord;
+@property (nonatomic) Word *matchingWordToPlay;
+@property (nonatomic) NSDictionary *wordDictionary;
 
 @end
 
@@ -29,11 +34,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.matchingWordsArray = [NSMutableArray new];
+    self.wordDictionary = [[WordLibrary sharedLibrary] wordLibrary];
     self.currentIndex = 0;
     self.currentSound = self.soundsArray[self.currentIndex];
     [self changedColor];
-    
+    [self getArrayOfMatchingWords];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,10 +62,12 @@
         self.currentIndex += 1;
         self.currentSound = self.soundsArray[self.currentIndex];
         [self changedColor];
+        [self getArrayOfMatchingWords];
     } else {
         self.currentIndex = 0;
         self.currentSound = self.soundsArray[self.currentIndex];
         [self changedColor];
+        [self getArrayOfMatchingWords];
     }
 }
 
@@ -68,10 +76,12 @@
         self.currentIndex -= 1;
         self.currentSound = self.soundsArray[self.currentIndex];
         [self changedColor];
+        [self getArrayOfMatchingWords];
     } else {
         self.currentIndex = (int)self.soundsArray.count-1;
         self.currentSound = self.soundsArray[self.currentIndex];
         [self changedColor];
+        [self getArrayOfMatchingWords];
     }
 }
 
@@ -94,4 +104,21 @@
     }
     [self.colorView setNeedsDisplay];
 }
+
+-(void)getArrayOfMatchingWords {
+    [self.matchingWordsArray removeAllObjects];
+    for(id key in self.wordDictionary) {
+        self.currentWord = [self.wordDictionary objectForKey:key];
+        for (Phoneme *phoneme in self.currentWord.phonemeArray) {
+            if ([phoneme.soundIdentifier isEqualToString:self.currentSound.identifier]) {
+                [self.matchingWordsArray addObject:self.currentWord];
+            }
+        }
+    }
+    int randomNumber = arc4random_uniform((u_int32_t)[self.matchingWordsArray count]);
+    self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:randomNumber];
+    NSLog(@"Current Sound: %@, Matching Word: %@ out of Array: %@", self.currentSound.identifier, self.matchingWordToPlay.identifier, self.matchingWordsArray);
+    
+}
+
 @end
