@@ -32,7 +32,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.buttonsArray = [NSMutableArray new];
     self.currentIndex = 0;
     self.wordsArray = [[[WordLibrary sharedLibrary] wordLibrary] allValues];
