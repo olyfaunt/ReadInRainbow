@@ -40,15 +40,11 @@
         for(NSString * currentWord in unFormattedWords){
             NSMutableArray * phonemeArray = [[NSMutableArray alloc] init];
             for(int i=0;i<[unFormattedWords[currentWord] count];i++){
-                if(i == 0){
-                    continue;
-                } else {
-                    Phoneme * newPhoneme = [Phoneme phonemeWithLetters:unFormattedWords[currentWord][i][0] andSoundIdentifier:unFormattedWords[currentWord][i][1]];
-                    [phonemeArray addObject:newPhoneme];
-                }
+                Phoneme * newPhoneme = [Phoneme phonemeWithLetters:unFormattedWords[currentWord][i][0] andSoundIdentifier:unFormattedWords[currentWord][i][1]];
+                [phonemeArray addObject:newPhoneme];
             }
-            Word * newWord = [Word WordWithWordFileNamed:unFormattedWords[currentWord][0] andPhonemeArray:phonemeArray];
-            [temporaryDictionary setObject:newWord forKey:unFormattedWords[currentWord][0]];
+            Word * newWord = [Word WordWithWordFileNamed:currentWord andPhonemeArray:phonemeArray];
+            [temporaryDictionary setObject:newWord forKey:currentWord];
         }
         
         self.wordLibrary = [temporaryDictionary copy];

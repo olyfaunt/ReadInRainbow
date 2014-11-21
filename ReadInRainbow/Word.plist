@@ -4,7 +4,6 @@
 <dict>
 	<key>demo</key>
 	<array>
-		<string>demo</string>
 		<array>
 			<string>d</string>
 			<string>d</string>
@@ -24,7 +23,6 @@
 	</array>
 	<key>day</key>
 	<array>
-		<string>day</string>
 		<array>
 			<string>d</string>
 			<string>d</string>
@@ -36,7 +34,6 @@
 	</array>
 	<key>lighthouse</key>
 	<array>
-		<string>lighthouse</string>
 		<array>
 			<string>l</string>
 			<string>el</string>
@@ -64,7 +61,6 @@
 	</array>
 	<key>labs</key>
 	<array>
-		<string>labs</string>
 		<array>
 			<string>l</string>
 			<string>el</string>
@@ -84,7 +80,6 @@
 	</array>
 	<key>egg</key>
 	<array>
-		<string>egg</string>
 		<array>
 			<string>e</string>
 			<string>eh</string>
@@ -96,7 +91,6 @@
 	</array>
 	<key>book</key>
 	<array>
-		<string>book</string>
 		<array>
 			<string>b</string>
 			<string>b</string>
@@ -112,7 +106,6 @@
 	</array>
 	<key>north</key>
 	<array>
-		<string>north</string>
 		<array>
 			<string>n</string>
 			<string>n</string>
@@ -128,7 +121,6 @@
 	</array>
 	<key>shoe</key>
 	<array>
-		<string>shoe</string>
 		<array>
 			<string>sh</string>
 			<string>sh</string>
@@ -140,7 +132,6 @@
 	</array>
 	<key>father</key>
 	<array>
-		<string>father</string>
 		<array>
 			<string>f</string>
 			<string>f</string>
@@ -160,7 +151,6 @@
 	</array>
 	<key>team</key>
 	<array>
-		<string>team</string>
 		<array>
 			<string>t</string>
 			<string>t</string>
@@ -176,7 +166,6 @@
 	</array>
 	<key>zipper</key>
 	<array>
-		<string>zipper</string>
 		<array>
 			<string>z</string>
 			<string>z</string>
@@ -196,7 +185,6 @@
 	</array>
 	<key>choice</key>
 	<array>
-		<string>choice</string>
 		<array>
 			<string>ch</string>
 			<string>ch</string>
