@@ -10,4 +10,14 @@
 
 @implementation GameCell
 
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    
+    if (selected) {
+        self.gameView.image = [UIImage imageNamed:@"selectedtesticon"];
+    } else {
+        self.gameView.image = [UIImage imageNamed:@"testicon"];
+    }
+}
+
 @end
