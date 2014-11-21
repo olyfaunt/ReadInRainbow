@@ -20,4 +20,14 @@
     }
 }
 
+-(void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    
+    if (highlighted) {
+        self.gameView.image = [UIImage imageNamed:@"selectedtesticon"];
+    } else {
+        self.gameView.image = [UIImage imageNamed:@"testicon"];
+    }
+}
+
 @end

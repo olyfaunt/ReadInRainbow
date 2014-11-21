@@ -14,8 +14,7 @@
 #import "ColorBlockView.h"
 #import "UIButton+setTag.h"
 #import "AppDelegate.h"
-
-const int numberOfButtons = 3;
+#import "Util.h"
 
 @interface Game2ViewController ()
 
@@ -36,10 +35,8 @@ const int numberOfButtons = 3;
 - (IBAction)answerOptionOnePressed:(id)sender;
 - (IBAction)answerOptionTwoPressed:(id)sender;
 - (IBAction)answerOptionThreePressed:(id)sender;
-
 - (IBAction)playCurrentSound:(id)sender;
 - (IBAction)nextButtonPressed:(id)sender;
-
 - (IBAction)returnToMenu:(id)sender;
 
 @end
@@ -48,7 +45,6 @@ const int numberOfButtons = 3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setUpSoundAndColorAndChoices];
     self.livesImageView.image = [UIImage imageNamed:@"heart4"];
     self.lives = 4;
@@ -64,10 +60,10 @@ const int numberOfButtons = 3;
 - (void)setUpSoundAndColorAndChoices {
     self.hasCorrectAnswer = NO;
     self.nextQuestionButton.hidden = YES;
-    self.soundIndex = arc4random_uniform(self.soundsArray.count);
+    self.soundIndex = arc4random_uniform((uint32_t)self.soundsArray.count);
     Sound * correctSound = self.soundsArray[self.soundIndex];
     self.correctAnswerIdentifier = correctSound.identifier;
-    int correctButton = arc4random_uniform(numberOfButtons);
+    int correctButton = arc4random_uniform(NumberOfButtons);
     switch(correctButton){
         case 0:{
             [self setViewColorsWithSoundOnView:self.answerOptionOne andSound:correctSound];
@@ -141,7 +137,7 @@ const int numberOfButtons = 3;
 }
 
 - (int)getRandomArrayIndex {
-    return arc4random_uniform(self.soundsArray.count);
+    return arc4random_uniform((uint32_t)self.soundsArray.count);
 }
 
 - (int)getRandomArrayIndexButNotThis:(int)number {
@@ -162,61 +158,90 @@ const int numberOfButtons = 3;
 
 - (IBAction)answerOptionOnePressed:(id)sender {
     if([self.answerOneIdentifier isEqualToString:self.correctAnswerIdentifier]){
-        self.isCorrectImageView.image = [UIImage imageNamed:@"smiling36"];
-        self.hasCorrectAnswer = YES;
-        self.nextQuestionButton.hidden = NO;
+        [self showSmileyFace];
     } else {
-        self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
-        
-        
-        self.lives--;
-        [self setHeartImage];
-        if(self.lives == 0){
-            [self showGameOver];
-        }
+        [self showSadFace];
     }
 }
 
 - (IBAction)answerOptionTwoPressed:(id)sender {
     if([self.answerTwoIdentifier isEqualToString:self.correctAnswerIdentifier]){
-        self.isCorrectImageView.image = [UIImage imageNamed:@"smiling36"];
-        self.hasCorrectAnswer = YES;
-        self.nextQuestionButton.hidden = NO;
+        [self showSmileyFace];
     } else {
-        self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
-        self.lives--;
-        [self setHeartImage];
-        if(self.lives == 0){
-            [self showGameOver];
-        }
+        [self showSadFace];
     }
 }
 
 - (IBAction)answerOptionThreePressed:(id)sender {
     if([self.answerThreeIdentifier isEqualToString:self.correctAnswerIdentifier]){
-        self.isCorrectImageView.image = [UIImage imageNamed:@"smiling36"];
-        self.hasCorrectAnswer = YES;
-        self.nextQuestionButton.hidden = NO;
+        [self showSmileyFace];
     } else {
-        self.isCorrectImageView.image = [UIImage imageNamed:@"sad39"];
-        self.lives--;
-        [self setHeartImage];
-        if(self.lives == 0){
-            [self showGameOver];
-        }
+        [self showSadFace];
     }
 }
 
 -(void)showGameOver {
-    self.gameOverButton.hidden = NO;
     self.lives = 4;
     [self.gameOverButton setNeedsDisplay];
+    self.gameOverButton.alpha = 0;
+    self.gameOverButton.hidden = NO;
+    [UIView transitionWithView:nil duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        self.gameOverButton.alpha = 1;
+    }completion:^(BOOL finished) {
+        [self.gameOverButton setNeedsDisplay];
+    }];
 }
 
 -(void) setHeartImage {
-    NSString *heartImage = [NSString stringWithFormat:@"heart%d",self.lives];
-    self.livesImageView.image = [UIImage imageNamed:heartImage];
-    [self.livesImageView setNeedsDisplay];
+    NSString *heartImageString = [NSString stringWithFormat:@"heart%d",self.lives];
+    UIImage *heartImage = [UIImage imageNamed:heartImageString];
+    [UIView transitionWithView:self.livesImageView
+                      duration:0.3f
+                       options:UIViewAnimationOptionTransitionFlipFromTop
+                    animations:^{
+                        self.livesImageView.image = heartImage;
+                    } completion:^(BOOL finished) {
+                        [self.livesImageView setNeedsDisplay];
+                    }];
+}
+
+-(void) showSmileyFace {
+    self.hasCorrectAnswer = YES;
+    UIImage *smileImage = [UIImage imageNamed:@"smiling36"];
+    [UIView transitionWithView:self.isCorrectImageView
+                      duration:0.3f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.isCorrectImageView.image = smileImage;
+                    } completion:^(BOOL finished) {
+                        [self.isCorrectImageView setNeedsDisplay];
+                    }];
+    self.nextQuestionButton.alpha = 0;
+    self.nextQuestionButton.hidden = NO;
+    [UIView transitionWithView:nil duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+        self.nextQuestionButton.alpha = 1;
+    }completion:^(BOOL finished) {
+        [self.nextQuestionButton setNeedsDisplay];
+    }];
+
+}
+
+-(void) showSadFace {
+    UIImage *sadImage = [UIImage imageNamed:@"sad39"];
+    [UIView transitionWithView:self.isCorrectImageView
+                      duration:0.3f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.isCorrectImageView.image = sadImage;
+                    } completion:^(BOOL finished) {
+                        [self.isCorrectImageView setNeedsDisplay];
+                    }];
+    self.lives--;
+    [self setHeartImage];
+    if(self.lives == 0){
+        [self showGameOver];
+    }
 }
 
 - (IBAction)playCurrentSound:(id)sender {
