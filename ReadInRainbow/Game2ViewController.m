@@ -30,11 +30,12 @@ const int numberOfButtons = 3;
 @property (weak, nonatomic) IBOutlet UIButton *nextQuestionButton;
 @property (nonatomic, assign) BOOL hasCorrectAnswer;
 @property (nonatomic, assign) int lives;
+@property (nonatomic, assign) int soundIndex;
+@property (nonatomic, assign) int soundIndexTwo;
 
 - (IBAction)answerOptionOnePressed:(id)sender;
 - (IBAction)answerOptionTwoPressed:(id)sender;
 - (IBAction)answerOptionThreePressed:(id)sender;
-
 
 - (IBAction)playCurrentSound:(id)sender;
 - (IBAction)nextButtonPressed:(id)sender;
@@ -63,8 +64,8 @@ const int numberOfButtons = 3;
 - (void)setUpSoundAndColorAndChoices {
     self.hasCorrectAnswer = NO;
     self.nextQuestionButton.hidden = YES;
-    int soundIndex = arc4random_uniform(self.soundsArray.count);
-    Sound * correctSound = self.soundsArray[soundIndex];
+    self.soundIndex = arc4random_uniform(self.soundsArray.count);
+    Sound * correctSound = self.soundsArray[self.soundIndex];
     self.correctAnswerIdentifier = correctSound.identifier;
     int correctButton = arc4random_uniform(numberOfButtons);
     switch(correctButton){
@@ -72,11 +73,12 @@ const int numberOfButtons = 3;
             [self setViewColorsWithSoundOnView:self.answerOptionOne andSound:correctSound];
             self.answerOneIdentifier = correctSound.identifier;
             
-            Sound * decoySoundOne = self.soundsArray[[self getRandomArrayIndexButNotThis:soundIndex]];
+            self.soundIndexTwo = [self getRandomArrayIndexButNotThis:self.soundIndex];
+            Sound *decoySoundOne = self.soundsArray[self.soundIndexTwo];
             [self setViewColorsWithSoundOnView:self.answerOptionTwo andSound:decoySoundOne];
             self.answerTwoIdentifier = decoySoundOne.identifier;
             
-            Sound * decoySoundTwo = self.soundsArray[[self getRandomArrayIndexButNotThis:soundIndex]];
+            Sound *decoySoundTwo = self.soundsArray[[self getRandomArrayIndexButNotThis:self.soundIndex orThis:self.soundIndexTwo]];
             [self setViewColorsWithSoundOnView:self.answerOptionThree andSound:decoySoundTwo];
             self.answerThreeIdentifier = decoySoundTwo.identifier;
             
@@ -86,11 +88,12 @@ const int numberOfButtons = 3;
             [self setViewColorsWithSoundOnView:self.answerOptionTwo andSound:correctSound];
             self.answerTwoIdentifier = correctSound.identifier;
             
-            Sound * decoySoundOne = self.soundsArray[[self getRandomArrayIndexButNotThis:soundIndex]];
+            self.soundIndexTwo = [self getRandomArrayIndexButNotThis:self.soundIndex];
+            Sound *decoySoundOne = self.soundsArray[self.soundIndexTwo];
             [self setViewColorsWithSoundOnView:self.answerOptionOne andSound:decoySoundOne];
             self.answerOneIdentifier = decoySoundOne.identifier;
             
-            Sound * decoySoundTwo = self.soundsArray[[self getRandomArrayIndexButNotThis:soundIndex]];
+            Sound *decoySoundTwo = self.soundsArray[[self getRandomArrayIndexButNotThis:self.soundIndex orThis:self.soundIndexTwo]];
             [self setViewColorsWithSoundOnView:self.answerOptionThree andSound:decoySoundTwo];
             self.answerThreeIdentifier = decoySoundTwo.identifier;
             
@@ -100,11 +103,12 @@ const int numberOfButtons = 3;
             [self setViewColorsWithSoundOnView:self.answerOptionThree andSound:correctSound];
             self.answerThreeIdentifier = correctSound.identifier;
             
-            Sound * decoySoundOne = self.soundsArray[[self getRandomArrayIndexButNotThis:soundIndex]];
+            self.soundIndexTwo = [self getRandomArrayIndexButNotThis:self.soundIndex];
+            Sound *decoySoundOne = self.soundsArray[self.soundIndexTwo];
             [self setViewColorsWithSoundOnView:self.answerOptionTwo andSound:decoySoundOne];
             self.answerTwoIdentifier = decoySoundOne.identifier;
             
-            Sound * decoySoundTwo = self.soundsArray[[self getRandomArrayIndexButNotThis:soundIndex]];
+            Sound *decoySoundTwo = self.soundsArray[[self getRandomArrayIndexButNotThis:self.soundIndex orThis:self.soundIndexTwo]];
             [self setViewColorsWithSoundOnView:self.answerOptionOne andSound:decoySoundTwo];
             self.answerOneIdentifier = decoySoundTwo.identifier;
             
@@ -145,6 +149,14 @@ const int numberOfButtons = 3;
     do {
         returnvalue = [self getRandomArrayIndex];
     } while(returnvalue == number);
+    return returnvalue;
+}
+
+- (int)getRandomArrayIndexButNotThis:(int)number orThis:(int)number2 {
+    int returnvalue;
+    do {
+        returnvalue = [self getRandomArrayIndex];
+    } while(returnvalue == number||returnvalue == number2);
     return returnvalue;
 }
 
