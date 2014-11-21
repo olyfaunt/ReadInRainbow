@@ -42,12 +42,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6c-UC-myr">
-                                <rect key="frame" x="40" y="474" width="75" height="75"/>
+                                <rect key="frame" x="40" y="474" width="40" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="9qj-CO-afG"/>
+                                    <constraint firstAttribute="width" constant="40" id="9qj-CO-afG"/>
                                     <constraint firstAttribute="height" constant="75" id="uEk-hA-koW"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="backarrow">
+                                <state key="normal" backgroundImage="back1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -55,12 +55,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpf-Sp-oE3">
-                                <rect key="frame" x="653" y="474" width="75" height="75"/>
+                                <rect key="frame" x="688" y="474" width="40" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="3PX-Yc-Fox"/>
+                                    <constraint firstAttribute="width" constant="40" id="3PX-Yc-Fox"/>
                                     <constraint firstAttribute="height" constant="75" id="qhw-12-XH8"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="next2">
+                                <state key="normal" backgroundImage="next1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -117,9 +117,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backarrow" width="512" height="663"/>
+        <image name="back1" width="512" height="872"/>
         <image name="menu2" width="680" height="680"/>
-        <image name="next2" width="512" height="663"/>
+        <image name="next1" width="512" height="872"/>
         <image name="play" width="256" height="256"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

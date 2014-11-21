@@ -39,7 +39,6 @@
         
         for(NSString * currentWord in unFormattedWords){
             NSMutableArray * phonemeArray = [[NSMutableArray alloc] init];
-            NSLog(@"%@", currentWord);
             for(int i=0;i<[unFormattedWords[currentWord] count];i++){
                 if(i == 0){
                     continue;

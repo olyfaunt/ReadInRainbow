@@ -19,6 +19,7 @@
 #import "Game2ViewController.h"
 #import "Game3ViewController.h"
 #import "WordViewController.h"
+#import "Util.h"
 
 @interface MainViewController ()
 
@@ -40,6 +41,12 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     self.gamesCollectionView.dataSource = self;
     
     self.soundsArray = [[[SoundLibrary sharedLibrary] soundLibrary] allValues];
+    self.numberOfGames = NumberOfGames;
+    self.gameTitlesArray = [NSMutableArray new];
+    for (int i = 1; i <= self.numberOfGames; i++) {
+        NSString *gameName = [NSString stringWithFormat:@"Game %d", i];
+        [self.gameTitlesArray addObject:gameName];
+    }
     
 }
 
@@ -65,7 +72,7 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     else
     {
         //return cell for gamesCollectionview
-        return 15;
+        return self.gameTitlesArray.count;
     }
 }
 
@@ -89,7 +96,7 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     {
         GameCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier2 forIndexPath:indexPath];
         cell.backgroundView.backgroundColor = [UIColor grayColor];
-        cell.gameLabel.text = @"Test Game Name";
+        cell.gameLabel.text = self.gameTitlesArray[indexPath.row];
         cell.gameView.contentMode = UIViewContentModeScaleAspectFill;
         cell.gameView.clipsToBounds = YES;
         cell.gameView.image = [UIImage imageNamed:@"testicon"];
