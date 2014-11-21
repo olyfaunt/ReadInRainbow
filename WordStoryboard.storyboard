@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Display" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwN-zD-zWN">
-                                <rect key="frame" x="288" y="120" width="191.5" height="41"/>
+                                <rect key="frame" x="288" y="70" width="191.5" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="MlH-tq-i0C"/>
                                     <constraint firstAttribute="width" constant="191.5" id="WQ4-Ef-lNw"/>
@@ -68,7 +68,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyA-RZ-ZNU">
-                                <rect key="frame" x="334" y="261" width="100" height="100"/>
+                                <rect key="frame" x="334" y="236" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Xgz-Wb-NMN"/>
                                     <constraint firstAttribute="width" constant="100" id="dIp-9B-yq3"/>
@@ -97,13 +97,13 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="zpf-Sp-oE3" secondAttribute="trailing" constant="20" id="3Rc-Ic-ekN"/>
-                            <constraint firstItem="AyA-RZ-ZNU" firstAttribute="top" secondItem="cwN-zD-zWN" secondAttribute="bottom" constant="100" id="5di-mu-9Q4"/>
+                            <constraint firstItem="AyA-RZ-ZNU" firstAttribute="top" secondItem="cwN-zD-zWN" secondAttribute="bottom" constant="125" id="5di-mu-9Q4"/>
                             <constraint firstAttribute="centerX" secondItem="AyA-RZ-ZNU" secondAttribute="centerX" id="HYc-2h-bob"/>
                             <constraint firstAttribute="centerY" secondItem="J6c-UC-myr" secondAttribute="centerY" id="LP7-Kq-SaX"/>
                             <constraint firstAttribute="centerY" secondItem="zpf-Sp-oE3" secondAttribute="centerY" id="NDc-U2-yf1"/>
                             <constraint firstItem="J6c-UC-myr" firstAttribute="leading" secondItem="Cg7-ZZ-rkm" secondAttribute="leadingMargin" constant="20" id="RMW-J5-Ufj"/>
                             <constraint firstItem="JQO-O0-dyg" firstAttribute="top" secondItem="P6S-Ux-qjK" secondAttribute="bottom" constant="20" id="Rfa-lL-w9q"/>
-                            <constraint firstItem="cwN-zD-zWN" firstAttribute="top" secondItem="l3f-5a-VgD" secondAttribute="bottom" constant="100" id="dOy-N0-MWP"/>
+                            <constraint firstItem="cwN-zD-zWN" firstAttribute="top" secondItem="l3f-5a-VgD" secondAttribute="bottom" constant="50" id="dOy-N0-MWP"/>
                             <constraint firstAttribute="centerX" secondItem="cwN-zD-zWN" secondAttribute="centerX" id="drq-os-hd2"/>
                             <constraint firstItem="P6S-Ux-qjK" firstAttribute="leading" secondItem="Cg7-ZZ-rkm" secondAttribute="leadingMargin" constant="20" id="kuc-uh-2Bg"/>
                             <constraint firstItem="JQO-O0-dyg" firstAttribute="top" secondItem="AFW-I2-nWQ" secondAttribute="bottom" constant="148" id="wev-FG-Fsb"/>

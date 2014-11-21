@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 ajek. All rights reserved.
 //
 
-static const int FontSize = 100;
+static const int FontSize = 115;
 static const int Spacing = 30;
 static const float StrokeWidth = -6.0;
 static const int NumberOfGames = 15;

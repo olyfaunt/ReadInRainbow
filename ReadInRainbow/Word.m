@@ -44,8 +44,8 @@
         self.wordString = makeWordString;
         
         ///test
-        self.stringSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize]}];
-        CGSize newSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize]}];
+        self.stringSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize]}];
+        CGSize newSize = [self.wordString sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize]}];
         newSize.width += (Spacing*(self.phonemeArray.count-1));
         self.spacedStringSize = newSize;
 

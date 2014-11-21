@@ -23,7 +23,7 @@
         self.soundIdentifier = soundIdentifier;
         self.letters = letters;
         self.coloredString = [self buildAttributedString];
-        self.stringSize = [self.letters sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize]}];
+        self.stringSize = [self.letters sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize]}];
     }
     return self;
 }
@@ -32,15 +32,16 @@
     Sound * currentSound = [[SoundLibrary sharedLibrary] soundLibrary][self.soundIdentifier];
     NSAttributedString * returnString;
     if(currentSound.hasSecondaryColor){
+        /////// boldSystemFontOfSize:FontSize]
         returnString = [[NSAttributedString alloc] initWithString:self.letters attributes:@{
-                        NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize],
+                        NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],
                         NSForegroundColorAttributeName:currentSound.soundColor,
                         NSStrokeWidthAttributeName:[NSNumber numberWithFloat:StrokeWidth],
                         NSStrokeColorAttributeName:currentSound.secondaryColor
                         }];
     } else {
         returnString = [[NSAttributedString alloc] initWithString:self.letters attributes:@{
-                        NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize],NSForegroundColorAttributeName:currentSound.soundColor}];
+                        NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],NSForegroundColorAttributeName:currentSound.soundColor}];
     }
     return returnString;
 }
@@ -48,7 +49,7 @@
 -(NSAttributedString *)buildEmptyAttributedString {
     NSAttributedString * returnString =
     [[NSAttributedString alloc] initWithString:self.letters attributes:@{
-                        NSFontAttributeName:[UIFont boldSystemFontOfSize:FontSize],
+                        NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],
                         NSForegroundColorAttributeName:[UIColor whiteColor],
                         NSStrokeWidthAttributeName:[NSNumber numberWithFloat:StrokeWidth],
                         NSStrokeColorAttributeName:[UIColor grayColor]}];
