@@ -166,6 +166,22 @@
 		99F46F411A1E928800379256 /* DragGameStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DragGameStoryboard.storyboard; path = ../DragGameStoryboard.storyboard; sourceTree = "<group>"; };
 		99F46F431A1EA5D700379256 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = ../Util.h; sourceTree = "<group>"; };
 		99F46F441A1EA5D700379256 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = ../Util.m; sourceTree = "<group>"; };
+		99F46F4A1A1FE40B00379256 /* bus.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bus.caf; sourceTree = "<group>"; };
+		99F46F4B1A1FE40B00379256 /* comma.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = comma.caf; sourceTree = "<group>"; };
+		99F46F4C1A1FE40B00379256 /* happy.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = happy.caf; sourceTree = "<group>"; };
+		99F46F4D1A1FE40B00379256 /* influence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = influence.caf; sourceTree = "<group>"; };
+		99F46F4E1A1FE40B00379256 /* merry.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = merry.caf; sourceTree = "<group>"; };
+		99F46F4F1A1FE40B00379256 /* mirror.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirror.caf; sourceTree = "<group>"; };
+		99F46F501A1FE40B00379256 /* mouse.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mouse.caf; sourceTree = "<group>"; };
+		99F46F511A1FE40B00379256 /* nurse.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nurse.caf; sourceTree = "<group>"; };
+		99F46F521A1FE40B00379256 /* page.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = page.caf; sourceTree = "<group>"; };
+		99F46F531A1FE40B00379256 /* price.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = price.caf; sourceTree = "<group>"; };
+		99F46F541A1FE40B00379256 /* sing.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sing.caf; sourceTree = "<group>"; };
+		99F46F551A1FE40B00379256 /* star.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = star.caf; sourceTree = "<group>"; };
+		99F46F561A1FE40B00379256 /* tour.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tour.caf; sourceTree = "<group>"; };
+		99F46F571A1FE40B00379256 /* vision.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = vision.caf; sourceTree = "<group>"; };
+		99F46F581A1FE40B00379256 /* water.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = water.caf; sourceTree = "<group>"; };
+		99F46F591A1FE40B00379256 /* you.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = you.caf; sourceTree = "<group>"; };
 		CA60EFFB1A1BE132001DC1D2 /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
 		CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game2Storyboard.storyboard; sourceTree = "<group>"; };
 		CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game2ViewController.h; sourceTree = "<group>"; };
@@ -364,6 +380,22 @@
 		99F46F201A1D8D5400379256 /* Words */ = {
 			isa = PBXGroup;
 			children = (
+				99F46F4A1A1FE40B00379256 /* bus.caf */,
+				99F46F4B1A1FE40B00379256 /* comma.caf */,
+				99F46F4C1A1FE40B00379256 /* happy.caf */,
+				99F46F4D1A1FE40B00379256 /* influence.caf */,
+				99F46F4E1A1FE40B00379256 /* merry.caf */,
+				99F46F4F1A1FE40B00379256 /* mirror.caf */,
+				99F46F501A1FE40B00379256 /* mouse.caf */,
+				99F46F511A1FE40B00379256 /* nurse.caf */,
+				99F46F521A1FE40B00379256 /* page.caf */,
+				99F46F531A1FE40B00379256 /* price.caf */,
+				99F46F541A1FE40B00379256 /* sing.caf */,
+				99F46F551A1FE40B00379256 /* star.caf */,
+				99F46F561A1FE40B00379256 /* tour.caf */,
+				99F46F571A1FE40B00379256 /* vision.caf */,
+				99F46F581A1FE40B00379256 /* water.caf */,
+				99F46F591A1FE40B00379256 /* you.caf */,
 				99F46F211A1D8D6100379256 /* book.caf */,
 				99F46F221A1D8D6100379256 /* choice.caf */,
 				99F46F231A1D8D6100379256 /* cough.caf */,
@@ -757,10 +789,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ReadInRainbow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -769,10 +803,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ReadInRainbow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

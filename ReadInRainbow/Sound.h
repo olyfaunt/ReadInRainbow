@@ -16,8 +16,10 @@
 @property (nonatomic, strong) UIColor * soundColor;
 @property (nonatomic, strong) UIColor * secondaryColor;
 @property (nonatomic, assign) BOOL hasSecondaryColor;
-@property (nonatomic, strong) NSString * identifier;
+@property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) AVAudioPlayer * audioPlayer;
+
+-(id)initWithPhoneme;
 
 +(instancetype)SoundWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor;
 -(instancetype)initWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor;
