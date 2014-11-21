@@ -16,5 +16,6 @@
 - (IBAction)goToMenu:(id)sender;
 - (IBAction)clickedColor:(id)sender;
 - (IBAction)playBack:(id)sender;
+- (IBAction)playWord:(id)sender;
 
 @end

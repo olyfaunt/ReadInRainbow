@@ -17,6 +17,7 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WordLibrary.h"
+#import "UIButton+setTag.h"
 
 @interface Game1ViewController ()
 
@@ -26,6 +27,7 @@
 @property (nonatomic) Word *currentWord;
 @property (nonatomic) Word *matchingWordToPlay;
 @property (nonatomic) NSDictionary *wordDictionary;
+@property (nonatomic) NSMutableArray *buttonsArray;
 
 @end
 
@@ -34,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.buttonsArray = [NSMutableArray new];
     self.matchingWordsArray = [NSMutableArray new];
     self.wordDictionary = [[WordLibrary sharedLibrary] wordLibrary];
     self.currentIndex = 0;
@@ -58,6 +61,10 @@
 */
 
 - (IBAction)playNext:(id)sender {
+    for (UIButton *button in self.buttonsArray) {
+        [button removeFromSuperview];
+    }
+    [self.buttonsArray removeAllObjects];
     if (self.currentIndex < self.soundsArray.count-1) {
         self.currentIndex += 1;
         self.currentSound = self.soundsArray[self.currentIndex];
@@ -72,6 +79,10 @@
 }
 
 - (IBAction)playBack:(id)sender {
+    for (UIButton *button in self.buttonsArray) {
+        [button removeFromSuperview];
+    }
+    [self.buttonsArray removeAllObjects];
     if (self.currentIndex > 0) {
         self.currentIndex -= 1;
         self.currentSound = self.soundsArray[self.currentIndex];
@@ -83,6 +94,10 @@
         [self changedColor];
         [self getArrayOfMatchingWords];
     }
+}
+
+- (IBAction)playWord:(id)sender {
+    [self.matchingWordToPlay playSound];
 }
 
 - (IBAction)goToMenu:(id)sender {
@@ -118,7 +133,34 @@
     int randomNumber = arc4random_uniform((u_int32_t)[self.matchingWordsArray count]);
     self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:randomNumber];
     NSLog(@"Current Sound: %@, Matching Word: %@ out of Array: %@", self.currentSound.identifier, self.matchingWordToPlay.identifier, self.matchingWordsArray);
-    
+    [self createButtonForWord:self.matchingWordToPlay];
 }
 
+/////////////////SPACING///////////////////////////////////////////////////
+////if SPACING between the words is needed, in ELSE, just add +Spacing after lastButton.frame.size.width/2, and in IF, change word.stringSize to word.spacedStringSize
+-(void) createButtonForWord:(Word*)word {
+    UIButton *lastButton;
+    for (Phoneme *phoneme in word.phonemeArray) {
+        UIButton *justMadeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [justMadeButton setTagString:phoneme.soundIdentifier];
+        [justMadeButton setAttributedTitle:[phoneme buildAttributedString] forState:UIControlStateNormal];
+        if (lastButton ==nil) {
+            //first button/phoneme of the word is placed at X half of the word's width leftwards from half of the screen's width (so the word is centered) - its Y is at half of the frame's height minus half of the phoneme's stringSize height
+            [justMadeButton setFrame:CGRectMake(self.view.frame.size.width/2-word.stringSize.width/2,self.view.frame.size.height/2-(phoneme.stringSize.height/2)-300,phoneme.stringSize.width, phoneme.stringSize.height)];
+        } else {
+            //each consecutive button after the first button is placed just after it
+            [justMadeButton setFrame:CGRectMake(lastButton.center.x+lastButton.frame.size.width/2,self.view.frame.size.height/2-(phoneme.stringSize.height/2)-300,phoneme.stringSize.width, phoneme.stringSize.height)];
+        }
+        [justMadeButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.buttonsArray addObject:justMadeButton];
+        [self.view addSubview:justMadeButton];
+        lastButton = justMadeButton;
+    }
+}
+
+-(void) buttonClicked:(UIButton*)sender {
+    NSString *idString = sender.tagString;
+    Sound *soundOfButton = [[SoundLibrary sharedLibrary] soundLibrary][idString];
+    [soundOfButton playSound];
+}
 @end
