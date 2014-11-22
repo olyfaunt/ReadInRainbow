@@ -11,6 +11,7 @@
 
 @interface Game1ViewController : UIViewController
 @property (nonatomic) NSArray *soundsArray;
+@property (weak, nonatomic) IBOutlet UIButton *playWordButton;
 @property (weak, nonatomic) IBOutlet ColorBlockView *colorView;
 - (IBAction)playNext:(id)sender;
 - (IBAction)goToMenu:(id)sender;

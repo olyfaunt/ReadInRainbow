@@ -114,6 +114,7 @@
                     </view>
                     <connections>
                         <outlet property="colorView" destination="P10-u3-Rrj" id="XNU-Oq-OT7"/>
+                        <outlet property="playWordButton" destination="uVd-ec-FaU" id="TMZ-XJ-1sl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjI-dB-pbz" userLabel="First Responder" sceneMemberID="firstResponder"/>

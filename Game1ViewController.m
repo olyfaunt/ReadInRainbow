@@ -41,6 +41,7 @@
     self.wordDictionary = [[WordLibrary sharedLibrary] wordLibrary];
     self.currentIndex = 0;
     self.currentSound = self.soundsArray[self.currentIndex];
+    self.playWordButton.hidden = YES;
     [self changedColor];
     [self getArrayOfMatchingWords];
 }
@@ -65,6 +66,7 @@
         [button removeFromSuperview];
     }
     [self.buttonsArray removeAllObjects];
+    self.playWordButton.hidden = YES;
     if (self.currentIndex < self.soundsArray.count-1) {
         self.currentIndex += 1;
         self.currentSound = self.soundsArray[self.currentIndex];
@@ -76,6 +78,11 @@
         [self changedColor];
         [self getArrayOfMatchingWords];
     }
+    
+    [UIView transitionWithView:self.view
+                      duration:0.5f
+                       options:UIViewAnimationOptionTransitionCurlUp
+                    animations:nil completion:nil];
 }
 
 - (IBAction)playBack:(id)sender {
@@ -83,6 +90,7 @@
         [button removeFromSuperview];
     }
     [self.buttonsArray removeAllObjects];
+    self.playWordButton.hidden = YES;
     if (self.currentIndex > 0) {
         self.currentIndex -= 1;
         self.currentSound = self.soundsArray[self.currentIndex];
@@ -94,6 +102,10 @@
         [self changedColor];
         [self getArrayOfMatchingWords];
     }
+    [UIView transitionWithView:self.view
+                      duration:0.5f
+                       options:UIViewAnimationOptionTransitionCurlDown
+                    animations:nil completion:nil];
 }
 
 - (IBAction)playWord:(id)sender {
@@ -107,6 +119,14 @@
 
 - (IBAction)clickedColor:(id)sender {
     [self.currentSound playSound];
+    self.playWordButton.alpha = 0;
+    self.playWordButton.hidden = NO;
+    [UIView transitionWithView:self.playWordButton duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.playWordButton.alpha = 1;
+                    }completion:nil];
+    
+    [self createButtonForWord:self.matchingWordToPlay];
 }
 
 -(void)changedColor {
@@ -133,7 +153,7 @@
     int randomNumber = arc4random_uniform((u_int32_t)[self.matchingWordsArray count]);
     self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:randomNumber];
     NSLog(@"Current Sound: %@, Matching Word: %@ out of Array: %@", self.currentSound.identifier, self.matchingWordToPlay.identifier, self.matchingWordsArray);
-    [self createButtonForWord:self.matchingWordToPlay];
+//    [self createButtonForWord:self.matchingWordToPlay]; MOVED FROM HERE TO CLICKED COLOR
 }
 
 /////////////////SPACING///////////////////////////////////////////////////
@@ -154,6 +174,14 @@
         [justMadeButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.buttonsArray addObject:justMadeButton];
         [self.view addSubview:justMadeButton];
+        justMadeButton.alpha = 0;
+        [UIView transitionWithView:justMadeButton
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionCurlUp
+                        animations:^{
+                            justMadeButton.alpha = 1;
+                        } completion:nil];
+        
         lastButton = justMadeButton;
     }
 }
