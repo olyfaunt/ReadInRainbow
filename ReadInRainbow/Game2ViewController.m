@@ -31,6 +31,7 @@
 @property (nonatomic, assign) int lives;
 @property (nonatomic, assign) int soundIndex;
 @property (nonatomic, assign) int soundIndexTwo;
+@property (nonatomic) UIVisualEffectView *blurEffectView;
 
 - (IBAction)answerOptionOnePressed:(id)sender;
 - (IBAction)answerOptionTwoPressed:(id)sender;
@@ -171,8 +172,15 @@
 }
 
 -(void)showGameOver {
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [self.blurEffectView setFrame:self.view.bounds];
+    [self.view addSubview:self.blurEffectView];
+    
     self.lives = 4;
     [self.gameOverButton setNeedsDisplay];
+    [self.view bringSubviewToFront:self.gameOverButton];
     self.gameOverButton.alpha = 0;
     self.gameOverButton.hidden = NO;
     [UIView transitionWithView:nil duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
@@ -180,6 +188,7 @@
     }completion:^(BOOL finished) {
         [self.gameOverButton setNeedsDisplay];
     }];
+    
 }
 
 -(void) setHeartImage {
@@ -261,6 +270,7 @@
 
 - (IBAction)gameOver:(id)sender {
     [self.gameOverPlayer stop];
+    [self.blurEffectView removeFromSuperview];
     self.gameOverButton.hidden = YES;
     [self setHeartImage];
     [self setUpSoundAndColorAndChoices];
