@@ -26,6 +26,6 @@
 
 +(instancetype)WordWithWordFileNamed:(NSString*)fileName andPhonemeArray:(NSArray*)phonemeArray;
 -(instancetype)initWithWordFileNamed:(NSString*)fileName andPhonemeArray:(NSArray*)phonemeArray;
--(void)playSound;
+//-(void)playSound;
 //- (instancetype)initWithPhonemeArray:(NSArray *)phonemeArray;
 @end

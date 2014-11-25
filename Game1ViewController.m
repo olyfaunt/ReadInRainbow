@@ -124,11 +124,6 @@
 
 - (IBAction)clickedColor:(id)sender {
     NSError *error;
-    
-//    if (self.soundPlayer) {
-//        [self.soundPlayer stop];
-//        
-//    }
     self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.currentSound.soundURL error:&error];
     self.soundPlayer.volume=1.0f;
     [self.soundPlayer prepareToPlay];
