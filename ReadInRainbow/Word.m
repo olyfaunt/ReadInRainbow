@@ -22,10 +22,10 @@
     self = [super init];
     
     if(self) {
-        NSURL *soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"]];
-        NSError * error;
-        self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
-        self.audioPlayer.volume=1.0f;
+        self.soundURL = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"]];
+//        NSError * error;
+//        self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
+//        self.audioPlayer.volume=1.0f;
         self.identifier = [fileName copy];
         // Needs logic to take the sound file and get the color for it, and also set a secondary color if there is one
         
@@ -53,11 +53,11 @@
     return self;
 }
 
--(void)playSound {
-    [self.audioPlayer prepareToPlay];
-    self.audioPlayer.numberOfLoops=0; //or more if needed
-    [self.audioPlayer play];
-}
+//-(void)playSound {
+//    [self.audioPlayer prepareToPlay];
+//    self.audioPlayer.numberOfLoops=0; //or more if needed
+//    [self.audioPlayer play];
+//}
 
 //-(instancetype)initWithPhonemeArray:(NSArray *)phonemeArray {
 //    self = [super init];

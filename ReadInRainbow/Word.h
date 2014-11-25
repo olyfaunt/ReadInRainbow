@@ -18,12 +18,14 @@
 @property (nonatomic, assign) int numberOfLetters;
 @property (nonatomic, assign) CGSize stringSize;
 @property (nonatomic, assign) CGSize spacedStringSize;
-@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+
+//@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSURL *soundURL;
 @property (nonatomic) BOOL isSpaced;
 
 +(instancetype)WordWithWordFileNamed:(NSString*)fileName andPhonemeArray:(NSArray*)phonemeArray;
 -(instancetype)initWithWordFileNamed:(NSString*)fileName andPhonemeArray:(NSArray*)phonemeArray;
--(void)playSound;
+//-(void)playSound;
 //- (instancetype)initWithPhonemeArray:(NSArray *)phonemeArray;
 @end

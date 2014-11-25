@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface Sound : NSObject
@@ -17,12 +17,13 @@
 @property (nonatomic, strong) UIColor * secondaryColor;
 @property (nonatomic, assign) BOOL hasSecondaryColor;
 @property (nonatomic, strong) NSString *identifier;
-@property (nonatomic, strong) AVAudioPlayer * audioPlayer;
+@property (nonatomic, strong) NSURL *soundURL;
+//@property (nonatomic, strong) AVAudioPlayer * audioPlayer;
 
--(id)initWithPhoneme;
+//-(id)initWithPhoneme;
 
 +(instancetype)SoundWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor;
 -(instancetype)initWithSoundFileNamed:(NSString *)fileName andFirstColor:(UIColor *)firstColor andSecondColor:(UIColor *)secondColor;
--(void)playSound;
+//-(void)playSound;
 
 @end

@@ -112,7 +112,12 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     if(collectionView == self.chartCollectionView)
     {
         Sound *sound = self.soundsArray[indexPath.row];
-        [sound playSound];
+        NSError *error;
+        self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:sound.soundURL error:&error];
+        self.soundPlayer.volume=1.0f;
+        [self.soundPlayer prepareToPlay];
+        self.soundPlayer.numberOfLoops=0; //or more if needed
+        [self.soundPlayer play];
     }
     else
     {

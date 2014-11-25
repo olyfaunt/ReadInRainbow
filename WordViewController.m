@@ -64,7 +64,12 @@
 -(void) buttonClicked:(UIButton*)sender {
     NSString *idString = sender.tagString;
     Sound *soundOfButton = [[SoundLibrary sharedLibrary] soundLibrary][idString];
-    [soundOfButton playSound];
+    NSError *error;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundOfButton.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,7 +125,12 @@
 }
 
 - (IBAction)playWord:(id)sender {
-    [self.currentWord playSound];
+    NSError *error;
+    self.wordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.currentWord.soundURL error:&error];
+    self.wordPlayer.volume=1.0f;
+    [self.wordPlayer prepareToPlay];
+    self.wordPlayer.numberOfLoops=0; //or more if needed
+    [self.wordPlayer play];
 }
 
 - (IBAction)changeTest:(id)sender {

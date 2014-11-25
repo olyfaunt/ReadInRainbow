@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 #import "Sound.h"
 
 @interface Phoneme : NSObject
@@ -19,6 +22,7 @@
 + (instancetype)phonemeWithLetters:(NSString *)letters andSoundIdentifier:(NSString *)soundIdentifier;
 - (instancetype)initWithLetters:(NSString *)letters andSoundIdentifier:(NSString *)soundIdentifier;
 
-- (NSAttributedString *)buildAttributedString;
+-(NSAttributedString *)buildAttributedString;
+-(NSAttributedString *)buildEmptyAttributedString;
 
 @end

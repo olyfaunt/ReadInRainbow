@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface WordViewController : UIViewController
 @property (nonatomic, strong) NSArray *soundsArray;
 @property (nonatomic) NSArray *wordsArray;
+@property (nonatomic) AVAudioPlayer *soundPlayer;
+@property (nonatomic) AVAudioPlayer *wordPlayer;
 - (IBAction)goToMenu:(id)sender;
 - (IBAction)backWord:(id)sender;
 - (IBAction)nextWord:(id)sender;

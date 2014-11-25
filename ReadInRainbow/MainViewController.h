@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GameCell.h"
 #import "ChartCell.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface MainViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -18,5 +20,6 @@
 @property (nonatomic) NSArray *soundsArray;
 @property (nonatomic, assign) int numberOfGames;
 @property (nonatomic) NSMutableArray *gameTitlesArray;
+@property (nonatomic) AVAudioPlayer *soundPlayer;
 @end
 

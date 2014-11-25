@@ -61,7 +61,7 @@
     self.hasCorrectAnswer = NO;
     self.nextQuestionButton.hidden = YES;
     self.soundIndex = arc4random_uniform((uint32_t)self.soundsArray.count);
-    Sound * correctSound = self.soundsArray[self.soundIndex];
+    Sound *correctSound = self.soundsArray[self.soundIndex];
     self.correctAnswerIdentifier = correctSound.identifier;
     int correctButton = arc4random_uniform(NumberOfButtons);
     switch(correctButton){
@@ -235,7 +235,14 @@
 }
 
 - (IBAction)playCurrentSound:(id)sender {
-    [[[SoundLibrary sharedLibrary] soundLibrary][self.correctAnswerIdentifier] playSound];
+    Sound *myCurrentSound = [[SoundLibrary sharedLibrary] soundLibrary][self.correctAnswerIdentifier];
+    NSError *error;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:myCurrentSound.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
+    
 }
 
 - (IBAction)nextButtonPressed:(id)sender {

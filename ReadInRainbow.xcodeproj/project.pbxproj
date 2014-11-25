@@ -21,6 +21,7 @@
 		99885C6F1A1A921A0043D837 /* ReadInRainbowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C6E1A1A921A0043D837 /* ReadInRainbowTests.m */; };
 		99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7C1A1AA95F0043D837 /* ChartCell.m */; };
 		99885C801A1AA9690043D837 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7F1A1AA9690043D837 /* GameCell.m */; };
+		99C696381A251694007517F1 /* DragColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C696371A251694007517F1 /* DragColorView.m */; };
 		99D594831A1C0D87001CFBED /* Game1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D594821A1C0D87001CFBED /* Game1ViewController.m */; };
 		99F46EDB1A1D251500379256 /* Game3Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F46EDA1A1D251500379256 /* Game3Storyboard.storyboard */; };
 		99F46EDE1A1D253300379256 /* Game3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46EDD1A1D253300379256 /* Game3ViewController.m */; };
@@ -93,6 +94,22 @@
 		99F46F401A1E927800379256 /* DragGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46F3F1A1E927800379256 /* DragGameViewController.m */; };
 		99F46F421A1E928800379256 /* DragGameStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F411A1E928800379256 /* DragGameStoryboard.storyboard */; };
 		99F46F451A1EA5D700379256 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46F441A1EA5D700379256 /* Util.m */; };
+		99F46F5A1A20063F00379256 /* bus.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F4A1A1FE40B00379256 /* bus.caf */; };
+		99F46F5B1A20064100379256 /* comma.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F4B1A1FE40B00379256 /* comma.caf */; };
+		99F46F5C1A20064300379256 /* happy.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F4C1A1FE40B00379256 /* happy.caf */; };
+		99F46F5D1A20064500379256 /* influence.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F4D1A1FE40B00379256 /* influence.caf */; };
+		99F46F5E1A20064700379256 /* merry.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F4E1A1FE40B00379256 /* merry.caf */; };
+		99F46F5F1A20064900379256 /* mirror.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F4F1A1FE40B00379256 /* mirror.caf */; };
+		99F46F601A20064B00379256 /* mouse.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F501A1FE40B00379256 /* mouse.caf */; };
+		99F46F611A20064D00379256 /* nurse.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F511A1FE40B00379256 /* nurse.caf */; };
+		99F46F621A20065000379256 /* page.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F521A1FE40B00379256 /* page.caf */; };
+		99F46F631A20065300379256 /* price.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F531A1FE40B00379256 /* price.caf */; };
+		99F46F641A20065500379256 /* sing.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F541A1FE40B00379256 /* sing.caf */; };
+		99F46F651A20065700379256 /* star.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F551A1FE40B00379256 /* star.caf */; };
+		99F46F661A20065900379256 /* tour.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F561A1FE40B00379256 /* tour.caf */; };
+		99F46F671A20065B00379256 /* vision.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F571A1FE40B00379256 /* vision.caf */; };
+		99F46F681A20065C00379256 /* water.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F581A1FE40B00379256 /* water.caf */; };
+		99F46F691A20065E00379256 /* you.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F591A1FE40B00379256 /* you.caf */; };
 		CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */; };
 		CA60F0001A1D21F9001DC1D2 /* Game2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */; };
 		CA60F0411A1FEFC0001DC1D2 /* HangmanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60F0401A1FEFC0001DC1D2 /* HangmanStoryboard.storyboard */; };
@@ -137,6 +154,8 @@
 		99885C7C1A1AA95F0043D837 /* ChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartCell.m; path = ../ChartCell.m; sourceTree = "<group>"; };
 		99885C7E1A1AA9690043D837 /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCell.h; path = ../GameCell.h; sourceTree = "<group>"; };
 		99885C7F1A1AA9690043D837 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCell.m; path = ../GameCell.m; sourceTree = "<group>"; };
+		99C696361A251694007517F1 /* DragColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragColorView.h; sourceTree = "<group>"; };
+		99C696371A251694007517F1 /* DragColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragColorView.m; sourceTree = "<group>"; };
 		99D594811A1C0D87001CFBED /* Game1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game1ViewController.h; path = ../Game1ViewController.h; sourceTree = "<group>"; };
 		99D594821A1C0D87001CFBED /* Game1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game1ViewController.m; path = ../Game1ViewController.m; sourceTree = "<group>"; };
 		99F46EDA1A1D251500379256 /* Game3Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game3Storyboard.storyboard; sourceTree = "<group>"; };
@@ -464,6 +483,8 @@
 				9915F4E61A1B0E15008A0354 /* ColorBlockView.m */,
 				99F46EE21A1D3E3000379256 /* UIButton+setTag.h */,
 				99F46EE31A1D3E3000379256 /* UIButton+setTag.m */,
+				99C696361A251694007517F1 /* DragColorView.h */,
+				99C696371A251694007517F1 /* DragColorView.m */,
 			);
 			name = "Cells and Views";
 			sourceTree = "<group>";
@@ -577,6 +598,7 @@
 				99F46F331A1D90ED00379256 /* egg.caf in Resources */,
 				99F46F151A1D658300379256 /* uh.caf in Resources */,
 				99885C5E1A1A921A0043D837 /* Main.storyboard in Resources */,
+				99F46F681A20065C00379256 /* water.caf in Resources */,
 				99F46EF81A1D651200379256 /* er.caf in Resources */,
 				99F46EFE1A1D654900379256 /* ih.caf in Resources */,
 				99F46F351A1D90F100379256 /* labs.caf in Resources */,
@@ -590,29 +612,39 @@
 				CA60F0411A1FEFC0001DC1D2 /* HangmanStoryboard.storyboard in Resources */,
 				99F46EF61A1D650C00379256 /* eh.caf in Resources */,
 				99F46F101A1D657600379256 /* sh.caf in Resources */,
+				99F46F5F1A20064900379256 /* mirror.caf in Resources */,
 				99F46EF31A1D650400379256 /* b.caf in Resources */,
+				99F46F601A20064B00379256 /* mouse.caf in Resources */,
 				99F46EFC1A1D652000379256 /* longa.caf in Resources */,
 				99F46EFD1A1D654700379256 /* h.caf in Resources */,
 				99F46F181A1D658900379256 /* w.caf in Resources */,
+				99F46F671A20065B00379256 /* vision.caf in Resources */,
 				99F46F091A1D656500379256 /* our.caf in Resources */,
+				99F46F651A20065700379256 /* star.caf in Resources */,
 				99F46F021A1D655500379256 /* longe.caf in Resources */,
 				99F46F371A1D90F500379256 /* north.caf in Resources */,
 				99F46F141A1D658100379256 /* thth.caf in Resources */,
 				99F46F1B1A1D658F00379256 /* yod.caf in Resources */,
 				99F46F031A1D655800379256 /* longi.caf in Resources */,
 				99F46F421A1E928800379256 /* DragGameStoryboard.storyboard in Resources */,
+				99F46F641A20065500379256 /* sing.caf in Resources */,
 				99F46F051A1D655D00379256 /* n.caf in Resources */,
 				99F46F0C1A1D656D00379256 /* r.caf in Resources */,
+				99F46F631A20065300379256 /* price.caf in Resources */,
 				99F46F121A1D657C00379256 /* th.caf in Resources */,
 				99F46EEE1A1D64E300379256 /* longo.caf in Resources */,
+				99F46F5C1A20064300379256 /* happy.caf in Resources */,
 				99F46EED1A1D5F2500379256 /* WordStoryboard.storyboard in Resources */,
 				99F46EF11A1D64FE00379256 /* ar.caf in Resources */,
 				99F46F361A1D90F300379256 /* lighthouse.caf in Resources */,
 				99F46F311A1D90E900379256 /* day.caf in Resources */,
+				99F46F5E1A20064700379256 /* merry.caf in Resources */,
+				99F46F5A1A20063F00379256 /* bus.caf in Resources */,
 				99F46F321A1D90EB00379256 /* demo.caf in Resources */,
 				99F46F061A1D655F00379256 /* ng.caf in Resources */,
 				99F46F0B1A1D656900379256 /* p.caf in Resources */,
 				CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */,
+				99F46F611A20064D00379256 /* nurse.caf in Resources */,
 				99F46EFF1A1D654B00379256 /* ir.caf in Resources */,
 				99F46EF01A1D64F900379256 /* ahh.caf in Resources */,
 				99F46F041A1D655B00379256 /* m.caf in Resources */,
@@ -620,6 +652,8 @@
 				99F46F381A1D90F700379256 /* shoe.caf in Resources */,
 				99885C601A1A921A0043D837 /* Images.xcassets in Resources */,
 				99F46F0E1A1D657200379256 /* schwa.caf in Resources */,
+				99F46F5D1A20064500379256 /* influence.caf in Resources */,
+				99F46F621A20065000379256 /* page.caf in Resources */,
 				99F46F341A1D90EF00379256 /* father.caf in Resources */,
 				99F46F011A1D655100379256 /* k.caf in Resources */,
 				99F46F081A1D656300379256 /* or.caf in Resources */,
@@ -627,11 +661,14 @@
 				99F46EF21A1D650100379256 /* au.caf in Resources */,
 				99F46F2F1A1D90E400379256 /* choice.caf in Resources */,
 				99F46F0A1A1D656700379256 /* oy.caf in Resources */,
+				99F46F661A20065900379256 /* tour.caf in Resources */,
 				99F46F1D1A1D659300379256 /* zh.caf in Resources */,
+				99F46F5B1A20064100379256 /* comma.caf in Resources */,
 				99F46F1C1A1D659100379256 /* z.caf in Resources */,
 				99F46F071A1D656100379256 /* oo.caf in Resources */,
 				99F46F0D1A1D656F00379256 /* s.caf in Resources */,
 				99F46F301A1D90E600379256 /* cough.caf in Resources */,
+				99F46F691A20065E00379256 /* you.caf in Resources */,
 				99F46F391A1D90F900379256 /* team.caf in Resources */,
 				99F46F131A1D657F00379256 /* th1.caf in Resources */,
 				99F46EF91A1D651500379256 /* euh.caf in Resources */,
@@ -658,6 +695,7 @@
 			files = (
 				CAE9A5BD1A1AD34400898AC3 /* Phoneme.m in Sources */,
 				99885C5B1A1A921A0043D837 /* MainViewController.m in Sources */,
+				99C696381A251694007517F1 /* DragColorView.m in Sources */,
 				9915F4E71A1B0E15008A0354 /* ColorBlockView.m in Sources */,
 				99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */,
 				99F46EE81A1D544600379256 /* WordLibrary.m in Sources */,
@@ -801,7 +839,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ReadInRainbow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -815,7 +853,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ReadInRainbow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
