@@ -15,6 +15,8 @@
 @property (nonatomic) NSArray *soundsArray;
 @property (weak, nonatomic) IBOutlet UIButton *playWordButton;
 @property (weak, nonatomic) IBOutlet ColorBlockView *colorView;
+@property (nonatomic) UIView *wordView;
+@property (assign) int currentWordIndex;
 
 @property (nonatomic) AVAudioPlayer *wordPlayer;
 @property (nonatomic) AVAudioPlayer *soundPlayer;

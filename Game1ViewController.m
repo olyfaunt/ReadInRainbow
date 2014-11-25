@@ -62,6 +62,7 @@
 */
 
 - (IBAction)playNext:(id)sender {
+    [self.wordView removeFromSuperview];
     for (UIButton *button in self.buttonsArray) {
         [button removeFromSuperview];
     }
@@ -86,6 +87,7 @@
 }
 
 - (IBAction)playBack:(id)sender {
+    [self.wordView removeFromSuperview];
     for (UIButton *button in self.buttonsArray) {
         [button removeFromSuperview];
     }
@@ -138,6 +140,7 @@
                     }completion:nil];
     
     [self createButtonForWord:self.matchingWordToPlay];
+    
 }
 
 -(void)changedColor {
@@ -161,8 +164,9 @@
             }
         }
     }
-    int randomNumber = arc4random_uniform((u_int32_t)[self.matchingWordsArray count]);
-    self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:randomNumber];
+//    int randomNumber = arc4random_uniform((u_int32_t)[self.matchingWordsArray count]);
+    self.currentWordIndex = 0;
+    self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:self.currentWordIndex];
     NSLog(@"Current Sound: %@, Matching Word: %@ out of Array: %@", self.currentSound.identifier, self.matchingWordToPlay.identifier, self.matchingWordsArray);
 //    [self createButtonForWord:self.matchingWordToPlay]; MOVED FROM HERE TO CLICKED COLOR
 }
@@ -170,6 +174,21 @@
 /////////////////SPACING///////////////////////////////////////////////////
 ////if SPACING between the words is needed, in ELSE, just add +Spacing after lastButton.frame.size.width/2, and in IF, change word.stringSize to word.spacedStringSize
 -(void) createButtonForWord:(Word*)word {
+    
+    self.wordView = [[UIView alloc] init]; /////////////////////////////////CREATE TRANSPARENT WORD VIEW
+    self.wordView.userInteractionEnabled = YES;
+    self.wordView.backgroundColor = [UIColor clearColor];
+    [self.wordView setFrame:CGRectMake(self.view.frame.size.width/2-self.matchingWordToPlay.stringSize.width/2, self.view.frame.size.height/2-(self.matchingWordToPlay.stringSize.height/2)-300, self.matchingWordToPlay.stringSize.width, self.matchingWordToPlay.stringSize.height)];
+    [self.view addSubview:self.wordView];
+    UISwipeGestureRecognizer *swipeGestureLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeftMethod)];
+    [swipeGestureLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    UISwipeGestureRecognizer *swipeGestureRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightMethod)];
+    [swipeGestureRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    [self.wordView addGestureRecognizer:swipeGestureLeft];
+    [self.wordView addGestureRecognizer:swipeGestureRight];
+    //add buttons as subview to wordView so swipe will get delegated down
+    
     UIButton *lastButton;
     for (Phoneme *phoneme in word.phonemeArray) {
         UIButton *justMadeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -177,14 +196,14 @@
         [justMadeButton setAttributedTitle:[phoneme buildAttributedString] forState:UIControlStateNormal];
         if (lastButton ==nil) {
             //first button/phoneme of the word is placed at X half of the word's width leftwards from half of the screen's width (so the word is centered) - its Y is at half of the frame's height minus half of the phoneme's stringSize height
-            [justMadeButton setFrame:CGRectMake(self.view.frame.size.width/2-word.stringSize.width/2,self.view.frame.size.height/2-(phoneme.stringSize.height/2)-300,phoneme.stringSize.width, phoneme.stringSize.height)];
+            [justMadeButton setFrame:CGRectMake(0,0,phoneme.stringSize.width, phoneme.stringSize.height)];
         } else {
             //each consecutive button after the first button is placed just after it
-            [justMadeButton setFrame:CGRectMake(lastButton.center.x+lastButton.frame.size.width/2,self.view.frame.size.height/2-(phoneme.stringSize.height/2)-300,phoneme.stringSize.width, phoneme.stringSize.height)];
+            [justMadeButton setFrame:CGRectMake(lastButton.center.x+lastButton.frame.size.width/2,0,phoneme.stringSize.width, phoneme.stringSize.height)];
         }
         [justMadeButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.buttonsArray addObject:justMadeButton];
-        [self.view addSubview:justMadeButton];
+        [self.wordView addSubview:justMadeButton];
         justMadeButton.alpha = 0;
         [UIView transitionWithView:justMadeButton
                           duration:0.5f
@@ -208,4 +227,41 @@
     [self.soundPlayer play];
 //    [soundOfButton playSound];
 }
+
+#pragma mark - Gesture Recognizer Methods
+
+-(void) swipeLeftMethod {
+    if (self.currentWordIndex < (int)self.matchingWordsArray.count-1) {
+        for (UIButton *button in self.buttonsArray) {
+            [button removeFromSuperview];
+        }
+        [self.buttonsArray removeAllObjects];
+        [self.wordView removeFromSuperview];
+        
+        self.currentWordIndex++;
+        self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:self.currentWordIndex];
+        [self createButtonForWord:self.matchingWordToPlay];
+    } else {
+        NSLog(@"No more words in matching Words Array!");
+    }
+    NSLog(@"word swiped!!");
+}
+
+-(void) swipeRightMethod {
+    if (self.currentWordIndex > 0) {
+        for (UIButton *button in self.buttonsArray) {
+            [button removeFromSuperview];
+        }
+        [self.buttonsArray removeAllObjects];
+        [self.wordView removeFromSuperview];
+        
+        self.currentWordIndex--;
+        self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:self.currentWordIndex];
+        [self createButtonForWord:self.matchingWordToPlay];
+    } else {
+        NSLog(@"No more words in matching Words Array!");
+    }
+    NSLog(@"word swiped!!");
+}
+
 @end
