@@ -21,6 +21,7 @@
 		99885C6F1A1A921A0043D837 /* ReadInRainbowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C6E1A1A921A0043D837 /* ReadInRainbowTests.m */; };
 		99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7C1A1AA95F0043D837 /* ChartCell.m */; };
 		99885C801A1AA9690043D837 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99885C7F1A1AA9690043D837 /* GameCell.m */; };
+		99C696381A251694007517F1 /* DragColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C696371A251694007517F1 /* DragColorView.m */; };
 		99D594831A1C0D87001CFBED /* Game1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D594821A1C0D87001CFBED /* Game1ViewController.m */; };
 		99F46EDB1A1D251500379256 /* Game3Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F46EDA1A1D251500379256 /* Game3Storyboard.storyboard */; };
 		99F46EDE1A1D253300379256 /* Game3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F46EDD1A1D253300379256 /* Game3ViewController.m */; };
@@ -151,6 +152,8 @@
 		99885C7C1A1AA95F0043D837 /* ChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartCell.m; path = ../ChartCell.m; sourceTree = "<group>"; };
 		99885C7E1A1AA9690043D837 /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCell.h; path = ../GameCell.h; sourceTree = "<group>"; };
 		99885C7F1A1AA9690043D837 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCell.m; path = ../GameCell.m; sourceTree = "<group>"; };
+		99C696361A251694007517F1 /* DragColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragColorView.h; sourceTree = "<group>"; };
+		99C696371A251694007517F1 /* DragColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragColorView.m; sourceTree = "<group>"; };
 		99D594811A1C0D87001CFBED /* Game1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game1ViewController.h; path = ../Game1ViewController.h; sourceTree = "<group>"; };
 		99D594821A1C0D87001CFBED /* Game1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game1ViewController.m; path = ../Game1ViewController.m; sourceTree = "<group>"; };
 		99F46EDA1A1D251500379256 /* Game3Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game3Storyboard.storyboard; sourceTree = "<group>"; };
@@ -472,6 +475,8 @@
 				9915F4E61A1B0E15008A0354 /* ColorBlockView.m */,
 				99F46EE21A1D3E3000379256 /* UIButton+setTag.h */,
 				99F46EE31A1D3E3000379256 /* UIButton+setTag.m */,
+				99C696361A251694007517F1 /* DragColorView.h */,
+				99C696371A251694007517F1 /* DragColorView.m */,
 			);
 			name = "Cells and Views";
 			sourceTree = "<group>";
@@ -681,6 +686,7 @@
 			files = (
 				CAE9A5BD1A1AD34400898AC3 /* Phoneme.m in Sources */,
 				99885C5B1A1A921A0043D837 /* MainViewController.m in Sources */,
+				99C696381A251694007517F1 /* DragColorView.m in Sources */,
 				9915F4E71A1B0E15008A0354 /* ColorBlockView.m in Sources */,
 				99885C7D1A1AA95F0043D837 /* ChartCell.m in Sources */,
 				99F46EE81A1D544600379256 /* WordLibrary.m in Sources */,

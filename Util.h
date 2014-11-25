@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 ajek. All rights reserved.
 //
 
+//to add: k in front of Constants
 static const int FontSize = 115;
 static const int Spacing = 30;
 static const float StrokeWidth = -6.0;

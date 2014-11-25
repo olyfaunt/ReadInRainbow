@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DragColorView.h"
 
-@interface DragGameViewController : UIViewController
+@interface DragGameViewController : UIViewController <DragColorViewDragDelegateProtocol>
 
 @end

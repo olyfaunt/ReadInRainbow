@@ -125,7 +125,12 @@
 }
 
 - (IBAction)playWord:(id)sender {
-    [self.currentWord playSound];
+    NSError *error;
+    self.wordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.currentWord.soundURL error:&error];
+    self.wordPlayer.volume=1.0f;
+    [self.wordPlayer prepareToPlay];
+    self.wordPlayer.numberOfLoops=0; //or more if needed
+    [self.wordPlayer play];
 }
 
 - (IBAction)changeTest:(id)sender {

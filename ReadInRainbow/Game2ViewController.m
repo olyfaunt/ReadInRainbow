@@ -61,7 +61,7 @@
     self.hasCorrectAnswer = NO;
     self.nextQuestionButton.hidden = YES;
     self.soundIndex = arc4random_uniform((uint32_t)self.soundsArray.count);
-    Sound * correctSound = self.soundsArray[self.soundIndex];
+    Sound *correctSound = self.soundsArray[self.soundIndex];
     self.correctAnswerIdentifier = correctSound.identifier;
     int correctButton = arc4random_uniform(NumberOfButtons);
     switch(correctButton){
