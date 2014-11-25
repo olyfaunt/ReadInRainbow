@@ -49,7 +49,7 @@
     self.livesImageView.image = [UIImage imageNamed:@"heart4"];
     self.lives = 4;
     self.gameOverButton.hidden = YES;
-    
+    [self setUpGameSounds];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,6 +196,7 @@
 }
 
 -(void) showSmileyFace {
+    [self.winPlayer play];
     self.hasCorrectAnswer = YES;
     UIImage *smileImage = [UIImage imageNamed:@"smiling36"];
     [UIView transitionWithView:self.isCorrectImageView
@@ -214,7 +215,6 @@
     }completion:^(BOOL finished) {
         [self.nextQuestionButton setNeedsDisplay];
     }];
-
 }
 
 -(void) showSadFace {
@@ -230,7 +230,10 @@
     self.lives--;
     [self setHeartImage];
     if(self.lives == 0){
+        [self.gameOverPlayer play];
         [self showGameOver];
+    } else {
+        [self.losePlayer play];
     }
 }
 
@@ -257,8 +260,28 @@
 }
 
 - (IBAction)gameOver:(id)sender {
+    [self.gameOverPlayer stop];
     self.gameOverButton.hidden = YES;
     [self setHeartImage];
     [self setUpSoundAndColorAndChoices];
 }
+
+-(void)setUpGameSounds {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"GameOver" withExtension:@"wav"];
+    self.gameOverPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    self.gameOverPlayer.numberOfLoops = 0;
+    [self.gameOverPlayer prepareToPlay];
+    
+    NSURL *url2 = [[NSBundle mainBundle] URLForResource:@"Lose" withExtension:@"wav"];
+    self.losePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url2 error:nil];
+    self.losePlayer.numberOfLoops = 0;
+    [self.losePlayer prepareToPlay];
+    
+    NSURL *url3 = [[NSBundle mainBundle] URLForResource:@"Win" withExtension:@"wav"];
+    self.winPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url3 error:nil];
+    self.winPlayer.numberOfLoops = 0;
+    [self.winPlayer prepareToPlay];
+    
+}
+
 @end

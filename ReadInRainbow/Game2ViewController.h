@@ -18,5 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *gameOverButton;
 //@property (nonatomic) AVAudioPlayer *wordPlayer;
 @property (nonatomic) AVAudioPlayer *soundPlayer;
+@property (nonatomic) AVAudioPlayer *winPlayer;
+@property (nonatomic) AVAudioPlayer *losePlayer;
+@property (nonatomic) AVAudioPlayer *gameOverPlayer;
 
 @end

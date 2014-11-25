@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9915F4E71A1B0E15008A0354 /* ColorBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9915F4E61A1B0E15008A0354 /* ColorBlockView.m */; };
+		9916828D1A25345600336AB1 /* GameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9916828A1A25345600336AB1 /* GameOver.wav */; };
+		9916828E1A25345600336AB1 /* Lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9916828B1A25345600336AB1 /* Lose.wav */; };
+		9916828F1A25345600336AB1 /* Win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9916828C1A25345600336AB1 /* Win.wav */; };
 		996600451A1AEBFB00A52F0C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996600441A1AEBFB00A52F0C /* AudioToolbox.framework */; };
 		996600471A1AEC1800A52F0C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996600461A1AEC1800A52F0C /* AVFoundation.framework */; };
 		996600491A1AEC2300A52F0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996600481A1AEC2300A52F0C /* UIKit.framework */; };
@@ -131,6 +134,9 @@
 /* Begin PBXFileReference section */
 		9915F4E51A1B0E15008A0354 /* ColorBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorBlockView.h; path = ../ColorBlockView.h; sourceTree = "<group>"; };
 		9915F4E61A1B0E15008A0354 /* ColorBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorBlockView.m; path = ../ColorBlockView.m; sourceTree = "<group>"; };
+		9916828A1A25345600336AB1 /* GameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameOver.wav; sourceTree = "<group>"; };
+		9916828B1A25345600336AB1 /* Lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Lose.wav; sourceTree = "<group>"; };
+		9916828C1A25345600336AB1 /* Win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Win.wav; sourceTree = "<group>"; };
 		996600441A1AEBFB00A52F0C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		996600461A1AEC1800A52F0C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		996600481A1AEC2300A52F0C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -284,6 +290,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		991682891A25344D00336AB1 /* GameSounds */ = {
+			isa = PBXGroup;
+			children = (
+				9916828A1A25345600336AB1 /* GameOver.wav */,
+				9916828B1A25345600336AB1 /* Lose.wav */,
+				9916828C1A25345600336AB1 /* Win.wav */,
+			);
+			name = GameSounds;
+			sourceTree = "<group>";
+		};
 		99885C461A1A921A0043D837 = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +340,7 @@
 		99885C521A1A921A0043D837 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				991682891A25344D00336AB1 /* GameSounds */,
 				99F46F201A1D8D5400379256 /* Words */,
 				CAD608DC1A1BD57100D2E16C /* ah.caf */,
 				CAD608DD1A1BD57100D2E16C /* ahh.caf */,
@@ -631,6 +648,7 @@
 				99F46F311A1D90E900379256 /* day.caf in Resources */,
 				99F46F5E1A20064700379256 /* merry.caf in Resources */,
 				99F46F5A1A20063F00379256 /* bus.caf in Resources */,
+				9916828F1A25345600336AB1 /* Win.wav in Resources */,
 				99F46F321A1D90EB00379256 /* demo.caf in Resources */,
 				99F46F061A1D655F00379256 /* ng.caf in Resources */,
 				99F46F0B1A1D656900379256 /* p.caf in Resources */,
@@ -644,6 +662,7 @@
 				99885C601A1A921A0043D837 /* Images.xcassets in Resources */,
 				99F46F0E1A1D657200379256 /* schwa.caf in Resources */,
 				99F46F5D1A20064500379256 /* influence.caf in Resources */,
+				9916828D1A25345600336AB1 /* GameOver.wav in Resources */,
 				99F46F621A20065000379256 /* page.caf in Resources */,
 				99F46F341A1D90EF00379256 /* father.caf in Resources */,
 				99F46F011A1D655100379256 /* k.caf in Resources */,
@@ -663,6 +682,7 @@
 				99F46F391A1D90F900379256 /* team.caf in Resources */,
 				99F46F131A1D657F00379256 /* th1.caf in Resources */,
 				99F46EF91A1D651500379256 /* euh.caf in Resources */,
+				9916828E1A25345600336AB1 /* Lose.wav in Resources */,
 				99F46F1A1A1D658D00379256 /* weaku.caf in Resources */,
 				99F46EEF1A1D64E800379256 /* ah.caf in Resources */,
 				99F46EF71A1D650E00379256 /* el.caf in Resources */,
