@@ -235,7 +235,14 @@
 }
 
 - (IBAction)playCurrentSound:(id)sender {
-    [[[SoundLibrary sharedLibrary] soundLibrary][self.correctAnswerIdentifier] playSound];
+    Sound *myCurrentSound = [[SoundLibrary sharedLibrary] soundLibrary][self.correctAnswerIdentifier];
+    NSError *error;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:myCurrentSound.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
+    
 }
 
 - (IBAction)nextButtonPressed:(id)sender {

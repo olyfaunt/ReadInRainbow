@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "ColorBlockView.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface Game1ViewController : UIViewController
 @property (nonatomic) NSArray *soundsArray;
 @property (weak, nonatomic) IBOutlet UIButton *playWordButton;
 @property (weak, nonatomic) IBOutlet ColorBlockView *colorView;
+
+@property (nonatomic) AVAudioPlayer *wordPlayer;
+@property (nonatomic) AVAudioPlayer *soundPlayer;
+
 - (IBAction)playNext:(id)sender;
 - (IBAction)goToMenu:(id)sender;
 - (IBAction)clickedColor:(id)sender;

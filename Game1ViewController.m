@@ -109,7 +109,12 @@
 }
 
 - (IBAction)playWord:(id)sender {
-    [self.matchingWordToPlay playSound];
+    NSError *error;
+    self.wordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.matchingWordToPlay.soundURL error:&error];
+    self.wordPlayer.volume=1.0f;
+    [self.wordPlayer prepareToPlay];
+    self.wordPlayer.numberOfLoops=0; //or more if needed
+    [self.wordPlayer play];
 }
 
 - (IBAction)goToMenu:(id)sender {
@@ -118,7 +123,18 @@
 }
 
 - (IBAction)clickedColor:(id)sender {
-    [self.currentSound playSound];
+    NSError *error;
+    
+//    if (self.soundPlayer) {
+//        [self.soundPlayer stop];
+//        
+//    }
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.currentSound.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
+
     self.playWordButton.alpha = 0;
     self.playWordButton.hidden = NO;
     [UIView transitionWithView:self.playWordButton duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve
@@ -189,6 +205,12 @@
 -(void) buttonClicked:(UIButton*)sender {
     NSString *idString = sender.tagString;
     Sound *soundOfButton = [[SoundLibrary sharedLibrary] soundLibrary][idString];
-    [soundOfButton playSound];
+    NSError *error;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundOfButton.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
+//    [soundOfButton playSound];
 }
 @end

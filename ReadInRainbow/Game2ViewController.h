@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface Game2ViewController : UIViewController
 
@@ -14,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *livesImageView;
 - (IBAction)gameOver:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *gameOverButton;
+//@property (nonatomic) AVAudioPlayer *wordPlayer;
+@property (nonatomic) AVAudioPlayer *soundPlayer;
 
 @end

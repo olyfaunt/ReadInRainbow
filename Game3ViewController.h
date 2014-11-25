@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface Game3ViewController : UIViewController
 
 @property (nonatomic, strong) NSArray *soundsArray;
+@property (nonatomic) AVAudioPlayer *soundPlayer;
 - (IBAction)goToMenu:(id)sender;
 
 @end
