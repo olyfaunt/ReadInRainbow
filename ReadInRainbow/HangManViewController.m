@@ -34,7 +34,7 @@ const int numberOfLives = 8;
 @property (nonatomic, assign) int lives;
 @property (nonatomic) AVAudioPlayer *soundPlayer;
 @property (weak, nonatomic) IBOutlet UIButton *nextWordButton;
-
+@property (assign) int NumberOfChoices;
 @property (nonatomic, assign) int placeInPhonemeArray;
 
 - (IBAction)newGamePressed:(id)sender;
@@ -99,27 +99,29 @@ const int numberOfLives = 8;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return numberOfChoices;
+    return self.NumberOfChoices;
 }
 
 - (void)makeOptionsForCollectionView {
-    NSMutableArray * sourceArray = [[[[SoundLibrary sharedLibrary] soundLibrary] allValues] mutableCopy];
-    NSMutableArray * shufflingArray = [[NSMutableArray alloc] init];
-    for(Phoneme * currentPhoneme in self.currentWord.phonemeArray){
-        Sound * currentSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:currentPhoneme.soundIdentifier];
+    NSMutableArray *sourceArray = [[[[SoundLibrary sharedLibrary] soundLibrary] allValues] mutableCopy];
+    NSMutableArray *shufflingArray = [[NSMutableArray alloc] init];
+    for(Phoneme *currentPhoneme in self.currentWord.phonemeArray){
+        Sound *currentSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:currentPhoneme.soundIdentifier];
         [sourceArray removeObject:currentSound];
         [shufflingArray addObject:currentSound];
     }
-    int numberOfObjectsToAdd = numberOfChoices - shufflingArray.count;
+//    int numberOfObjectsToAdd = (u_int32_t)(numberOfChoices - shufflingArray.count);
+    int numberOfObjectsToAdd = 2;
+    self.NumberOfChoices = (u_int32_t)(numberOfObjectsToAdd + shufflingArray.count);
     for(int i=0;i<numberOfObjectsToAdd;i++){
-        int targetValue = arc4random_uniform(sourceArray.count);
+        int targetValue = arc4random_uniform((u_int32_t)sourceArray.count);
         [shufflingArray addObject:sourceArray[targetValue]];
         [sourceArray removeObjectAtIndex:targetValue];
     }
     NSUInteger count = [shufflingArray count];
     for (NSUInteger i = 0; i < count; ++i) {
         NSInteger remainingCount = count - i;
-        NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
+        NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
         [shufflingArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
     self.collectionViewOptions = shufflingArray;
@@ -135,7 +137,7 @@ const int numberOfLives = 8;
     } else {
         newCell.colourView.secondColor = nil;
     }
-    [newCell setNeedsDisplay];
+    [newCell.colourView setNeedsDisplay]; // may or may not be the problem
     return newCell;
 }
 
@@ -219,7 +221,7 @@ const int numberOfLives = 8;
 
 - (void)generateAndDisplayWord {
     NSArray * wordArray = [[[WordLibrary sharedLibrary] wordLibrary] allValues];
-    self.currentWord = wordArray[arc4random_uniform(wordArray.count)];
+    self.currentWord = wordArray[arc4random_uniform((u_int32_t)wordArray.count)];
     [self createButtonForWord:self.currentWord];
 }
 
