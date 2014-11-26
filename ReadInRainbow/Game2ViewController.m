@@ -47,10 +47,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpSoundAndColorAndChoices];
+    [self setUpGameSounds];
+    [self setUpBlurView];
     self.livesImageView.image = [UIImage imageNamed:@"heart4"];
     self.lives = 4;
     self.gameOverButton.hidden = YES;
-    [self setUpGameSounds];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -172,10 +173,6 @@
 }
 
 -(void)showGameOver {
-    
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    [self.blurEffectView setFrame:self.view.bounds];
     [self.view addSubview:self.blurEffectView];
     
     self.lives = 4;
@@ -292,6 +289,12 @@
     self.winPlayer.numberOfLoops = 0;
     [self.winPlayer prepareToPlay];
     
+}
+
+-(void)setUpBlurView {
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [self.blurEffectView setFrame:self.view.bounds];
 }
 
 @end
