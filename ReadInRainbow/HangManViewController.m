@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 ajek. All rights reserved.
 //
 
-#import "HangManViewController.h"
+#import "HangmanViewController.h"
 #import "Word.h"
 #import "Phoneme.h"
 #import "UIButton+setTag.h"
@@ -20,7 +20,7 @@
 const int numberOfChoices = 47; //number of sounds
 const int numberOfLives = 8;
 
-@interface HangManViewController ()
+@interface HangmanViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *heart1;
 @property (weak, nonatomic) IBOutlet UIImageView *heart2;
@@ -32,16 +32,19 @@ const int numberOfLives = 8;
 @property (nonatomic, strong) Word * currentWord;
 @property (nonatomic, strong) NSArray * collectionViewOptions;
 @property (nonatomic, assign) int lives;
+@property (nonatomic) AVAudioPlayer *soundPlayer;
 
 - (IBAction)newGamePressed:(id)sender;
+- (IBAction)playWordPressed:(id)sender;
 
 @end
 
-@implementation HangManViewController
+@implementation HangmanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.buttonsArray = [[NSMutableArray alloc] init];
     [self setUpAndGetReadyToPlay];
     [self setUpCollectionView];
 }
@@ -93,7 +96,7 @@ const int numberOfLives = 8;
 }
 
 - (void)makeOptionsForCollectionView {
-    NSMutableArray * shufflingArray = [self.collectionViewOptions mutableCopy];
+    NSMutableArray * shufflingArray = [[[[SoundLibrary sharedLibrary] soundLibrary] allValues] mutableCopy];
     NSUInteger count = [shufflingArray count];
     for (NSUInteger i = 0; i < count; ++i) {
         NSInteger remainingCount = count - i;
@@ -112,6 +115,7 @@ const int numberOfLives = 8;
     } else {
         newCell.colourView.secondColor = nil;
     }
+    [newCell setNeedsDisplay];
     return newCell;
 }
 
@@ -139,14 +143,14 @@ const int numberOfLives = 8;
             NSAttributedString * attributedTitle;
             if(sound.hasSecondaryColor){
                 /////// boldSystemFontOfSize:FontSize]
-                attributedTitle = [[NSAttributedString alloc] initWithString:currentButton.tagString attributes:@{
+                attributedTitle = [[NSAttributedString alloc] initWithString:currentButton.titleLabel.text attributes:@{
                                                                                                     NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],
                                                                                                     NSForegroundColorAttributeName:sound.soundColor,
                                                                                                     NSStrokeWidthAttributeName:[NSNumber numberWithFloat:StrokeWidth],
                                                                                                     NSStrokeColorAttributeName:sound.secondaryColor
                                                                                                     }];
             } else {
-                attributedTitle = [[NSAttributedString alloc] initWithString:currentButton.tagString attributes:@{
+                attributedTitle = [[NSAttributedString alloc] initWithString:currentButton.titleLabel.text attributes:@{
                                                                                                     NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],NSForegroundColorAttributeName:sound.soundColor}];
             }
             
@@ -157,9 +161,8 @@ const int numberOfLives = 8;
 }
 
 -(void)loseOneLife {
-    if(self.lives > 1){
-        [self setLivesWithDisplay:(self.lives - 1)];
-    } else {
+    [self setLivesWithDisplay:(self.lives - 1)];
+    if(self.lives == 0){
         [self gameOver];
     }
 }
@@ -176,7 +179,7 @@ const int numberOfLives = 8;
 }
 
 - (void)generateAndDisplayWord {
-    NSArray * wordArray = [[WordLibrary sharedLibrary] allValues];
+    NSArray * wordArray = [[[WordLibrary sharedLibrary] wordLibrary] allValues];
     self.currentWord = wordArray[arc4random_uniform(wordArray.count)];
     [self createButtonForWord:self.currentWord];
 }
@@ -186,7 +189,9 @@ const int numberOfLives = 8;
     for (Phoneme *phoneme in word.phonemeArray) {
         UIButton *justMadeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [justMadeButton setTagString:phoneme.soundIdentifier];
-        [justMadeButton setTitle:phoneme.letters forState:UIControlStateNormal];
+        NSAttributedString * attributedTitle = [[NSAttributedString alloc] initWithString:phoneme.letters attributes:@{
+                                                                                                                       NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize]}];
+        [justMadeButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
         if (lastButton ==nil) {
             //first button/phoneme of the word is placed at X half of the word's width leftwards from half of the screen's width (so the word is centered) - its Y is at half of the frame's height minus half of the phoneme's stringSize height
             [justMadeButton setFrame:CGRectMake(self.view.frame.size.width/2-word.stringSize.width/2,self.view.frame.size.height/2-(phoneme.stringSize.height/2),phoneme.stringSize.width, phoneme.stringSize.height)];
@@ -203,7 +208,35 @@ const int numberOfLives = 8;
 
 - (IBAction)newGamePressed:(id)sender {
     self.gameOverButton.hidden = YES;
+    [self removeWordButtons];
     [self setUpAndGetReadyToPlay];
+}
+
+- (IBAction)playWordPressed:(id)sender {
+    NSError * error = nil;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.currentWord.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
+}
+
+- (void)removeWordButtons {
+    for(UIButton * currentButton in self.buttonsArray){
+        [currentButton removeFromSuperview];
+        
+    }
+    [self.buttonsArray removeAllObjects];
+}
+
+- (void)buttonClicked:(UIButton *)sender {
+    Sound * theSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:sender.tagString];
+    NSError * error = nil;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:theSound.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
 }
 
 @end

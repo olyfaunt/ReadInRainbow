@@ -20,6 +20,7 @@
 #import "Game3ViewController.h"
 #import "WordViewController.h"
 #import "Util.h"
+#import "HangmanViewController.h"
 
 @interface MainViewController ()
 
@@ -152,6 +153,13 @@ static NSString * const reuseIdentifier2 = @"GameCell";
                 wordVC.soundsArray = self.soundsArray;
                 AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
                 appDelegateTemp.window.rootViewController = wordVC;
+                break;
+            }
+            case 4:
+            {
+                HangmanViewController * hangVC = [[UIStoryboard storyboardWithName:@"HangmanStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"HangmanViewController"];
+                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+                appDelegateTemp.window.rootViewController = hangVC;
                 break;
             }
             default:

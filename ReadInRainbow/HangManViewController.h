@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HangManViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface HangmanViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
