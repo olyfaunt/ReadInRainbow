@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -32,10 +34,10 @@
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FiN-g9-cAa">
-                                <rect key="frame" x="20" y="607" width="728" height="397"/>
+                                <rect key="frame" x="20" y="624" width="728" height="250"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="397" id="tM6-Df-n5k"/>
+                                    <constraint firstAttribute="height" constant="250" id="tM6-Df-n5k"/>
                                     <constraint firstAttribute="width" constant="728" id="tO9-SM-xdG"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="whk-eL-LaY">
@@ -52,7 +54,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="168" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4VV-sG-Ltz" customClass="ColorBlockView">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4VV-sG-Ltz" customClass="ColorBlockView">
                                                     <rect key="frame" x="0.0" y="0.0" width="168" height="58"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </view>
@@ -60,6 +62,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="4VV-sG-Ltz" firstAttribute="top" secondItem="DaN-mf-fyO" secondAttribute="top" id="J2A-Jx-WZd"/>
+                                            <constraint firstItem="4VV-sG-Ltz" firstAttribute="leading" secondItem="DaN-mf-fyO" secondAttribute="leading" id="JQg-7S-Ikq"/>
+                                            <constraint firstAttribute="trailing" secondItem="4VV-sG-Ltz" secondAttribute="trailing" id="Je0-95-3yP"/>
+                                            <constraint firstAttribute="bottom" secondItem="4VV-sG-Ltz" secondAttribute="bottom" id="VeW-8o-DmJ"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="colourView" destination="4VV-sG-Ltz" id="s5j-UI-fb8"/>
                                         </connections>
@@ -79,7 +87,7 @@
                                     <action selector="newGamePressed:" destination="a74-UZ-Iky" eventType="touchUpInside" id="MZE-cI-chw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sA3-Ob-jfP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sA3-Ob-jfP">
                                 <rect key="frame" x="334" y="194" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="6ts-sf-qOZ"/>
@@ -92,8 +100,8 @@
                                     <action selector="playWordPressed:" destination="a74-UZ-Iky" eventType="touchUpInside" id="WID-wi-Yd3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8p-gz-rlJ">
-                                <rect key="frame" x="644" y="474" width="40" height="75"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8p-gz-rlJ">
+                                <rect key="frame" x="644" y="529" width="40" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="MY8-CL-wcR"/>
                                     <constraint firstAttribute="height" constant="75" id="urp-dB-aYA"/>
@@ -105,14 +113,34 @@
                                     <action selector="nextWordButtonPressed:" destination="a74-UZ-Iky" eventType="touchUpInside" id="081-zG-ZVm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTV-Y7-wNp">
+                                <rect key="frame" x="40" y="904" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="QqQ-9F-pJk"/>
+                                    <constraint firstAttribute="height" constant="100" id="dT6-qc-haT"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="menu2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToMenu:" destination="a74-UZ-Iky" eventType="touchUpInside" id="W9N-v5-IlH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="z8p-gz-rlJ" firstAttribute="trailing" secondItem="QWJ-N5-NzC" secondAttribute="trailing" id="0Hn-1L-ltk"/>
                             <constraint firstItem="Nhp-iQ-p7S" firstAttribute="top" secondItem="Rwa-pJ-u42" secondAttribute="bottom" id="0gm-Ct-eZQ"/>
-                            <constraint firstItem="uvb-XF-rtK" firstAttribute="top" secondItem="FiN-g9-cAa" secondAttribute="bottom" constant="20" id="FaH-SD-CcG"/>
+                            <constraint firstItem="sA3-Ob-jfP" firstAttribute="firstBaseline" secondItem="QWJ-N5-NzC" secondAttribute="baseline" id="B49-KC-tbv"/>
+                            <constraint firstItem="uvb-XF-rtK" firstAttribute="top" secondItem="FiN-g9-cAa" secondAttribute="bottom" constant="150" id="FaH-SD-CcG"/>
+                            <constraint firstItem="sA3-Ob-jfP" firstAttribute="centerX" secondItem="QWJ-N5-NzC" secondAttribute="centerX" id="Fjq-oi-tsM"/>
                             <constraint firstAttribute="centerY" secondItem="QWJ-N5-NzC" secondAttribute="centerY" id="RBm-b9-S3q"/>
+                            <constraint firstItem="FiN-g9-cAa" firstAttribute="top" secondItem="z8p-gz-rlJ" secondAttribute="bottom" constant="20" id="SLR-Gz-UTQ"/>
                             <constraint firstItem="Nhp-iQ-p7S" firstAttribute="leading" secondItem="eQo-EK-JH7" secondAttribute="trailing" constant="8" id="aBo-gd-6y5"/>
                             <constraint firstItem="eQo-EK-JH7" firstAttribute="top" secondItem="Rwa-pJ-u42" secondAttribute="bottom" id="bEV-8v-s0r"/>
+                            <constraint firstItem="FTV-Y7-wNp" firstAttribute="leading" secondItem="Jbj-tJ-heB" secondAttribute="leadingMargin" constant="20" id="dnz-L6-kCv"/>
+                            <constraint firstItem="sA3-Ob-jfP" firstAttribute="top" secondItem="Rwa-pJ-u42" secondAttribute="bottom" constant="174" id="g3u-6r-Hoq"/>
+                            <constraint firstItem="uvb-XF-rtK" firstAttribute="top" secondItem="FTV-Y7-wNp" secondAttribute="bottom" constant="20" id="gTo-wd-3Ju"/>
                             <constraint firstAttribute="centerX" secondItem="QWJ-N5-NzC" secondAttribute="centerX" id="n9s-LU-fse"/>
                             <constraint firstItem="eQo-EK-JH7" firstAttribute="leading" secondItem="Jbj-tJ-heB" secondAttribute="leadingMargin" id="ptj-Mn-KZi"/>
                             <constraint firstItem="FiN-g9-cAa" firstAttribute="leading" secondItem="Jbj-tJ-heB" secondAttribute="leadingMargin" id="quc-Ws-Q33"/>
@@ -134,6 +162,7 @@
     </scenes>
     <resources>
         <image name="heart4" width="256" height="229"/>
+        <image name="menu2" width="680" height="680"/>
         <image name="next1" width="512" height="872"/>
         <image name="play" width="256" height="256"/>
         <image name="restart1" width="256" height="256"/>

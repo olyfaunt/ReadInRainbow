@@ -16,6 +16,7 @@
 #import "ChartCell.h"
 #import "ColorBlockView.h"
 #import "Util.h"
+#import "AppDelegate.h"
 
 const int numberOfChoices = 9; //number of sounds
 const int numberOfLives = 8;
@@ -40,6 +41,7 @@ const int numberOfLives = 8;
 - (IBAction)newGamePressed:(id)sender;
 - (IBAction)playWordPressed:(id)sender;
 - (IBAction)nextWordButtonPressed:(id)sender;
+- (IBAction)goToMenu:(id)sender;
 
 @end
 
@@ -270,6 +272,11 @@ const int numberOfLives = 8;
 
 - (IBAction)nextWordButtonPressed:(id)sender {
     [self setUpAndGetReadyToPlay];
+}
+
+- (IBAction)goToMenu:(id)sender {
+    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+    appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
 }
 
 - (void)removeWordButtons {
