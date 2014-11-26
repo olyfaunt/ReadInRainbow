@@ -17,7 +17,7 @@
 #import "ColorBlockView.h"
 #import "Util.h"
 
-const int numberOfChoices = 47; //number of sounds
+const int numberOfChoices = 9; //number of sounds
 const int numberOfLives = 8;
 
 @interface HangmanViewController ()
@@ -96,7 +96,19 @@ const int numberOfLives = 8;
 }
 
 - (void)makeOptionsForCollectionView {
-    NSMutableArray * shufflingArray = [[[[SoundLibrary sharedLibrary] soundLibrary] allValues] mutableCopy];
+    NSMutableArray * sourceArray = [[[[SoundLibrary sharedLibrary] soundLibrary] allValues] mutableCopy];
+    NSMutableArray * shufflingArray = [[NSMutableArray alloc] init];
+    for(Phoneme * currentPhoneme in self.currentWord.phonemeArray){
+        Sound * currentSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:currentPhoneme.soundIdentifier];
+        [sourceArray removeObject:currentSound];
+        [shufflingArray addObject:currentSound];
+    }
+    int numberOfObjectsToAdd = numberOfChoices - shufflingArray.count;
+    for(int i=0;i<numberOfObjectsToAdd;i++){
+        int targetValue = arc4random_uniform(sourceArray.count);
+        [shufflingArray addObject:sourceArray[targetValue]];
+        [sourceArray removeObjectAtIndex:targetValue];
+    }
     NSUInteger count = [shufflingArray count];
     for (NSUInteger i = 0; i < count; ++i) {
         NSInteger remainingCount = count - i;
@@ -170,6 +182,7 @@ const int numberOfLives = 8;
 - (void)gameOver {
     [self.gameOverButton setNeedsDisplay];
     self.gameOverButton.alpha = 0;
+    [self.view bringSubviewToFront:self.gameOverButton];
     self.gameOverButton.hidden = NO;
     [UIView transitionWithView:nil duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
         self.gameOverButton.alpha = 1;
