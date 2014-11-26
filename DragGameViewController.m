@@ -7,6 +7,15 @@
 //
 
 #import "DragGameViewController.h"
+#import "Word.h"
+#import "Phoneme.h"
+#import "UIButton+setTag.h"
+#import "WordLibrary.h"
+#import "Sound.h"
+#import "SoundLibrary.h"
+#import "DragColorView.h"
+#import "Util.h"
+#import "DragCell.h"
 
 @interface DragGameViewController ()
 
@@ -16,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpCollectionView];
     // Do any additional setup after loading the view.
     
     ///////////when make array of answer DragColorViews, set dragColorView.dragDelegate = self;
@@ -58,7 +68,58 @@
 //            //more stuff to do on failure here        
 //        }
 //    }
+    NSLog(@"To implement");
 }
+
+- (void)setUpCollectionView {
+    self.colorPickerCollectionView.delegate = self;
+    self.colorPickerCollectionView.dataSource = self;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.soundsArray.count;
+}
+
+
+-(DragCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    DragCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    Sound *soundForCell = self.soundsArray[indexPath.row];
+    newCell.dragColorView.firstColor = soundForCell.soundColor;
+    if(soundForCell.hasSecondaryColor) {
+        newCell.dragColorView.secondColor = soundForCell.secondaryColor;
+    } else {
+        newCell.dragColorView.secondColor = nil;
+    }
+    [newCell.dragColorView setNeedsDisplay]; //
+    return newCell;
+}
+
+//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    Sound * soundAtCell = self.collectionViewOptions[indexPath.item];
+//    NSError * error = nil;
+//    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundAtCell.soundURL error:&error];
+//    self.soundPlayer.volume=1.0f;
+//    [self.soundPlayer prepareToPlay];
+//    self.soundPlayer.numberOfLoops=0; //or more if needed
+//    [self.soundPlayer play];
+//    if(self.placeInPhonemeArray >= self.currentWord.phonemeArray.count) {
+//        // do nothing
+//    } else if([[self.currentWord.phonemeArray[self.placeInPhonemeArray] soundIdentifier] isEqualToString:soundAtCell.identifier]){
+//        [self lightUpPhonemeInWordForSound:soundAtCell];
+//        self.placeInPhonemeArray++;
+//        if(self.placeInPhonemeArray >= self.currentWord.phonemeArray.count){
+//            [self displayNextWordButton];
+//        }
+//    } else {
+//        [self loseOneLife];
+//    }
+//}
+
+
 
 /*
 #pragma mark - Navigation

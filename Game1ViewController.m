@@ -213,6 +213,7 @@
         [self.buttonsArray addObject:justMadeButton];
         [self.wordView addSubview:justMadeButton];
         
+        //make first word displayed shake its individual buttons to indicate individual phonemes can be tapped
         if (self.currentWordIndex==0 && self.currentIndex==0) {
             [justMadeButton shakeButton:justMadeButton];
             NSUInteger x = self.buttonsArray.count;
@@ -220,6 +221,8 @@
                 [justMadeButton shakeOneButton:justMadeButton];
             }
         }
+        
+        //make button appear when square tapped, then make entire view shake after 3 seconds
         justMadeButton.alpha = 0;
         [UIView transitionWithView:justMadeButton
                           duration:0.5f

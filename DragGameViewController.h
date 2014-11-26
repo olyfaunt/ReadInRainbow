@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DragColorView.h"
 
-@interface DragGameViewController : UIViewController <DragColorViewDragDelegateProtocol>
+@interface DragGameViewController : UIViewController <DragColorViewDragDelegateProtocol,UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *colorPickerCollectionView;
+@property (nonatomic) NSArray *soundsArray;
 
 @end
