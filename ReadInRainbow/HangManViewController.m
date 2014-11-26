@@ -50,6 +50,7 @@ const int numberOfLives = 8;
     // Do any additional setup after loading the view.
     self.buttonsArray = [[NSMutableArray alloc] init];
     [self setUpAndGetReadyToPlay];
+    [self setLivesWithDisplay:numberOfLives];
     [self setUpCollectionView];
 }
 
@@ -72,7 +73,6 @@ const int numberOfLives = 8;
     [self removeWordButtons];
     [self generateAndDisplayWord];
     [self makeOptionsForCollectionView];
-    [self setLivesWithDisplay:numberOfLives];
     self.gameOverButton.hidden = YES;
     self.placeInPhonemeArray = 0;
     self.nextWordButton.hidden = YES;
@@ -143,6 +143,12 @@ const int numberOfLives = 8;
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Sound * soundAtCell = self.collectionViewOptions[indexPath.item];
+    NSError * error = nil;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundAtCell.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
     if(self.placeInPhonemeArray >= self.currentWord.phonemeArray.count) {
         // do nothing
     } else if([[self.currentWord.phonemeArray[self.placeInPhonemeArray] soundIdentifier] isEqualToString:soundAtCell.identifier]){
@@ -249,6 +255,7 @@ const int numberOfLives = 8;
 
 - (IBAction)newGamePressed:(id)sender {
     self.gameOverButton.hidden = YES;
+    [self setLivesWithDisplay:numberOfLives];
     [self setUpAndGetReadyToPlay];
 }
 
