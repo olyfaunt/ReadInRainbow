@@ -18,6 +18,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "WordLibrary.h"
 #import "UIButton+setTag.h"
+#import "UIView+Shake.h"
 
 @interface Game1ViewController ()
 
@@ -211,16 +212,36 @@
         [justMadeButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.buttonsArray addObject:justMadeButton];
         [self.wordView addSubview:justMadeButton];
+        
+        if (self.currentWordIndex==0 && self.currentIndex==0) {
+            [justMadeButton shakeButton:justMadeButton];
+            NSUInteger x = self.buttonsArray.count;
+            if (!(x%2==0)) {
+                [justMadeButton shakeOneButton:justMadeButton];
+            }
+        }
         justMadeButton.alpha = 0;
         [UIView transitionWithView:justMadeButton
                           duration:0.5f
                            options:UIViewAnimationOptionTransitionCurlUp
                         animations:^{
                             justMadeButton.alpha = 1;
-                        } completion:nil];
+                        } completion:^(BOOL finished) {
+                            if (self.matchingWordsArray.count > 1) {
+                                [NSTimer scheduledTimerWithTimeInterval:3.0
+                                                                 target:self
+                                                               selector:@selector(shakeView)
+                                                               userInfo:nil
+                                                                repeats:NO];
+                            }
+                        }];
         
         lastButton = justMadeButton;
     }
+}
+
+-(void)shakeView {
+    [self.wordView shakeView:self.wordView];
 }
 
 -(void) buttonClicked:(UIButton*)sender {

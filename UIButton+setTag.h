@@ -11,4 +11,9 @@
 @interface UIButton (setTag)
 @property(nonatomic, retain) NSString *tagString;
 -(void)setTagString:(NSString *)tagString;
+
+//
+
+- (void)shakeButton:(UIButton *)button;
+- (void)shakeOneButton:(UIButton*)button;
 @end

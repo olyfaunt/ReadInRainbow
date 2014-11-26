@@ -20,4 +20,27 @@
 -(NSString *)tagString {
     return objc_getAssociatedObject(self, @selector(tagString));
 }
+
+/////
+
+- (void)shakeButton:(UIButton *)button
+{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
+    animation.duration = 0.1;
+    animation.byValue = @(20);
+    animation.autoreverses = YES;
+    animation.repeatCount = 3;
+    [button.layer addAnimation:animation forKey:@"Shake"];
+}
+
+- (void)shakeOneButton:(UIButton*)button
+{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.y"];
+    animation.duration = 0.1;
+    animation.byValue = @(-20);
+    animation.autoreverses = YES;
+    animation.repeatCount = 3;
+    [button.layer addAnimation:animation forKey:@"ShakeAgain"];
+}
+
 @end
