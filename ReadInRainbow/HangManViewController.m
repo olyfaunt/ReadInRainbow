@@ -33,9 +33,13 @@ const int numberOfLives = 8;
 @property (nonatomic, strong) NSArray * collectionViewOptions;
 @property (nonatomic, assign) int lives;
 @property (nonatomic) AVAudioPlayer *soundPlayer;
+@property (weak, nonatomic) IBOutlet UIButton *nextWordButton;
+
+@property (nonatomic, assign) int placeInPhonemeArray;
 
 - (IBAction)newGamePressed:(id)sender;
 - (IBAction)playWordPressed:(id)sender;
+- (IBAction)nextWordButtonPressed:(id)sender;
 
 @end
 
@@ -65,10 +69,13 @@ const int numberOfLives = 8;
 */
 
 - (void)setUpAndGetReadyToPlay {
+    [self removeWordButtons];
     [self generateAndDisplayWord];
     [self makeOptionsForCollectionView];
     [self setLivesWithDisplay:numberOfLives];
     self.gameOverButton.hidden = YES;
+    self.placeInPhonemeArray = 0;
+    self.nextWordButton.hidden = YES;
 }
 
 - (void)setLivesWithDisplay:(int)lives {
@@ -116,6 +123,7 @@ const int numberOfLives = 8;
         [shufflingArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
     self.collectionViewOptions = shufflingArray;
+    [self.colorPickerCollectionView reloadData];
 }
 
 -(ChartCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,11 +141,29 @@ const int numberOfLives = 8;
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Sound * soundAtCell = self.collectionViewOptions[indexPath.item];
-    if([self isSoundInWord:soundAtCell]){
+    if(self.placeInPhonemeArray >= self.currentWord.phonemeArray.count) {
+        // do nothing
+    } else if([[self.currentWord.phonemeArray[self.placeInPhonemeArray] soundIdentifier] isEqualToString:soundAtCell.identifier]){
         [self lightUpPhonemeInWordForSound:soundAtCell];
+        self.placeInPhonemeArray++;
+        if(self.placeInPhonemeArray >= self.currentWord.phonemeArray.count){
+            [self displayNextWordButton];
+        }
     } else {
         [self loseOneLife];
     }
+}
+
+-(void)displayNextWordButton {
+    [self.nextWordButton setNeedsDisplay];
+    self.nextWordButton.alpha = 0;
+    [self.view bringSubviewToFront:self.nextWordButton];
+    self.nextWordButton.hidden = NO;
+    [UIView transitionWithView:nil duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        self.nextWordButton.alpha = 1;
+    }completion:^(BOOL finished) {
+        [self.nextWordButton setNeedsDisplay];
+    }];
 }
 
 -(BOOL)isSoundInWord:(Sound *)sound {
@@ -150,25 +176,25 @@ const int numberOfLives = 8;
 }
 
 -(void)lightUpPhonemeInWordForSound:(Sound *)sound {
-    for(UIButton * currentButton in self.buttonsArray){
-        if([currentButton.tagString isEqualToString:sound.identifier]){
-            NSAttributedString * attributedTitle;
-            if(sound.hasSecondaryColor){
-                /////// boldSystemFontOfSize:FontSize]
-                attributedTitle = [[NSAttributedString alloc] initWithString:currentButton.titleLabel.text attributes:@{
-                                                                                                    NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],
-                                                                                                    NSForegroundColorAttributeName:sound.soundColor,
-                                                                                                    NSStrokeWidthAttributeName:[NSNumber numberWithFloat:StrokeWidth],
-                                                                                                    NSStrokeColorAttributeName:sound.secondaryColor
-                                                                                                    }];
-            } else {
-                attributedTitle = [[NSAttributedString alloc] initWithString:currentButton.titleLabel.text attributes:@{
-                                                                                                    NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],NSForegroundColorAttributeName:sound.soundColor}];
-            }
-            
-            [currentButton setTitle:nil forState:UIControlStateNormal];
-            [currentButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
+    UIButton * currentButton = self.buttonsArray[self.placeInPhonemeArray];
+    if([currentButton.tagString isEqualToString:sound.identifier]){
+        NSAttributedString * attributedTitle;
+        if(sound.hasSecondaryColor){
+            /////// boldSystemFontOfSize:FontSize]
+            attributedTitle = [[NSAttributedString alloc] initWithString:currentButton.titleLabel.text attributes:@{
+                                                                                                NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],
+                                                                                                NSForegroundColorAttributeName:sound.soundColor,
+                                                                                                NSStrokeWidthAttributeName:[NSNumber numberWithFloat:StrokeWidth],
+                                                                                                NSStrokeColorAttributeName:sound.secondaryColor
+                                                                                                }];
+        } else {
+            attributedTitle = [[NSAttributedString alloc] initWithString:currentButton.titleLabel.text attributes:@{
+                                                                                                NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],NSForegroundColorAttributeName:sound.soundColor}];
         }
+        
+        [currentButton setTitle:nil forState:UIControlStateNormal];
+        [currentButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
+        return;
     }
 }
 
@@ -221,7 +247,6 @@ const int numberOfLives = 8;
 
 - (IBAction)newGamePressed:(id)sender {
     self.gameOverButton.hidden = YES;
-    [self removeWordButtons];
     [self setUpAndGetReadyToPlay];
 }
 
@@ -234,10 +259,13 @@ const int numberOfLives = 8;
     [self.soundPlayer play];
 }
 
+- (IBAction)nextWordButtonPressed:(id)sender {
+    [self setUpAndGetReadyToPlay];
+}
+
 - (void)removeWordButtons {
     for(UIButton * currentButton in self.buttonsArray){
         [currentButton removeFromSuperview];
-        
     }
     [self.buttonsArray removeAllObjects];
 }
