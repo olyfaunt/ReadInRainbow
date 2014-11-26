@@ -40,12 +40,13 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     self.gamesCollectionView.delegate = self;
     self.chartCollectionView.dataSource = self;
     self.gamesCollectionView.dataSource = self;
+
+    [self setUpArrayOfSounds];
     
-    self.soundsArray = [[[SoundLibrary sharedLibrary] soundLibrary] allValues];
     self.numberOfGames = NumberOfGames;
     self.gameTitlesArray = [NSMutableArray new];
     for (int i = 1; i <= self.numberOfGames; i++) {
-        NSString *gameName = [NSString stringWithFormat:@"Game %d", i];
+        NSString *gameName = [NSString stringWithFormat:@"%d", i];
         [self.gameTitlesArray addObject:gameName];
     }
     
@@ -54,6 +55,22 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) setUpArrayOfSounds {
+    self.consonants = @[@"b", @"ch", @"d", @"f", @"g", @"h", @"je", @"zh", @"k", @"el", @"m", @"n", @"ng", @"p", @"r", @"s", @"sh", @"t", @"th", @"thth", @"v", @"w", @"yod", @"z"];
+    self.vowels = @[@"ah", @"ahh", @"ar", @"au", @"eh", @"er", @"euh", @"ih", @"ir", @"longa", @"longe", @"longi", @"longo", @"oo", @"or", @"our", @"oy", @"schwa", @"schwar", @"uh", @"ur", @"weaki", @"weaku"];
+    self.consonantSounds = [NSMutableArray new];
+    for (NSString *letter in self.consonants) {
+        Sound *soundForLetter = [[SoundLibrary sharedLibrary] soundLibrary][letter];
+        [self.consonantSounds addObject:soundForLetter];
+    }
+    self.vowelSounds = [NSMutableArray new];
+    for (NSString *letter in self.vowels) {
+        Sound *soundForLetter = [[SoundLibrary sharedLibrary] soundLibrary][letter];
+        [self.vowelSounds addObject:soundForLetter];
+    }
+    self.soundsArray = [self.consonantSounds arrayByAddingObjectsFromArray:self.vowelSounds];
 }
 
 #pragma mark <UICollectionViewDataSource>

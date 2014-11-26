@@ -18,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *gamesCollectionView;
 
 @property (nonatomic) NSArray *soundsArray;
+@property (nonatomic) NSArray *consonants;
+@property (nonatomic) NSArray *vowels;
+@property (nonatomic) NSMutableArray *consonantSounds;
+@property (nonatomic) NSMutableArray *vowelSounds;
 @property (nonatomic, assign) int numberOfGames;
 @property (nonatomic) NSMutableArray *gameTitlesArray;
 @property (nonatomic) AVAudioPlayer *soundPlayer;
