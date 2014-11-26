@@ -44,6 +44,14 @@
     self.playWordButton.hidden = YES;
     [self changedColor];
     [self getArrayOfMatchingWords];
+    
+    UISwipeGestureRecognizer *swipePageLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipePageLeft)];
+    [swipePageLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    UISwipeGestureRecognizer *swipePageRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipePageRight)];
+    [swipePageRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipePageLeft];
+    [self.view addGestureRecognizer:swipePageRight];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -174,8 +182,7 @@
 /////////////////SPACING///////////////////////////////////////////////////
 ////if SPACING between the words is needed, in ELSE, just add +Spacing after lastButton.frame.size.width/2, and in IF, change word.stringSize to word.spacedStringSize
 -(void) createButtonForWord:(Word*)word {
-    
-    self.wordView = [[UIView alloc] init]; /////////////////////////////////CREATE TRANSPARENT WORD VIEW
+    self.wordView = [[UIView alloc] init];
     self.wordView.userInteractionEnabled = YES;
     self.wordView.backgroundColor = [UIColor clearColor];
     [self.wordView setFrame:CGRectMake(self.view.frame.size.width/2-self.matchingWordToPlay.stringSize.width/2, self.view.frame.size.height/2-(self.matchingWordToPlay.stringSize.height/2)-300, self.matchingWordToPlay.stringSize.width, self.matchingWordToPlay.stringSize.height)];
@@ -242,9 +249,15 @@
         self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:self.currentWordIndex];
         [self createButtonForWord:self.matchingWordToPlay];
     } else {
-        NSLog(@"No more words in matching Words Array!");
+        for (UIButton *button in self.buttonsArray) {
+            [button removeFromSuperview];
+        }
+        [self.buttonsArray removeAllObjects];
+        [self.wordView removeFromSuperview];
+        self.currentWordIndex = 0;
+        self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:self.currentWordIndex];
+        [self createButtonForWord:self.matchingWordToPlay];
     }
-    NSLog(@"word swiped!!");
 }
 
 -(void) swipeRightMethod {
@@ -259,9 +272,66 @@
         self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:self.currentWordIndex];
         [self createButtonForWord:self.matchingWordToPlay];
     } else {
-        NSLog(@"No more words in matching Words Array!");
+        for (UIButton *button in self.buttonsArray) {
+            [button removeFromSuperview];
+        }
+        [self.buttonsArray removeAllObjects];
+        [self.wordView removeFromSuperview];
+        self.currentWordIndex = (int)self.matchingWordsArray.count-1;
+        self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:self.currentWordIndex];
+        [self createButtonForWord:self.matchingWordToPlay];
     }
-    NSLog(@"word swiped!!");
+}
+
+-(void) swipePageLeft {
+    
+    [self.wordView removeFromSuperview];
+    for (UIButton *button in self.buttonsArray) {
+        [button removeFromSuperview];
+    }
+    [self.buttonsArray removeAllObjects];
+    self.playWordButton.hidden = YES;
+    if (self.currentIndex < self.soundsArray.count-1) {
+        self.currentIndex += 1;
+        self.currentSound = self.soundsArray[self.currentIndex];
+        [self changedColor];
+        [self getArrayOfMatchingWords];
+    } else {
+        self.currentIndex = 0;
+        self.currentSound = self.soundsArray[self.currentIndex];
+        [self changedColor];
+        [self getArrayOfMatchingWords];
+    }
+    
+    [UIView transitionWithView:self.view
+                      duration:0.5f
+                       options:UIViewAnimationOptionTransitionCurlUp
+                    animations:nil completion:nil];
+    
+}
+
+-(void) swipePageRight {
+    [self.wordView removeFromSuperview];
+    for (UIButton *button in self.buttonsArray) {
+        [button removeFromSuperview];
+    }
+    [self.buttonsArray removeAllObjects];
+    self.playWordButton.hidden = YES;
+    if (self.currentIndex > 0) {
+        self.currentIndex -= 1;
+        self.currentSound = self.soundsArray[self.currentIndex];
+        [self changedColor];
+        [self getArrayOfMatchingWords];
+    } else {
+        self.currentIndex = (int)self.soundsArray.count-1;
+        self.currentSound = self.soundsArray[self.currentIndex];
+        [self changedColor];
+        [self getArrayOfMatchingWords];
+    }
+    [UIView transitionWithView:self.view
+                      duration:0.5f
+                       options:UIViewAnimationOptionTransitionCurlDown
+                    animations:nil completion:nil];
 }
 
 @end

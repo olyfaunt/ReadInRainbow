@@ -31,6 +31,7 @@
 @property (nonatomic, assign) int lives;
 @property (nonatomic, assign) int soundIndex;
 @property (nonatomic, assign) int soundIndexTwo;
+@property (nonatomic) UIVisualEffectView *blurEffectView;
 
 - (IBAction)answerOptionOnePressed:(id)sender;
 - (IBAction)answerOptionTwoPressed:(id)sender;
@@ -49,7 +50,7 @@
     self.livesImageView.image = [UIImage imageNamed:@"heart4"];
     self.lives = 4;
     self.gameOverButton.hidden = YES;
-    
+    [self setUpGameSounds];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -171,8 +172,15 @@
 }
 
 -(void)showGameOver {
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [self.blurEffectView setFrame:self.view.bounds];
+    [self.view addSubview:self.blurEffectView];
+    
     self.lives = 4;
     [self.gameOverButton setNeedsDisplay];
+    [self.view bringSubviewToFront:self.gameOverButton];
     self.gameOverButton.alpha = 0;
     self.gameOverButton.hidden = NO;
     [UIView transitionWithView:nil duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
@@ -180,6 +188,7 @@
     }completion:^(BOOL finished) {
         [self.gameOverButton setNeedsDisplay];
     }];
+    
 }
 
 -(void) setHeartImage {
@@ -196,6 +205,7 @@
 }
 
 -(void) showSmileyFace {
+    [self.winPlayer play];
     self.hasCorrectAnswer = YES;
     UIImage *smileImage = [UIImage imageNamed:@"smiling36"];
     [UIView transitionWithView:self.isCorrectImageView
@@ -214,7 +224,6 @@
     }completion:^(BOOL finished) {
         [self.nextQuestionButton setNeedsDisplay];
     }];
-
 }
 
 -(void) showSadFace {
@@ -230,7 +239,10 @@
     self.lives--;
     [self setHeartImage];
     if(self.lives == 0){
+        [self.gameOverPlayer play];
         [self showGameOver];
+    } else {
+        [self.losePlayer play];
     }
 }
 
@@ -257,8 +269,29 @@
 }
 
 - (IBAction)gameOver:(id)sender {
+    [self.gameOverPlayer stop];
+    [self.blurEffectView removeFromSuperview];
     self.gameOverButton.hidden = YES;
     [self setHeartImage];
     [self setUpSoundAndColorAndChoices];
 }
+
+-(void)setUpGameSounds {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"GameOver" withExtension:@"wav"];
+    self.gameOverPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    self.gameOverPlayer.numberOfLoops = 0;
+    [self.gameOverPlayer prepareToPlay];
+    
+    NSURL *url2 = [[NSBundle mainBundle] URLForResource:@"Lose" withExtension:@"wav"];
+    self.losePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url2 error:nil];
+    self.losePlayer.numberOfLoops = 0;
+    [self.losePlayer prepareToPlay];
+    
+    NSURL *url3 = [[NSBundle mainBundle] URLForResource:@"Win" withExtension:@"wav"];
+    self.winPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url3 error:nil];
+    self.winPlayer.numberOfLoops = 0;
+    [self.winPlayer prepareToPlay];
+    
+}
+
 @end
