@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -134,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read In Rainbow" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXf-vO-4R3">
-                                <rect key="frame" x="264" y="25" width="240" height="38"/>
+                                <rect key="frame" x="264" y="35" width="240" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="hp4-zG-6Sp"/>
                                     <constraint firstAttribute="width" constant="240" id="yrp-7x-pQs"/>
@@ -144,23 +143,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19H-3N-LQg" userLabel="SpacingView">
-                                <rect key="frame" x="20" y="63" width="728" height="25"/>
+                                <rect key="frame" x="20" y="73" width="728" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="9Uy-lD-Ooh"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6i-W7-Ahq" userLabel="SpacingViewSecond">
-                                <rect key="frame" x="20" y="610" width="552" height="30"/>
+                                <rect key="frame" x="20" y="818" width="552" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="NLM-bt-9Kj"/>
+                                    <constraint firstAttribute="height" constant="20" id="NLM-bt-9Kj"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EFS-sh-mXn">
-                                <rect key="frame" x="30" y="640" width="708" height="374"/>
+                                <rect key="frame" x="30" y="838" width="708" height="176"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5BE-zv-EOG">
-                                    <size key="itemSize" width="130" height="130"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="10" id="5BE-zv-EOG">
+                                    <size key="itemSize" width="160" height="160"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -170,11 +169,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gameTitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjz-oJ-KhE">
-                                                    <rect key="frame" x="8" y="10" width="114" height="45"/>
+                                                    <rect key="frame" x="23" y="10" width="114" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="114" id="uAe-1m-fP8"/>
                                                         <constraint firstAttribute="height" constant="45" id="xFq-8o-Ja6"/>
@@ -184,7 +183,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-ur-ELC">
-                                                    <rect key="frame" x="35" y="57" width="60" height="60"/>
+                                                    <rect key="frame" x="50" y="57" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="4MD-7Y-XJX"/>
                                                         <constraint firstAttribute="height" constant="60" id="GUH-uQ-8BK"/>
@@ -208,27 +207,27 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mm1-hD-yPk">
-                                <rect key="frame" x="30" y="88" width="708" height="522"/>
+                                <rect key="frame" x="30" y="98" width="708" height="720"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="522" id="e3R-DD-q3y"/>
+                                    <constraint firstAttribute="height" constant="720" id="e3R-DD-q3y"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="8" id="dB1-HY-Krm">
-                                    <size key="itemSize" width="100" height="45"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="8" id="dB1-HY-Krm">
+                                    <size key="itemSize" width="125" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="10"/>
+                                    <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChartCell" id="NM7-KQ-w6y" customClass="ChartCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xah-Gb-ac1" customClass="ColorBlockView">
-                                                    <rect key="frame" x="8" y="8" width="84" height="29"/>
+                                                    <rect key="frame" x="8" y="8" width="109" height="44"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -257,7 +256,7 @@
                             <constraint firstAttribute="centerX" secondItem="bXf-vO-4R3" secondAttribute="centerX" id="FUd-SE-58y"/>
                             <constraint firstAttribute="centerX" secondItem="19H-3N-LQg" secondAttribute="centerX" id="OAb-Ob-BjM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="19H-3N-LQg" secondAttribute="trailing" id="UC0-HT-u8D"/>
-                            <constraint firstItem="bXf-vO-4R3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="25" id="Vb6-2p-2Sd"/>
+                            <constraint firstItem="bXf-vO-4R3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="35" id="Vb6-2p-2Sd"/>
                             <constraint firstAttribute="centerX" secondItem="mm1-hD-yPk" secondAttribute="centerX" id="W9B-Ra-9vx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EFS-sh-mXn" secondAttribute="bottom" constant="10" id="ZyT-5v-J7F"/>
                             <constraint firstItem="19H-3N-LQg" firstAttribute="top" secondItem="bXf-vO-4R3" secondAttribute="bottom" id="asl-vP-YVK"/>

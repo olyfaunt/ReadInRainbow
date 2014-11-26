@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Game2 View Controller-->
@@ -16,8 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfp-IC-xu7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfp-IC-xu7">
                                 <rect key="frame" x="40" y="904" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="UUg-kY-UR9"/>
+                                    <constraint firstAttribute="height" constant="100" id="ZNC-yl-aDO"/>
+                                </constraints>
                                 <state key="normal" image="menu2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -137,19 +142,6 @@
                                     <constraint firstAttribute="height" constant="150" id="MBJ-PP-SSj"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAd-OZ-3cz">
-                                <rect key="frame" x="84" y="212" width="600" height="600"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="600" id="gKm-l4-XDE"/>
-                                    <constraint firstAttribute="width" constant="600" id="zfT-Ie-jUB"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="restart1">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="gameOver:" destination="l8o-jd-qEB" eventType="touchUpInside" id="JQu-JC-1CJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIE-qo-wMX">
                                 <rect key="frame" x="508" y="325" width="40" height="75"/>
                                 <constraints>
@@ -163,11 +155,27 @@
                                     <action selector="nextButtonPressed:" destination="l8o-jd-qEB" eventType="touchUpInside" id="xZT-DG-MQL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAd-OZ-3cz">
+                                <rect key="frame" x="84" y="212" width="600" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="gKm-l4-XDE"/>
+                                    <constraint firstAttribute="width" constant="600" id="zfT-Ie-jUB"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="restart1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gameOver:" destination="l8o-jd-qEB" eventType="touchUpInside" id="JQu-JC-1CJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="p9y-dY-BwB" secondAttribute="centerY" id="3O5-PN-UOF"/>
                             <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="vWJ-Uc-Hca" secondAttribute="bottom" constant="180" id="3PQ-Id-sod"/>
+                            <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="Pfp-IC-xu7" secondAttribute="bottom" constant="20" id="43D-j7-zcS"/>
+                            <constraint firstItem="Pfp-IC-xu7" firstAttribute="leading" secondItem="gH8-ym-lAX" secondAttribute="leadingMargin" constant="20" id="6Cl-xd-pDu"/>
+                            <constraint firstItem="Pfp-IC-xu7" firstAttribute="leading" secondItem="gH8-ym-lAX" secondAttribute="leadingMargin" constant="20" id="7f3-hI-4n3"/>
                             <constraint firstItem="3LF-iR-Vcm" firstAttribute="leading" secondItem="p9y-dY-BwB" secondAttribute="trailing" constant="40" id="95L-aj-Zpm"/>
                             <constraint firstAttribute="centerY" secondItem="3LF-iR-Vcm" secondAttribute="centerY" id="AzK-Zd-mVz"/>
                             <constraint firstItem="IfJ-66-aX5" firstAttribute="top" secondItem="cKm-zH-Lsu" secondAttribute="bottom" constant="80" id="Fk7-V5-xGU"/>
@@ -176,6 +184,7 @@
                             <constraint firstItem="eYn-OV-j5d" firstAttribute="leading" secondItem="3LF-iR-Vcm" secondAttribute="trailing" constant="40" id="Pnt-HY-2EE"/>
                             <constraint firstItem="FIE-qo-wMX" firstAttribute="top" secondItem="cKm-zH-Lsu" secondAttribute="bottom" constant="305" id="QB3-Dg-AsG"/>
                             <constraint firstAttribute="centerX" secondItem="Gqz-j8-J1O" secondAttribute="centerX" id="R62-XN-Vof"/>
+                            <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="Pfp-IC-xu7" secondAttribute="bottom" constant="20" id="S2P-Cf-2vR"/>
                             <constraint firstItem="FIE-qo-wMX" firstAttribute="leading" secondItem="Gqz-j8-J1O" secondAttribute="trailing" constant="57" id="TdY-JM-5g2"/>
                             <constraint firstAttribute="centerY" secondItem="eYn-OV-j5d" secondAttribute="centerY" id="a00-Sv-zL6"/>
                             <constraint firstAttribute="centerX" secondItem="IfJ-66-aX5" secondAttribute="centerX" id="d9t-Ph-FuS"/>
