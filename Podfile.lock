@@ -1,0 +1,10 @@
+PODS:
+  - DNDDragAndDrop (1.1.2)
+
+DEPENDENCIES:
+  - DNDDragAndDrop (~> 1.1.0)
+
+SPEC CHECKSUMS:
+  DNDDragAndDrop: b94cfe279624080d12db475f5f2ddcb4c6340384
+
+COCOAPODS: 0.34.4
