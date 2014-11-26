@@ -172,32 +172,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gameTitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjz-oJ-KhE">
-                                                    <rect key="frame" x="23" y="10" width="114" height="45"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="114" id="uAe-1m-fP8"/>
-                                                        <constraint firstAttribute="height" constant="45" id="xFq-8o-Ja6"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-ur-ELC">
-                                                    <rect key="frame" x="50" y="57" width="60" height="60"/>
+                                                    <rect key="frame" x="30" y="30" width="100" height="100"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="4MD-7Y-XJX"/>
-                                                        <constraint firstAttribute="height" constant="60" id="GUH-uQ-8BK"/>
+                                                        <constraint firstAttribute="width" constant="100" id="4MD-7Y-XJX"/>
+                                                        <constraint firstAttribute="height" constant="100" id="GUH-uQ-8BK"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjz-oJ-KhE">
+                                                    <rect key="frame" x="52" y="76" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="uAe-1m-fP8"/>
+                                                        <constraint firstAttribute="height" constant="40" id="xFq-8o-Ja6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="28"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="wjz-oJ-KhE" firstAttribute="top" secondItem="u37-VQ-b94" secondAttribute="topMargin" constant="2" id="39I-Sz-F1y"/>
-                                            <constraint firstAttribute="centerX" secondItem="wjz-oJ-KhE" secondAttribute="centerX" id="D5P-a2-dN1"/>
-                                            <constraint firstItem="IhY-ur-ELC" firstAttribute="top" secondItem="wjz-oJ-KhE" secondAttribute="bottom" constant="2" id="exw-bb-SOo"/>
+                                            <constraint firstItem="wjz-oJ-KhE" firstAttribute="top" secondItem="u37-VQ-b94" secondAttribute="topMargin" constant="68" id="0zX-Pm-ZlT"/>
+                                            <constraint firstAttribute="centerY" secondItem="IhY-ur-ELC" secondAttribute="centerY" id="hQN-Gv-JsM"/>
                                             <constraint firstAttribute="centerX" secondItem="IhY-ur-ELC" secondAttribute="centerX" id="r01-A3-Ki3"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="wjz-oJ-KhE" secondAttribute="trailing" constant="60" id="wkd-9D-DsE"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="gameLabel" destination="wjz-oJ-KhE" id="Y4o-bI-L5T"/>

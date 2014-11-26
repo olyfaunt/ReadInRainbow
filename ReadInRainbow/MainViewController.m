@@ -41,10 +41,13 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     self.gamesCollectionView.dataSource = self;
     
     self.soundsArray = [[[SoundLibrary sharedLibrary] soundLibrary] allValues];
+    //reorder - use ordered set to divide vowels from non vowels
+    //combine two separate arrays into ordered array
+    
     self.numberOfGames = NumberOfGames;
     self.gameTitlesArray = [NSMutableArray new];
     for (int i = 1; i <= self.numberOfGames; i++) {
-        NSString *gameName = [NSString stringWithFormat:@"Game %d", i];
+        NSString *gameName = [NSString stringWithFormat:@"%d", i];
         [self.gameTitlesArray addObject:gameName];
     }
     
