@@ -181,6 +181,8 @@
             self.phonemesCounter += 1;
             //dragColorView removeFromSuperView and change letter to its color
             Sound *sound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:dragColorView.identifier];
+            [self playSoundIfMatch:sound];
+            
             [self lightUpPhonemeInWordForSound:sound andButton:targetButton];
             dragColorView.isMatched = YES;
             [dragColorView removeFromSuperview];
@@ -189,6 +191,8 @@
             
             //if all the colors in the word have been matched, display next word button
             if (self.phonemesCounter>self.phonemesToMatch) {
+                [self.soundPlayer stop];
+                [self playWordButtonSound];
                 [self displayNextWordButton];
             }
             
@@ -203,6 +207,15 @@
     if (!dragColorView.isMatched) {
         [self addDynamicBehaviour:dragColorView];
     }
+}
+
+-(void)playSoundIfMatch:(Sound*)sound {
+    NSError * error = nil;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:sound.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
 }
 
 -(void)displayNextWordButton {
@@ -262,6 +275,10 @@
 }
 
 - (IBAction)playWordSound:(id)sender {
+    [self playWordButtonSound];
+}
+
+-(void) playWordButtonSound {
     NSError * error = nil;
     self.wordPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.currentWord.soundURL error:&error];
     self.wordPlayer.volume=1.0f;
