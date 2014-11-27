@@ -90,13 +90,17 @@
 }
 
 - (void)buttonClicked:(UIButton *)sender {
+    
     Sound * theSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:sender.tagString];
     NSError * error = nil;
     self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:theSound.soundURL error:&error];
     self.soundPlayer.volume=1.0f;
     [self.soundPlayer prepareToPlay];
     self.soundPlayer.numberOfLoops=0; //or more if needed
-    [self.soundPlayer play];
+    /////////////////IF FINISHED
+    if (self.phonemesCounter>self.phonemesToMatch) {
+        [self.soundPlayer play];
+    }
 }
 
 - (void)colorBlockTouched:(DragColorView *)dragColorView{
@@ -205,7 +209,7 @@
             
             //if all the colors in the word have been matched, display next word button
             if (self.phonemesCounter>self.phonemesToMatch) {
-                [self.soundPlayer stop];
+                [self.winPlayer stop];
                 [self playWordButtonSound];
                 [self displayNextWordButton];
             }
@@ -219,11 +223,17 @@
 
 -(void)playSoundIfMatch:(Sound*)sound {
     NSError * error = nil;
-    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:sound.soundURL error:&error];
-    self.soundPlayer.volume=1.0f;
-    [self.soundPlayer prepareToPlay];
-    self.soundPlayer.numberOfLoops=0; //or more if needed
-    [self.soundPlayer play];
+//    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:sound.soundURL error:&error];
+//    self.soundPlayer.volume=1.0f;
+//    [self.soundPlayer prepareToPlay];
+//    self.soundPlayer.numberOfLoops=0; //or more if needed
+//    [self.soundPlayer play];
+    NSURL *url3 = [[NSBundle mainBundle] URLForResource:@"Win" withExtension:@"wav"];
+    self.winPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url3 error:&error];
+    self.winPlayer.numberOfLoops = 0;
+    [self.winPlayer prepareToPlay];
+    self.winPlayer.volume = 1.0f;
+    [self.winPlayer play];
 }
 
 -(void)displayNextWordButton {

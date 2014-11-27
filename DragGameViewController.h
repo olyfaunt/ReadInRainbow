@@ -34,6 +34,7 @@
 @property (nonatomic) AVAudioPlayer *soundPlayer;
 @property (nonatomic) AVAudioPlayer *wordPlayer;
 @property (nonatomic) AVAudioPlayer *losePlayer;
+@property (nonatomic) AVAudioPlayer *winPlayer;
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, strong) UISnapBehavior *snapBehavior;
 @property (nonatomic) int NumberOfChoices;
