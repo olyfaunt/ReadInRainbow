@@ -18,6 +18,7 @@
 #import "Util.h"
 #import "AppDelegate.h"
 
+
 const int numberOfChoices = 9; //number of sounds
 const int numberOfLives = 8;
 
@@ -30,13 +31,13 @@ const int numberOfLives = 8;
 @property (weak, nonatomic) IBOutlet UICollectionView *colorPickerCollectionView;
 
 @property (nonatomic, strong) NSMutableArray * buttonsArray;
-@property (nonatomic, strong) Word * currentWord;
 @property (nonatomic, strong) NSArray * collectionViewOptions;
 @property (nonatomic, assign) int lives;
 @property (nonatomic) AVAudioPlayer *soundPlayer;
+@property (nonatomic, strong) Word *currentWord;
 @property (weak, nonatomic) IBOutlet UIButton *nextWordButton;
-@property (assign) int NumberOfChoices;
 @property (nonatomic, assign) int placeInPhonemeArray;
+@property (assign) int NumberOfChoices;
 
 - (IBAction)newGamePressed:(id)sender;
 - (IBAction)playWordPressed:(id)sender;

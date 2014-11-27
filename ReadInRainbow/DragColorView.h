@@ -22,5 +22,6 @@
 @property (weak, nonatomic) id<DragColorViewDragDelegateProtocol> dragDelegate;
 @property (nonatomic, strong) UIColor *firstColor;
 @property (nonatomic, strong) UIColor *secondColor;
-
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, assign) CGPoint originalPoint;
 @end

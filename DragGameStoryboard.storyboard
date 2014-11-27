@@ -17,62 +17,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bsf-Ro-oIs">
-                                <rect key="frame" x="30" y="349" width="708" height="500"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSx-Qe-e9V">
+                                <rect key="frame" x="40" y="904" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="AWD-PJ-UPq"/>
+                                    <constraint firstAttribute="height" constant="100" id="jvm-4M-AYQ"/>
+                                    <constraint firstAttribute="width" constant="100" id="o0y-82-Gja"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bfM-sI-2hb">
-                                    <size key="itemSize" width="168" height="58"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ydY-Pv-TJp" customClass="DragCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="168" height="58"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-eP-qbg" customClass="DragColorView">
-                                                    <rect key="frame" x="8" y="8" width="152" height="42"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="Gjq-eP-qbg" firstAttribute="top" secondItem="ydY-Pv-TJp" secondAttribute="topMargin" id="Im6-Qa-IyZ"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="Gjq-eP-qbg" secondAttribute="bottom" id="NdF-SG-zTn"/>
-                                            <constraint firstItem="Gjq-eP-qbg" firstAttribute="leading" secondItem="ydY-Pv-TJp" secondAttribute="leadingMargin" id="Tc1-lg-H8S"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="Gjq-eP-qbg" secondAttribute="trailing" id="ZNp-df-mUn"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="dragColorView" destination="Gjq-eP-qbg" id="bgC-in-9UA"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                <state key="normal" backgroundImage="menu2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToMenu:" destination="5EW-Y5-c83" eventType="touchUpInside" id="oX6-Qa-ENg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-DV-ZhN">
+                                <rect key="frame" x="334" y="195" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="RKs-bc-0e4"/>
+                                    <constraint firstAttribute="width" constant="100" id="eDp-9P-eGr"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playWordSound:" destination="5EW-Y5-c83" eventType="touchUpInside" id="Sre-QH-2XV"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Bsf-Ro-oIs" secondAttribute="trailing" constant="10" id="4gy-cq-OGV"/>
-                            <constraint firstItem="Bsf-Ro-oIs" firstAttribute="leading" secondItem="Zhc-zG-FdM" secondAttribute="leadingMargin" constant="10" id="OaF-ln-ueR"/>
-                            <constraint firstItem="ku2-9W-PZ5" firstAttribute="top" secondItem="Bsf-Ro-oIs" secondAttribute="bottom" constant="175" id="V3Y-Lb-4Pg"/>
+                            <constraint firstItem="LZg-DV-ZhN" firstAttribute="top" secondItem="Epq-rB-GQM" secondAttribute="bottom" constant="175" id="13V-D2-PQU"/>
+                            <constraint firstItem="SSx-Qe-e9V" firstAttribute="leading" secondItem="Zhc-zG-FdM" secondAttribute="leadingMargin" constant="20" id="93B-0Y-rHK"/>
+                            <constraint firstItem="ku2-9W-PZ5" firstAttribute="top" secondItem="SSx-Qe-e9V" secondAttribute="bottom" constant="20" id="9c4-Ay-XJ9"/>
+                            <constraint firstAttribute="centerX" secondItem="LZg-DV-ZhN" secondAttribute="centerX" id="fWr-4w-MIN"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="colorPickerCollectionView" destination="Bsf-Ro-oIs" id="4iG-bM-egY"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9R-le-wI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="286.72000000000003" y="440.32000000000005"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu2" width="680" height="680"/>
+        <image name="play" width="256" height="256"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
