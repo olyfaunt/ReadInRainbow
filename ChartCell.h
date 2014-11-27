@@ -11,5 +11,6 @@
 
 @interface ChartCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet ColorBlockView *colourView;
+@property (nonatomic, strong) NSString * soundIdentifier;
 
 @end

@@ -39,8 +39,18 @@
     self.buttonsArray = [NSMutableArray new];
     self.matchingWordsArray = [NSMutableArray new];
     self.wordDictionary = [[WordLibrary sharedLibrary] wordLibrary];
-    self.currentIndex = 0;
-    self.currentSound = self.soundsArray[self.currentIndex];
+    if(self.shouldGoToSpecificSound){
+        for(int i=0;i<self.soundsArray.count;i++){
+            if([[[self.soundsArray objectAtIndex:i] identifier] isEqualToString:self.soundIdentifier]){
+                self.currentIndex = i;
+                break;
+            }
+        }
+        self.currentSound = self.soundsArray[self.currentIndex];
+    } else {
+        self.currentIndex = 0;
+        self.currentSound = self.soundsArray[self.currentIndex];
+    }
     self.playWordButton.hidden = YES;
     [self changedColor];
     [self getArrayOfMatchingWords];

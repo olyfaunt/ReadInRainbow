@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet ColorBlockView *colorView;
 @property (nonatomic) UIView *wordView;
 @property (assign) int currentWordIndex;
+@property (nonatomic, assign) BOOL shouldGoToSpecificSound;
+@property (nonatomic, assign) NSString * soundIdentifier;
 
 @property (nonatomic) AVAudioPlayer *wordPlayer;
 @property (nonatomic) AVAudioPlayer *soundPlayer;

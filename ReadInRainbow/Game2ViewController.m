@@ -32,6 +32,7 @@
 @property (nonatomic, assign) int soundIndex;
 @property (nonatomic, assign) int soundIndexTwo;
 @property (nonatomic) UIVisualEffectView *blurEffectView;
+@property (nonatomic, assign) BOOL soundHasPlayed;
 
 - (IBAction)answerOptionOnePressed:(id)sender;
 - (IBAction)answerOptionTwoPressed:(id)sender;
@@ -52,6 +53,28 @@
     self.livesImageView.image = [UIImage imageNamed:@"heart4"];
     self.lives = 4;
     self.gameOverButton.hidden = YES;
+    self.soundHasPlayed = NO;
+}
+
+- (void)grayButtons {
+    self.answerOptionOne.alpha = 0;
+    self.answerOptionTwo.alpha = 0;
+    self.answerOptionThree.alpha = 0;
+}
+
+- (void)showOptionButtons {
+    [UIView transitionWithView:self.answerOptionOne duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.answerOptionOne.alpha = 1;
+                    }completion:nil];
+    [UIView transitionWithView:self.answerOptionTwo duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.answerOptionTwo.alpha = 1;
+                    }completion:nil];
+    [UIView transitionWithView:self.answerOptionThree duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.answerOptionThree.alpha = 1;
+                    }completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,7 +136,7 @@
             break;
         }
     }
-    
+    [self grayButtons];
     self.isCorrectImageView.image = nil;
 }
 
@@ -202,7 +225,7 @@
 }
 
 -(void) showSmileyFace {
-    [self.winPlayer play];
+    [self playCurrentSound:self];
     self.hasCorrectAnswer = YES;
     UIImage *smileImage = [UIImage imageNamed:@"smiling36"];
     [UIView transitionWithView:self.isCorrectImageView
@@ -251,7 +274,7 @@
     [self.soundPlayer prepareToPlay];
     self.soundPlayer.numberOfLoops=0; //or more if needed
     [self.soundPlayer play];
-    
+    [self showOptionButtons];
 }
 
 - (IBAction)nextButtonPressed:(id)sender {
@@ -284,10 +307,10 @@
     self.losePlayer.numberOfLoops = 0;
     [self.losePlayer prepareToPlay];
     
-    NSURL *url3 = [[NSBundle mainBundle] URLForResource:@"Win" withExtension:@"wav"];
-    self.winPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url3 error:nil];
-    self.winPlayer.numberOfLoops = 0;
-    [self.winPlayer prepareToPlay];
+//    NSURL *url3 = [[NSBundle mainBundle] URLForResource:@"Win" withExtension:@"wav"];
+//    self.winPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url3 error:nil];
+//    self.winPlayer.numberOfLoops = 0;
+//    [self.winPlayer prepareToPlay];
     
 }
 

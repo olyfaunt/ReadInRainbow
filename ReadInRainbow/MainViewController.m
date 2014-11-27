@@ -107,7 +107,11 @@ static NSString * const reuseIdentifier2 = @"GameCell";
             [cell.colourView setFirstColor:sound.soundColor];
             cell.colourView.secondColor = sound.secondaryColor;
         }
+        UITapGestureRecognizer * doubleTapRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleTappedOnChartCell:)];
+        doubleTapRecognizer.numberOfTapsRequired = 2;
+        [cell addGestureRecognizer:doubleTapRecognizer];
         [cell.colourView setNeedsDisplay]; //to redraw rect!!!!!!
+        cell.soundIdentifier = sound.identifier;
         return cell;
     }
     else
@@ -121,6 +125,17 @@ static NSString * const reuseIdentifier2 = @"GameCell";
         return cell;
     }
     
+}
+
+- (void)doubleTappedOnChartCell:(id)sender {
+    UITapGestureRecognizer * gestureRecognizer = sender;
+    ChartCell * cell = (ChartCell *)gestureRecognizer.view;
+    Game1ViewController *game1VC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Game1ViewController"];
+    game1VC.soundsArray = self.soundsArray;
+    game1VC.shouldGoToSpecificSound = YES;
+    game1VC.soundIdentifier = cell.soundIdentifier;
+    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+    appDelegateTemp.window.rootViewController = game1VC;
 }
 
 #pragma mark <UICollectionViewDelegate>
