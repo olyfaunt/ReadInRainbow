@@ -34,6 +34,8 @@
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, strong) UISnapBehavior *snapBehavior;
 @property (nonatomic) int NumberOfChoices;
+@property (nonatomic) int phonemesToMatch;
+@property (nonatomic) int phonemesCounter;
 - (IBAction)goToMenu:(id)sender;
 - (IBAction)playWordSound:(id)sender;
 

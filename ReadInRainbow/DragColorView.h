@@ -24,4 +24,5 @@
 @property (nonatomic, strong) UIColor *secondColor;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, assign) CGPoint originalPoint;
+@property (nonatomic, assign) BOOL isMatched;
 @end

@@ -20,11 +20,8 @@
     [super viewDidLoad];
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     self.buttonsArray = [NSMutableArray new];
+    [self setPhonemeCounter];
     [self setUpAndGetReadyToPlay];
-    // Do any additional setup after loading the view.
-//    self.dragAndDropController = (DNDDragAndDropController*)self;
-//    [self.dragAndDropController registerDragSource:self.colorPickerCollectionView withDelegate:self];
-//    [self.dragAndDropController registerDropTarget:self.view withDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,12 +30,19 @@
 }
 
 - (void)setUpAndGetReadyToPlay {
+    [self setPhonemeCounter];
     [self removeColorBlockOptions];
+    [self removeWordButtons];
     [self generateAndDisplayWord];
     [self makeColorBlockOptions];
 //    self.gameOverButton.hidden = YES;
     self.placeInPhonemeArray = 0;
     self.nextWordButton.hidden = YES;
+}
+
+-(void)setPhonemeCounter {
+    self.phonemesToMatch = 0;
+    self.phonemesCounter = 1;
 }
 
 -(void)removeColorBlockOptions {
@@ -48,9 +52,17 @@
     [self.colorBlocksArray removeAllObjects];
 }
 
+-(void)removeWordButtons{
+    for (UIButton *button in self.buttonsArray) {
+        [button removeFromSuperview];
+    }
+    [self.buttonsArray removeAllObjects];
+}
+
 - (void)generateAndDisplayWord {
     NSArray * wordArray = [[[WordLibrary sharedLibrary] wordLibrary] allValues];
     self.currentWord = wordArray[arc4random_uniform((u_int32_t)wordArray.count)];
+    self.phonemesToMatch = self.currentWord.phonemeArray.count;
     [self createButtonForWord:self.currentWord];
 }
 
@@ -87,35 +99,31 @@
 }
 
 -(void)makeColorBlockOptions {
-///
-        NSMutableArray *sourceArray = [[[[SoundLibrary sharedLibrary] soundLibrary] allValues] mutableCopy];
-        NSMutableArray *shufflingArray = [[NSMutableArray alloc] init];
-        for(Phoneme *currentPhoneme in self.currentWord.phonemeArray){
-            Sound *currentSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:currentPhoneme.soundIdentifier];
-            [sourceArray removeObject:currentSound];
-            [shufflingArray addObject:currentSound];
-        }
-        int numberOfObjectsToAdd = 2;
-        self.NumberOfChoices = (u_int32_t)(numberOfObjectsToAdd + shufflingArray.count);
-        for(int i=0;i<numberOfObjectsToAdd;i++){
-            int targetValue = arc4random_uniform((u_int32_t)sourceArray.count);
-            [shufflingArray addObject:sourceArray[targetValue]];
-            [sourceArray removeObjectAtIndex:targetValue];
-        }
-        NSUInteger count = [shufflingArray count];
-        for (NSUInteger i = 0; i < count; ++i) {
-            NSInteger remainingCount = count - i;
-            NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
-            [shufflingArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
-        }
-        self.colorBlockOptions = shufflingArray;
-//        [self.colorBlocksArray reloadData];
-//////
-    
-//    NSArray *tenArray = [self.soundsArray subarrayWithRange:NSMakeRange(0, 5)];
+    NSMutableArray *sourceArray = [[[[SoundLibrary sharedLibrary] soundLibrary] allValues] mutableCopy];
+    NSMutableArray *shufflingArray = [[NSMutableArray alloc] init];
+    for(Phoneme *currentPhoneme in self.currentWord.phonemeArray){
+        Sound *currentSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:currentPhoneme.soundIdentifier];
+        [sourceArray removeObject:currentSound];
+        [shufflingArray addObject:currentSound];
+    }
+    int numberOfObjectsToAdd = 2;
+    self.NumberOfChoices = (u_int32_t)(numberOfObjectsToAdd + shufflingArray.count);
+    for(int i=0;i<numberOfObjectsToAdd;i++){
+        int targetValue = arc4random_uniform((u_int32_t)sourceArray.count);
+        [shufflingArray addObject:sourceArray[targetValue]];
+        [sourceArray removeObjectAtIndex:targetValue];
+    }
+    NSUInteger count = [shufflingArray count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        NSInteger remainingCount = count - i;
+        NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
+        [shufflingArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+    }
+    self.colorBlockOptions = shufflingArray;
+    //        [self.colorBlocksArray reloadData];
     
     self.colorBlocksArray = [NSMutableArray new];
-    //create tiles
+    //create color views
     for (int i=0;i<self.colorBlockOptions.count;i++) {
         Sound *sound = self.colorBlockOptions[i];
         DragColorView *lastColorView;
@@ -170,27 +178,61 @@
         //check if sound matches
         if ([targetButton.tagString isEqualToString:dragColorView.identifier]) {
             NSLog(@"Success!!");
+            self.phonemesCounter += 1;
             //dragColorView removeFromSuperView and change letter to its color
             Sound *sound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:dragColorView.identifier];
             [self lightUpPhonemeInWordForSound:sound andButton:targetButton];
+            dragColorView.isMatched = YES;
             [dragColorView removeFromSuperview];
             
             NSLog(@"Check if the player has completed the phrase");
+            
+            //if all the colors in the word have been matched, display next word button
+            if (self.phonemesCounter>self.phonemesToMatch) {
+                [self displayNextWordButton];
+            }
+            
         } else {
-            //4
             NSLog(@"Failure - no match.");
             //dragColorView snaps back to original position
             [self addDynamicBehaviour:dragColorView];
             //more stuff to do on failure here        
         }
     }
-    NSLog(@"To implement");
+    //if color view not matched, want to snap back to original position no matter where it is dragged
+    if (!dragColorView.isMatched) {
+        [self addDynamicBehaviour:dragColorView];
+    }
+}
+
+-(void)displayNextWordButton {
+    UIButton *button = [[UIButton alloc] init];
+    UIButton *lastButton = [self.buttonsArray objectAtIndex:self.buttonsArray.count-1];
+    [button setFrame:CGRectMake(lastButton.center.x+lastButton.frame.size.width,self.view.frame.size.height/2-(lastButton.frame.size.height/2)-20,40,75)];
+    button.contentMode = UIViewContentModeScaleAspectFit;
+    UIImage *buttonImage = [UIImage imageNamed:@"next1"];
+    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    self.nextWordButton = button;
+    self.nextWordButton.alpha = 0;
+    [self.view addSubview:self.nextWordButton];
+//    [self.nextWordButton setNeedsDisplay];
+    [self.view bringSubviewToFront:self.nextWordButton];
+    self.nextWordButton.hidden = NO;
+    [UIView transitionWithView:nil duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        self.nextWordButton.alpha = 1;
+    }completion:^(BOOL finished) {
+        [self.nextWordButton setNeedsDisplay];
+        [self.nextWordButton addTarget:self action:@selector(nextWordButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }];
+}
+
+-(void)nextWordButtonClicked:(UIButton*)nextWordButton {
+    [self setUpAndGetReadyToPlay];
 }
 
 - (void)addDynamicBehaviour:(DragColorView *)dragColorView {
     
     self.snapBehavior = [[UISnapBehavior alloc] initWithItem:dragColorView snapToPoint:dragColorView.originalPoint];
-    
     [self.animator addBehavior:self.snapBehavior];
 
 }
@@ -199,81 +241,20 @@
         NSAttributedString * attributedTitle;
         if(sound.hasSecondaryColor){
             attributedTitle = [[NSAttributedString alloc] initWithString:button.titleLabel.text attributes:@{
-                                                                                                            NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],
-                                                                                                                    NSForegroundColorAttributeName:sound.soundColor,
-                                                                                                                    NSStrokeWidthAttributeName:[NSNumber numberWithFloat:StrokeWidth],
-                                                                                                                    NSStrokeColorAttributeName:sound.secondaryColor
-                                                                                                                    }];
+                                        NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],
+                                        NSForegroundColorAttributeName:sound.soundColor,
+                                        NSStrokeWidthAttributeName:[NSNumber numberWithFloat:StrokeWidth],
+                                        NSStrokeColorAttributeName:sound.secondaryColor
+                                        }];
         } else {
             attributedTitle = [[NSAttributedString alloc] initWithString:button.titleLabel.text attributes:@{
-                                                                                                                    NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],NSForegroundColorAttributeName:sound.soundColor}];
+                                        NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],
+                                        NSForegroundColorAttributeName:sound.soundColor}];
         }
-        
         [button setTitle:nil forState:UIControlStateNormal];
         [button setAttributedTitle:attributedTitle forState:UIControlStateNormal];
 
 }
-
-
-//- (void)setUpCollectionView {
-//    self.colorPickerCollectionView.delegate = self;
-//    self.colorPickerCollectionView.dataSource = self;
-//}
-//
-//-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-//    return 1;
-//}
-//
-//-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//    return self.soundsArray.count;
-//}
-//
-//
-//-(DragCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    DragCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-//    Sound *soundForCell = self.soundsArray[indexPath.row];
-//    newCell.dragColorView.firstColor = soundForCell.soundColor;
-//    if(soundForCell.hasSecondaryColor) {
-//        newCell.dragColorView.secondColor = soundForCell.secondaryColor;
-//    } else {
-//        newCell.dragColorView.secondColor = nil;
-//    }
-//    [newCell.dragColorView setNeedsDisplay]; //
-//    return newCell;
-//}
-
-//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    Sound * soundAtCell = self.collectionViewOptions[indexPath.item];
-//    NSError * error = nil;
-//    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundAtCell.soundURL error:&error];
-//    self.soundPlayer.volume=1.0f;
-//    [self.soundPlayer prepareToPlay];
-//    self.soundPlayer.numberOfLoops=0; //or more if needed
-//    [self.soundPlayer play];
-//    if(self.placeInPhonemeArray >= self.currentWord.phonemeArray.count) {
-//        // do nothing
-//    } else if([[self.currentWord.phonemeArray[self.placeInPhonemeArray] soundIdentifier] isEqualToString:soundAtCell.identifier]){
-//        [self lightUpPhonemeInWordForSound:soundAtCell];
-//        self.placeInPhonemeArray++;
-//        if(self.placeInPhonemeArray >= self.currentWord.phonemeArray.count){
-//            [self displayNextWordButton];
-//        }
-//    } else {
-//        [self loseOneLife];
-//    }
-//}
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)goToMenu:(id)sender {
     AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
