@@ -24,6 +24,7 @@
 @property (nonatomic) NSMutableArray *vowelSounds;
 @property (nonatomic, assign) int numberOfGames;
 @property (nonatomic) NSMutableArray *gameTitlesArray;
+@property (nonatomic) NSArray *gameImagesArray;
 @property (nonatomic) AVAudioPlayer *soundPlayer;
 @end
 

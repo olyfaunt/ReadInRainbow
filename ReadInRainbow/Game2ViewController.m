@@ -58,8 +58,14 @@
 
 - (void)grayButtons {
     self.answerOptionOne.alpha = 0;
+    self.answerOptionOne.layer.masksToBounds = YES;
+    self.answerOptionOne.layer.cornerRadius = 10;
     self.answerOptionTwo.alpha = 0;
+    self.answerOptionTwo.layer.masksToBounds = YES;
+    self.answerOptionTwo.layer.cornerRadius = 10;
     self.answerOptionThree.alpha = 0;
+    self.answerOptionThree.layer.masksToBounds = YES;
+    self.answerOptionThree.layer.cornerRadius = 10;
 }
 
 - (void)showOptionButtons {

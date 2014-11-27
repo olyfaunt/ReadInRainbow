@@ -14,9 +14,9 @@
     [super setSelected:selected];
     
     if (selected) {
-        self.gameView.image = [UIImage imageNamed:@"selectedtesticon"];
+        self.gameView.alpha = 0.1;
     } else {
-        self.gameView.image = [UIImage imageNamed:@"testicon"];
+        self.gameView.alpha = 1.0;
     }
 }
 
@@ -24,9 +24,9 @@
     [super setHighlighted:highlighted];
     
     if (highlighted) {
-        self.gameView.image = [UIImage imageNamed:@"selectedtesticon"];
+        self.gameView.alpha = 0.1;
     } else {
-        self.gameView.image = [UIImage imageNamed:@"testicon"];
+        self.gameView.alpha = 1.0;
     }
 }
 

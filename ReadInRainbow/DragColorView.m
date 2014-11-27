@@ -13,7 +13,6 @@
     int _xOffset, _yOffset;
 }
 
-
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
@@ -35,7 +34,7 @@
     self.userInteractionEnabled = YES;
 }
 
-#pragma mark - dragging the tile
+#pragma mark - dragging the color block
 //1
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -57,10 +56,17 @@
     [self touchesMoved:touches withEvent:event];
     
     if (self.dragDelegate) {
+        [self.dragDelegate addDynamicBehaviour:self]; ///////// have it snap back
         [self.dragDelegate dragColorView:self didDragToPoint:self.center];
     }
 }
 
+- (void)addDynamicBehaviour:(DragColorView *)dragColorView {
+    [self.animator removeAllBehaviors];
+    dragColorView.isSnapEnabled = YES;
+    self.snapBehavior = [[UISnapBehavior alloc] initWithItem:dragColorView snapToPoint:dragColorView.originalPoint];
+    [self.animator addBehavior:self.snapBehavior];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

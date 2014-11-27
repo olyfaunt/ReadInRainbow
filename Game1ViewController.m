@@ -36,6 +36,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.colorView.layer.masksToBounds = YES;
+    self.colorView.layer.cornerRadius = 80;
     // Do any additional setup after loading the view.
     self.buttonsArray = [NSMutableArray new];
     self.matchingWordsArray = [NSMutableArray new];

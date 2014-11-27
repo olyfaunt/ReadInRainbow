@@ -20,7 +20,7 @@
     [super viewDidLoad];
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     self.buttonsArray = [NSMutableArray new];
-    [self setPhonemeCounter];
+//    [self setPhonemeCounter];
     [self setUpAndGetReadyToPlay];
 }
 
@@ -31,6 +31,7 @@
 
 - (void)setUpAndGetReadyToPlay {
     [self setPhonemeCounter];
+    [self setUpGameSounds];
     [self removeColorBlockOptions];
     [self removeWordButtons];
     [self generateAndDisplayWord];
@@ -62,7 +63,7 @@
 - (void)generateAndDisplayWord {
     NSArray * wordArray = [[[WordLibrary sharedLibrary] wordLibrary] allValues];
     self.currentWord = wordArray[arc4random_uniform((u_int32_t)wordArray.count)];
-    self.phonemesToMatch = self.currentWord.phonemeArray.count;
+    self.phonemesToMatch = (u_int32_t)self.currentWord.phonemeArray.count;
     [self createButtonForWord:self.currentWord];
 }
 
@@ -128,6 +129,9 @@
         Sound *sound = self.colorBlockOptions[i];
         DragColorView *lastColorView;
         DragColorView *dragColorView = [[DragColorView alloc] init];
+        dragColorView.layer.masksToBounds = YES;
+        dragColorView.layer.cornerRadius = 10;
+        dragColorView.isSnapEnabled = NO;
         dragColorView.identifier = sound.identifier;
         if(sound.hasSecondaryColor){
             dragColorView.firstColor = sound.soundColor;
@@ -137,7 +141,7 @@
             dragColorView.secondColor = nil;
         }
         [dragColorView setNeedsDisplay];
-        int numberOfOptions = self.colorBlockOptions.count;
+        int numberOfOptions = (u_int32_t)self.colorBlockOptions.count;
         int numberOptionsLessThanTen = 10-numberOfOptions;
         
         if (self.colorBlocksArray.count==0) {
@@ -198,14 +202,8 @@
             
         } else {
             NSLog(@"Failure - no match.");
-            //dragColorView snaps back to original position
-            [self addDynamicBehaviour:dragColorView];
-            //more stuff to do on failure here        
+            [self.losePlayer play];
         }
-    }
-    //if color view not matched, want to snap back to original position no matter where it is dragged
-    if (!dragColorView.isMatched) {
-        [self addDynamicBehaviour:dragColorView];
     }
 }
 
@@ -228,7 +226,6 @@
     self.nextWordButton = button;
     self.nextWordButton.alpha = 0;
     [self.view addSubview:self.nextWordButton];
-//    [self.nextWordButton setNeedsDisplay];
     [self.view bringSubviewToFront:self.nextWordButton];
     self.nextWordButton.hidden = NO;
     [UIView transitionWithView:nil duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
@@ -244,7 +241,8 @@
 }
 
 - (void)addDynamicBehaviour:(DragColorView *)dragColorView {
-    
+    [self.animator removeAllBehaviors];
+    dragColorView.isSnapEnabled = YES;
     self.snapBehavior = [[UISnapBehavior alloc] initWithItem:dragColorView snapToPoint:dragColorView.originalPoint];
     [self.animator addBehavior:self.snapBehavior];
 
@@ -267,6 +265,13 @@
         [button setTitle:nil forState:UIControlStateNormal];
         [button setAttributedTitle:attributedTitle forState:UIControlStateNormal];
 
+}
+
+-(void)setUpGameSounds {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Lose" withExtension:@"wav"];
+    self.losePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    self.losePlayer.numberOfLoops = 0;
+    [self.losePlayer prepareToPlay];
 }
 
 - (IBAction)goToMenu:(id)sender {

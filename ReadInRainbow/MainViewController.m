@@ -36,12 +36,15 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.chartCollectionView.layer.masksToBounds = YES;
+    self.chartCollectionView.layer.cornerRadius = 10;
     self.chartCollectionView.delegate = self;
     self.gamesCollectionView.delegate = self;
     self.chartCollectionView.dataSource = self;
     self.gamesCollectionView.dataSource = self;
 
     [self setUpArrayOfSounds];
+    [self setUpArrayOfGameImages];
     
     self.numberOfGames = NumberOfGames;
     self.gameTitlesArray = [NSMutableArray new];
@@ -73,6 +76,15 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     self.soundsArray = [self.consonantSounds arrayByAddingObjectsFromArray:self.vowelSounds];
 }
 
+-(void) setUpArrayOfGameImages {
+    UIImage *reviewImage = [UIImage imageNamed:@"review"];
+    UIImage *gameImage = [UIImage imageNamed:@"game"];
+    UIImage *puzzleImage = [UIImage imageNamed:@"puzzle"];
+    
+    self.gameImagesArray = @[reviewImage,gameImage,puzzleImage,gameImage];
+
+}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -90,7 +102,7 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     else
     {
         //return cell for gamesCollectionview
-        return self.gameTitlesArray.count;
+        return 4;
     }
 }
 
@@ -112,6 +124,8 @@ static NSString * const reuseIdentifier2 = @"GameCell";
         [cell addGestureRecognizer:doubleTapRecognizer];
         [cell.colourView setNeedsDisplay]; //to redraw rect!!!!!!
         cell.soundIdentifier = sound.identifier;
+        cell.colourView.layer.masksToBounds = YES;
+        cell.colourView.layer.cornerRadius = 5;
         return cell;
     }
     else
@@ -119,9 +133,12 @@ static NSString * const reuseIdentifier2 = @"GameCell";
         GameCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier2 forIndexPath:indexPath];
         cell.backgroundView.backgroundColor = [UIColor grayColor];
         cell.gameLabel.text = self.gameTitlesArray[indexPath.row];
+        cell.gameLabel.textColor = [UIColor clearColor];
         cell.gameView.contentMode = UIViewContentModeScaleAspectFill;
         cell.gameView.clipsToBounds = YES;
-        cell.gameView.image = [UIImage imageNamed:@"testicon"];
+        cell.layer.masksToBounds = YES;
+        cell.layer.cornerRadius = 30;
+        cell.gameView.image = self.gameImagesArray[indexPath.row];
         return cell;
     }
     
@@ -180,14 +197,6 @@ static NSString * const reuseIdentifier2 = @"GameCell";
                 break;
             }
             case 3:
-            {
-                WordViewController *wordVC = [[UIStoryboard storyboardWithName:@"WordStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"WordViewController"];
-                wordVC.soundsArray = self.soundsArray;
-                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-                appDelegateTemp.window.rootViewController = wordVC;
-                break;
-            }
-            case 4:
             {
                 HangmanViewController * hangVC = [[UIStoryboard storyboardWithName:@"HangmanStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"HangmanViewController"];
                 AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
