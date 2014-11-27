@@ -55,6 +55,23 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
+        // orientation is landscape
+        NSLog(@"init to wide");
+        [self doSameAdjust:true];
+        
+    }  else {
+        // orientation is portrait
+        NSLog(@"init to tall");
+        [self doSameAdjust:false];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -211,6 +228,43 @@ static NSString * const reuseIdentifier2 = @"GameCell";
         
     }
 }
+
+//delegate - rotate
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    NSLog(@"transition to :%f and heigh %f",size.width, size.height);
+    BOOL transitionToWide = size.width > size.height;
+    if (transitionToWide){
+        NSLog(@"rotate to wide");
+        [self doSameAdjust:true];
+    }
+    else {
+        NSLog(@"rotate to tall");
+        [self doSameAdjust:false];
+    }
+}
+
+
+
+-(void)doSameAdjust:(BOOL)isWide
+{
+    if (isWide){
+        self.heightConstraint.constant = 470;
+        [self.view setNeedsUpdateConstraints];
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view layoutIfNeeded];
+        } completion:nil];
+    }
+    else {
+        
+        self.heightConstraint.constant = 720;
+        [self.view setNeedsUpdateConstraints];
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
+}
+
 
 //- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 //{

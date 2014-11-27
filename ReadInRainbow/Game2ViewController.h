@@ -11,6 +11,10 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface Game2ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *livesImageViewToBottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorBlock2ToBottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorBlock3ToBottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorBlock1ToBottom;
 
 @property (nonatomic, strong) NSArray * soundsArray;
 @property (weak, nonatomic) IBOutlet UIImageView *livesImageView;

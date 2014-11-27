@@ -13,6 +13,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface MainViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *chartCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *gamesCollectionView;
