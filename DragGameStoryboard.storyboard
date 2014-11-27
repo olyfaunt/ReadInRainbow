@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Drag Game View Controller-->
@@ -15,7 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="Zhc-zG-FdM">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSx-Qe-e9V">
+                                <rect key="frame" x="40" y="904" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="jvm-4M-AYQ"/>
+                                    <constraint firstAttribute="width" constant="100" id="o0y-82-Gja"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="menu2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToMenu:" destination="5EW-Y5-c83" eventType="touchUpInside" id="oX6-Qa-ENg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-DV-ZhN">
+                                <rect key="frame" x="334" y="195" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="RKs-bc-0e4"/>
+                                    <constraint firstAttribute="width" constant="100" id="eDp-9P-eGr"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playWordSound:" destination="5EW-Y5-c83" eventType="touchUpInside" id="Sre-QH-2XV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LZg-DV-ZhN" firstAttribute="top" secondItem="Epq-rB-GQM" secondAttribute="bottom" constant="175" id="13V-D2-PQU"/>
+                            <constraint firstItem="SSx-Qe-e9V" firstAttribute="leading" secondItem="Zhc-zG-FdM" secondAttribute="leadingMargin" constant="20" id="93B-0Y-rHK"/>
+                            <constraint firstItem="ku2-9W-PZ5" firstAttribute="top" secondItem="SSx-Qe-e9V" secondAttribute="bottom" constant="20" id="9c4-Ay-XJ9"/>
+                            <constraint firstAttribute="centerX" secondItem="LZg-DV-ZhN" secondAttribute="centerX" id="fWr-4w-MIN"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9R-le-wI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -23,6 +58,10 @@
             <point key="canvasLocation" x="286.72000000000003" y="440.32000000000005"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu2" width="680" height="680"/>
+        <image name="play" width="256" height="256"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

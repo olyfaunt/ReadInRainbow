@@ -17,7 +17,7 @@
 #import "AppDelegate.h"
 #import "Game1ViewController.h"
 #import "Game2ViewController.h"
-#import "Game3ViewController.h"
+#import "DragGameViewController.h"
 #import "WordViewController.h"
 #import "Util.h"
 #import "HangmanViewController.h"
@@ -173,10 +173,10 @@ static NSString * const reuseIdentifier2 = @"GameCell";
             }
             case 2:
             {
-                Game3ViewController *game3VC = [[UIStoryboard storyboardWithName:@"Game3Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"Game3ViewController"];
-                game3VC.soundsArray = self.soundsArray;
+                DragGameViewController *dragVC = [[UIStoryboard storyboardWithName:@"DragGameStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"DragGameViewController"];
+                dragVC.soundsArray = self.soundsArray;
                 AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-                appDelegateTemp.window.rootViewController = game3VC;
+                appDelegateTemp.window.rootViewController = dragVC;
                 break;
             }
             case 3:

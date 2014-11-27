@@ -13,6 +13,13 @@ static const float StrokeWidth = -6.0;
 static const int NumberOfGames = 15;
 static const int NumberOfButtons = 3;
 
+#define kScreenWidth [UIScreen mainScreen].bounds.size.height
+#define kScreenHeight [UIScreen mainScreen].bounds.size.width
+
+#define kBlockMargin 20
+#define kBlockWidth 50
+#define kBlockHeight 50
+
 #import <Foundation/Foundation.h>
 
 @interface Util : NSObject
