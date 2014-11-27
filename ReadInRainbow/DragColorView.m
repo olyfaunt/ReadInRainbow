@@ -41,6 +41,10 @@
     CGPoint pt = [[touches anyObject] locationInView:self.superview];
     _xOffset = pt.x - self.center.x;
     _yOffset = pt.y - self.center.y;
+    
+    if (self.dragDelegate) {
+        [self.dragDelegate colorBlockTouched:self];
+    }
 }
 
 //2

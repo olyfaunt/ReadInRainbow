@@ -15,6 +15,7 @@
 
 -(void)dragColorView:(DragColorView*)dragColorView didDragToPoint:(CGPoint)pt;
 -(void)addDynamicBehaviour:(DragColorView *)dragColorView;
+-(void)colorBlockTouched:(DragColorView *)dragColorView;
 
 @end
 

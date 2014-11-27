@@ -99,6 +99,16 @@
     [self.soundPlayer play];
 }
 
+- (void)colorBlockTouched:(DragColorView *)dragColorView{
+    Sound * theSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:dragColorView.identifier];
+    NSError * error = nil;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:theSound.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    [self.soundPlayer play];
+}
+
 -(void)makeColorBlockOptions {
     NSMutableArray *sourceArray = [[[[SoundLibrary sharedLibrary] soundLibrary] allValues] mutableCopy];
     NSMutableArray *shufflingArray = [[NSMutableArray alloc] init];
