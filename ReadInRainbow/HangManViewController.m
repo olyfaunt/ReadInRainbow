@@ -376,7 +376,7 @@ const int numberOfLives = 8;
 
 - (IBAction)playMovie:(id)sender {
     if (!self.moviePlayer) {
-        self.moviePlayer = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"gameone480" ofType:@"mov"]]];
+        self.moviePlayer = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"hangman" ofType:@"mp4"]]];
     }
     [self presentViewController:self.moviePlayer animated:NO completion:^{
         [self.moviePlayer.moviePlayer play];

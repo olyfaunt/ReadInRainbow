@@ -117,7 +117,10 @@
 		99F46F681A20065C00379256 /* water.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F581A1FE40B00379256 /* water.caf */; };
 		99F46F691A20065E00379256 /* you.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F591A1FE40B00379256 /* you.caf */; };
 		99FA98371A28F7BA0098D19E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FA98361A28F7BA0098D19E /* MediaPlayer.framework */; };
-		99FA983A1A28F8250098D19E /* gameone480.mov in Resources */ = {isa = PBXBuildFile; fileRef = 99FA98391A28F8250098D19E /* gameone480.mov */; };
+		99FA983E1A2917E20098D19E /* hangman.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 99FA983D1A2917E20098D19E /* hangman.mp4 */; };
+		99FA98401A2918DC0098D19E /* dragdrop.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 99FA983F1A2918DC0098D19E /* dragdrop.mp4 */; };
+		99FA98421A2919D20098D19E /* game2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 99FA98411A2919D20098D19E /* game2.mp4 */; };
+		99FA98441A291A420098D19E /* game1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 99FA98431A291A420098D19E /* game1.mp4 */; };
 		CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */; };
 		CA60F0001A1D21F9001DC1D2 /* Game2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */; };
 		CA60F0411A1FEFC0001DC1D2 /* HangmanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60F0401A1FEFC0001DC1D2 /* HangmanStoryboard.storyboard */; };
@@ -223,7 +226,10 @@
 		99F46F581A1FE40B00379256 /* water.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = water.caf; sourceTree = "<group>"; };
 		99F46F591A1FE40B00379256 /* you.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = you.caf; sourceTree = "<group>"; };
 		99FA98361A28F7BA0098D19E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		99FA98391A28F8250098D19E /* gameone480.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameone480.mov; sourceTree = "<group>"; };
+		99FA983D1A2917E20098D19E /* hangman.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hangman.mp4; sourceTree = "<group>"; };
+		99FA983F1A2918DC0098D19E /* dragdrop.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dragdrop.mp4; sourceTree = "<group>"; };
+		99FA98411A2919D20098D19E /* game2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = game2.mp4; sourceTree = "<group>"; };
+		99FA98431A291A420098D19E /* game1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = game1.mp4; sourceTree = "<group>"; };
 		CA60EFFB1A1BE132001DC1D2 /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
 		CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game2Storyboard.storyboard; sourceTree = "<group>"; };
 		CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game2ViewController.h; sourceTree = "<group>"; };
@@ -572,7 +578,10 @@
 		99FA98381A28F81C0098D19E /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				99FA98391A28F8250098D19E /* gameone480.mov */,
+				99FA98431A291A420098D19E /* game1.mp4 */,
+				99FA98411A2919D20098D19E /* game2.mp4 */,
+				99FA983F1A2918DC0098D19E /* dragdrop.mp4 */,
+				99FA983D1A2917E20098D19E /* hangman.mp4 */,
 			);
 			name = Movies;
 			sourceTree = "<group>";
@@ -691,10 +700,12 @@
 				99F46F671A20065B00379256 /* vision.caf in Resources */,
 				99F46F091A1D656500379256 /* our.caf in Resources */,
 				99F46F651A20065700379256 /* star.caf in Resources */,
+				99FA98441A291A420098D19E /* game1.mp4 in Resources */,
 				99F46F021A1D655500379256 /* longe.caf in Resources */,
+				99FA98421A2919D20098D19E /* game2.mp4 in Resources */,
 				99F46F371A1D90F500379256 /* north.caf in Resources */,
 				99F46F141A1D658100379256 /* thth.caf in Resources */,
-				99FA983A1A28F8250098D19E /* gameone480.mov in Resources */,
+				99FA983E1A2917E20098D19E /* hangman.mp4 in Resources */,
 				99F46F1B1A1D658F00379256 /* yod.caf in Resources */,
 				99F46F031A1D655800379256 /* longi.caf in Resources */,
 				99F46F421A1E928800379256 /* DragGameStoryboard.storyboard in Resources */,
@@ -724,6 +735,7 @@
 				99F46F381A1D90F700379256 /* shoe.caf in Resources */,
 				99885C601A1A921A0043D837 /* Images.xcassets in Resources */,
 				99F46F0E1A1D657200379256 /* schwa.caf in Resources */,
+				99FA98401A2918DC0098D19E /* dragdrop.mp4 in Resources */,
 				99F46F5D1A20064500379256 /* influence.caf in Resources */,
 				9916828D1A25345600336AB1 /* GameOver.wav in Resources */,
 				99F46F621A20065000379256 /* page.caf in Resources */,

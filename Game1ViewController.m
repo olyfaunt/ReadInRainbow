@@ -147,11 +147,27 @@
 
 - (IBAction)playMovie:(id)sender {
     if (!self.moviePlayer) {
-        self.moviePlayer = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"gameone480" ofType:@"mov"]]];
+        self.moviePlayer = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"game1" ofType:@"mp4"]]];
+//        [self.moviePlayer.moviePlayer setControlStyle:MPMovieControlStyleDefault];
     }
-    [self presentViewController:self.moviePlayer animated:NO completion:^{
-        [self.moviePlayer.moviePlayer play];
+    [self presentViewController:self.moviePlayer animated:NO completion:nil];
+    //^{
+    //removed }
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(videoPlayBackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:self.moviePlayer.moviePlayer];
+    [self.moviePlayer.moviePlayer play];
+}
+
+- (void)videoPlayBackDidFinish:(NSNotification *)notification {
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    [self.moviePlayer.moviePlayer stop];
+    [self dismissViewControllerAnimated:YES completion:^{
+        self.moviePlayer = nil;
     }];
+    
 }
 
 - (IBAction)goToMenu:(id)sender {
