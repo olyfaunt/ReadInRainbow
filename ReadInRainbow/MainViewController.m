@@ -142,9 +142,13 @@ static NSString * const reuseIdentifier2 = @"GameCell";
             [cell.colourView setFirstColor:sound.soundColor];
             cell.colourView.secondColor = sound.secondaryColor;
         }
-        UITapGestureRecognizer * doubleTapRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleTappedOnChartCell:)];
-        doubleTapRecognizer.numberOfTapsRequired = 2;
-        [cell addGestureRecognizer:doubleTapRecognizer];
+//        UITapGestureRecognizer * doubleTapRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleTappedOnChartCell:)];
+//        doubleTapRecognizer.numberOfTapsRequired = 2;
+//        [cell addGestureRecognizer:doubleTapRecognizer];
+        UILongPressGestureRecognizer * longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressOnChartCell:)];
+        [cell addGestureRecognizer:longPressRecognizer];
+        
+        
         [cell.colourView setNeedsDisplay]; //to redraw rect!!!!!!
         cell.soundIdentifier = sound.identifier;
         cell.colourView.layer.masksToBounds = YES;
@@ -167,6 +171,20 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     
 }
 
+-(void)longPressOnChartCell:(id)sender {
+    UILongPressGestureRecognizer * gestureRecognizer = sender;
+    ChartCell * cell = (ChartCell *)gestureRecognizer.view;
+    Game1ViewController *game1VC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Game1ViewController"];
+    game1VC.soundsArray = self.soundsArray;
+    game1VC.shouldGoToSpecificSound = YES;
+    game1VC.soundIdentifier = cell.soundIdentifier;
+    game1VC.mainMenuReturnDelegate = self;
+    game1VC.modalTransitionStyle = UIModalPresentationFormSheet;
+    [self presentViewController:game1VC animated:YES completion:nil];
+//    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+//    appDelegateTemp.window.rootViewController = game1VC;
+}
+
 - (void)doubleTappedOnChartCell:(id)sender {
     UITapGestureRecognizer * gestureRecognizer = sender;
     ChartCell * cell = (ChartCell *)gestureRecognizer.view;
@@ -184,6 +202,31 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     //get and play associated sound item that relates to index path
     if(collectionView == self.chartCollectionView)
     {
+        ChartCell *cell = (ChartCell*)[self.chartCollectionView cellForItemAtIndexPath:indexPath];
+        UIView *newView = [[UIView alloc] init];
+        [UIView animateWithDuration:1.0
+                              delay:0
+                            options:(UIViewAnimationOptionAllowUserInteraction)
+                         animations:^
+         {
+             NSLog(@"starting animation");
+             
+             [UIView transitionFromView:cell.contentView
+                                 toView:newView
+                               duration:.4
+                                options:UIViewAnimationOptionTransitionCrossDissolve
+                             completion:nil];
+         }
+                         completion:^(BOOL finished)
+         {
+             [UIView transitionFromView:newView
+                                 toView:cell.contentView
+                               duration:.4
+                                options:UIViewAnimationOptionTransitionCrossDissolve
+                             completion:nil];
+         }
+         ];
+        
         Sound *sound = self.soundsArray[indexPath.row];
         NSError *error;
         self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:sound.soundURL error:&error];

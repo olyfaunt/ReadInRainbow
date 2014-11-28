@@ -168,11 +168,26 @@
                                     <action selector="gameOver:" destination="l8o-jd-qEB" eventType="touchUpInside" id="JQu-JC-1CJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Uv-Ee-taA">
+                                <rect key="frame" x="653" y="929" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="DNv-Rf-SeO"/>
+                                    <constraint firstAttribute="height" constant="75" id="rdb-22-UrK"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="movie1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playMovie:" destination="l8o-jd-qEB" eventType="touchUpInside" id="SR2-dz-kJR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Uv-Ee-taA" secondAttribute="trailing" constant="20" id="1aB-gS-58m"/>
                             <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="vWJ-Uc-Hca" secondAttribute="bottom" constant="180" id="3PQ-Id-sod"/>
                             <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="Pfp-IC-xu7" secondAttribute="bottom" constant="20" id="43D-j7-zcS"/>
+                            <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="5Uv-Ee-taA" secondAttribute="bottom" constant="20" id="4k9-Eu-Xp7"/>
                             <constraint firstItem="Pfp-IC-xu7" firstAttribute="leading" secondItem="gH8-ym-lAX" secondAttribute="leadingMargin" constant="20" id="6Cl-xd-pDu"/>
                             <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="3LF-iR-Vcm" secondAttribute="bottom" constant="420" id="6XQ-TA-Rye"/>
                             <constraint firstItem="Pfp-IC-xu7" firstAttribute="leading" secondItem="gH8-ym-lAX" secondAttribute="leadingMargin" constant="20" id="7f3-hI-4n3"/>
@@ -214,6 +229,7 @@
     </scenes>
     <resources>
         <image name="menu2" width="680" height="680"/>
+        <image name="movie1" width="256" height="256"/>
         <image name="next1" width="512" height="872"/>
         <image name="play" width="256" height="256"/>
         <image name="restart1" width="256" height="256"/>

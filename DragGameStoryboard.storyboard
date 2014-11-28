@@ -43,12 +43,27 @@
                                     <action selector="playWordSound:" destination="5EW-Y5-c83" eventType="touchUpInside" id="Sre-QH-2XV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOc-tr-dHq">
+                                <rect key="frame" x="653" y="929" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="QiQ-A5-5mO"/>
+                                    <constraint firstAttribute="height" constant="75" id="pQe-Yo-yWo"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="movie1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playMovie:" destination="5EW-Y5-c83" eventType="touchUpInside" id="abH-RX-GTc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LZg-DV-ZhN" firstAttribute="top" secondItem="Epq-rB-GQM" secondAttribute="bottom" constant="175" id="13V-D2-PQU"/>
                             <constraint firstItem="SSx-Qe-e9V" firstAttribute="leading" secondItem="Zhc-zG-FdM" secondAttribute="leadingMargin" constant="20" id="93B-0Y-rHK"/>
                             <constraint firstItem="ku2-9W-PZ5" firstAttribute="top" secondItem="SSx-Qe-e9V" secondAttribute="bottom" constant="20" id="9c4-Ay-XJ9"/>
+                            <constraint firstItem="ku2-9W-PZ5" firstAttribute="top" secondItem="EOc-tr-dHq" secondAttribute="bottom" constant="20" id="YCL-fB-52e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EOc-tr-dHq" secondAttribute="trailing" constant="20" id="eqL-tt-zjJ"/>
                             <constraint firstAttribute="centerX" secondItem="LZg-DV-ZhN" secondAttribute="centerX" id="fWr-4w-MIN"/>
                         </constraints>
                     </view>
@@ -60,6 +75,7 @@
     </scenes>
     <resources>
         <image name="menu2" width="680" height="680"/>
+        <image name="movie1" width="256" height="256"/>
         <image name="play" width="256" height="256"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

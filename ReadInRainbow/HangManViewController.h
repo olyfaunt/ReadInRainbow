@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MainMenuReturnProtocol.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface HangmanViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, weak) id <MainMenuReturnProtocol> MainMenuReturnDelegate;
+
+@property (strong, nonatomic) MPMoviePlayerViewController *moviePlayer;
+- (IBAction)playMovie:(id)sender;
 
 @end

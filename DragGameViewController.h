@@ -20,11 +20,13 @@
 #import "AppDelegate.h"
 #import "DragGameDelegateProtocol.h"
 #import "MainMenuReturnProtocol.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface DragGameViewController : UIViewController <DragColorViewDragDelegateProtocol>
 
 @property (nonatomic, weak) id <MainMenuReturnProtocol> mainMenuReturnDelegate;
 @property (weak, nonatomic) id<DragGameDelegateProtocol> dragDelegate; //
+@property (strong, nonatomic) MPMoviePlayerViewController *moviePlayer;
 @property (nonatomic) NSArray *soundsArray;
 @property (nonatomic) NSMutableArray *colorBlocksArray;
 @property (nonatomic) CGFloat startingXPosition;
@@ -45,5 +47,6 @@
 @property (nonatomic) int phonemesCounter;
 - (IBAction)goToMenu:(id)sender;
 - (IBAction)playWordSound:(id)sender;
+- (IBAction)playMovie:(id)sender;
 
 @end

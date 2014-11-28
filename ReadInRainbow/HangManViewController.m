@@ -375,4 +375,26 @@ const int numberOfLives = 8;
     [self.gameOverPlayer prepareToPlay];
 }
 
+- (IBAction)playMovie:(id)sender {
+    if (!self.moviePlayer) {
+        self.moviePlayer = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"hangman" ofType:@"mp4"]]];
+        //        [self.moviePlayer.moviePlayer setControlStyle:MPMovieControlStyleDefault];
+    }
+    [self presentViewController:self.moviePlayer animated:NO completion:nil];
+    //^{
+    //removed }
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(videoPlayBackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:self.moviePlayer.moviePlayer];
+    [self.moviePlayer.moviePlayer play];
+}
+
+- (void)videoPlayBackDidFinish:(NSNotification *)notification {
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    [self.moviePlayer.moviePlayer stop];
+    self.moviePlayer = nil;
+    
+}
 @end
