@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -100,19 +100,6 @@
                                     <action selector="playWordPressed:" destination="a74-UZ-Iky" eventType="touchUpInside" id="WID-wi-Yd3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8p-gz-rlJ">
-                                <rect key="frame" x="644" y="529" width="40" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="MY8-CL-wcR"/>
-                                    <constraint firstAttribute="height" constant="75" id="urp-dB-aYA"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="next1">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextWordButtonPressed:" destination="a74-UZ-Iky" eventType="touchUpInside" id="081-zG-ZVm"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTV-Y7-wNp">
                                 <rect key="frame" x="40" y="904" width="100" height="100"/>
                                 <constraints>
@@ -126,16 +113,29 @@
                                     <action selector="menuButtonPressed:" destination="a74-UZ-Iky" eventType="touchUpInside" id="8Qp-i2-zqo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8p-gz-rlJ">
+                                <rect key="frame" x="692" y="489" width="40" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="MY8-CL-wcR"/>
+                                    <constraint firstAttribute="height" constant="76" id="urp-dB-aYA"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="next1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextWordButtonPressed:" destination="a74-UZ-Iky" eventType="touchUpInside" id="081-zG-ZVm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="z8p-gz-rlJ" firstAttribute="trailing" secondItem="QWJ-N5-NzC" secondAttribute="trailing" id="0Hn-1L-ltk"/>
+                            <constraint firstItem="z8p-gz-rlJ" firstAttribute="trailing" secondItem="QWJ-N5-NzC" secondAttribute="trailing" constant="48" id="0Hn-1L-ltk"/>
                             <constraint firstItem="Nhp-iQ-p7S" firstAttribute="top" secondItem="Rwa-pJ-u42" secondAttribute="bottom" id="0gm-Ct-eZQ"/>
                             <constraint firstItem="sA3-Ob-jfP" firstAttribute="firstBaseline" secondItem="QWJ-N5-NzC" secondAttribute="baseline" id="B49-KC-tbv"/>
                             <constraint firstItem="uvb-XF-rtK" firstAttribute="top" secondItem="FiN-g9-cAa" secondAttribute="bottom" constant="150" id="FaH-SD-CcG"/>
                             <constraint firstItem="sA3-Ob-jfP" firstAttribute="centerX" secondItem="QWJ-N5-NzC" secondAttribute="centerX" id="Fjq-oi-tsM"/>
                             <constraint firstAttribute="centerY" secondItem="QWJ-N5-NzC" secondAttribute="centerY" id="RBm-b9-S3q"/>
-                            <constraint firstItem="FiN-g9-cAa" firstAttribute="top" secondItem="z8p-gz-rlJ" secondAttribute="bottom" constant="20" id="SLR-Gz-UTQ"/>
+                            <constraint firstItem="FiN-g9-cAa" firstAttribute="top" secondItem="z8p-gz-rlJ" secondAttribute="bottom" constant="59" id="SLR-Gz-UTQ"/>
                             <constraint firstItem="Nhp-iQ-p7S" firstAttribute="leading" secondItem="eQo-EK-JH7" secondAttribute="trailing" constant="8" id="aBo-gd-6y5"/>
                             <constraint firstItem="eQo-EK-JH7" firstAttribute="top" secondItem="Rwa-pJ-u42" secondAttribute="bottom" id="bEV-8v-s0r"/>
                             <constraint firstItem="FTV-Y7-wNp" firstAttribute="leading" secondItem="Jbj-tJ-heB" secondAttribute="leadingMargin" constant="20" id="dnz-L6-kCv"/>
