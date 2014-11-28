@@ -166,7 +166,7 @@
     if (!self.wordView) {
         [self createButtonForWord:self.matchingWordToPlay];
     }
-    [self moveColorViewDown];
+//    [self moveColorViewDown];
 }
 
 -(void)changedColor {
@@ -380,13 +380,13 @@
                     animations:nil completion:nil];
 }
 
--(void)moveColorViewDown {
-    [UIView animateWithDuration:0.3f animations:^{
-        self.colorView.center = CGPointMake(self.colorView.center.x, 430);
-    } completion:^(BOOL finished) {
-        
-//        [self.colorView setNeedsLayout];
-    }];
-}
+//-(void)moveColorViewDown {
+//    [UIView animateWithDuration:0.3f animations:^{
+//        self.colorView.center = CGPointMake(self.colorView.center.x, 430);
+//    } completion:^(BOOL finished) {
+//        
+////        [self.colorView setNeedsLayout];
+//    }];
+//}
 
 @end
