@@ -6,4 +6,6 @@ Project started November 17/14 - in progress.
 
 **List of technologies/languages to build the app:** Objective-C, UIKit, UIKit Dynamics, AudioToolbox, AVFoundation, MediaPlayer
 
+**Please allow GIF to load (Note that pressing on buttons in the app should play sounds):**
+
 ![demo480](https://cloud.githubusercontent.com/assets/7607614/5232820/f22430f0-7710-11e4-9c54-bee0367bcdf4.gif)
