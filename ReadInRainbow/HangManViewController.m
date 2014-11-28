@@ -31,6 +31,8 @@ const int numberOfLives = 8;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *colorPickerCollectionView;
 
+@property (nonatomic, strong) NSArray * wordsArray;
+@property (nonatomic, assign) int wordsArrayIndex;
 @property (nonatomic, strong) NSMutableArray * buttonsArray;
 @property (nonatomic, strong) Word * currentWord;
 @property (nonatomic, strong) NSArray * collectionViewOptions;
@@ -53,6 +55,9 @@ const int numberOfLives = 8;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self buildWordArrayByShuffling];
+    self.wordsArrayIndex = 0;
+    
     self.buttonsArray = [[NSMutableArray alloc] init];
     [self setUpGameSounds];
     [self setUpBlurView];
@@ -75,6 +80,17 @@ const int numberOfLives = 8;
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)buildWordArrayByShuffling {
+    NSMutableArray * shufflingArray = [[[[WordLibrary sharedLibrary] wordLibrary] allValues] mutableCopy];
+    NSUInteger count = [shufflingArray count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        NSInteger remainingCount = count - i;
+        NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
+        [shufflingArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+    }
+    self.wordsArray = shufflingArray;
+}
 
 - (void)setUpAndGetReadyToPlay {
     [self removeWordButtons];
@@ -256,9 +272,18 @@ const int numberOfLives = 8;
 }
 
 - (void)generateAndDisplayWord {
-    NSArray * wordArray = [[[WordLibrary sharedLibrary] wordLibrary] allValues];
-    self.currentWord = wordArray[arc4random_uniform((u_int32_t)wordArray.count)];
+    self.currentWord = self.wordsArray[self.wordsArrayIndex];
     [self createButtonForWord:self.currentWord];
+    if(self.wordsArrayIndex < self.wordsArray.count){
+        self.wordsArrayIndex++;
+    } else {
+        [self buildWordArrayByShuffling];
+        if(self.wordsArray[0] == self.currentWord){
+            self.wordsArrayIndex = 1;
+        } else {
+            self.wordsArrayIndex = 0;
+        }
+    }
 }
 
 -(void) createButtonForWord:(Word*)word {
