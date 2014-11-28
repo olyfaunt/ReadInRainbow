@@ -100,6 +100,17 @@
     /////////////////IF FINISHED
     if (self.phonemesCounter>self.phonemesToMatch) {
         [self.soundPlayer play];
+        NSAttributedString * oldTitle = sender.currentAttributedTitle;
+        NSAttributedString * whiteString = [[NSAttributedString alloc] initWithString:sender.titleLabel.text attributes:@{
+                                                                                                                    NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:FontSize],NSForegroundColorAttributeName:[UIColor colorWithRed:0.937f green:0.937f blue:0.957f alpha:1.00f]}];
+        
+        [UIView transitionWithView:sender duration:0.4f options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+            [sender setAttributedTitle:whiteString forState:UIControlStateNormal];
+        } completion:^(BOOL finished) {
+            [UIView transitionWithView:sender duration:0.4f options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+                [sender setAttributedTitle:oldTitle forState:UIControlStateNormal];
+            } completion:nil];
+        }];
     }
 }
 
