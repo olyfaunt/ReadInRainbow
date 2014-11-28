@@ -11,8 +11,9 @@
 #import "ChartCell.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import "MainMenuReturnProtocol.h"
 
-@interface MainViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface MainViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MainMenuReturnProtocol>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *chartCollectionView;

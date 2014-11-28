@@ -278,6 +278,7 @@
 		CAD609091A1BD57100D2E16C /* yod.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = yod.caf; sourceTree = "<group>"; };
 		CAD6090A1A1BD57100D2E16C /* z.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = z.caf; sourceTree = "<group>"; };
 		CAD6090B1A1BD57100D2E16C /* zh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = zh.caf; sourceTree = "<group>"; };
+		CAD860701A291AFF00B0EFDC /* MainMenuReturnProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuReturnProtocol.h; sourceTree = "<group>"; };
 		CAE9A5B31A1AD32400898AC3 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		CAE9A5B41A1AD32400898AC3 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 		CAE9A5B51A1AD32400898AC3 /* SoundLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundLibrary.h; sourceTree = "<group>"; };
@@ -495,6 +496,7 @@
 		99F46F461A1ED82A00379256 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CAD860701A291AFF00B0EFDC /* MainMenuReturnProtocol.h */,
 				99885C591A1A921A0043D837 /* MainViewController.h */,
 				99885C5A1A1A921A0043D837 /* MainViewController.m */,
 				99D594811A1C0D87001CFBED /* Game1ViewController.h */,

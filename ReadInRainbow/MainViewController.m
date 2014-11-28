@@ -59,6 +59,10 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 {
     [super viewWillAppear:YES];
     
+    for(NSIndexPath * indexPath in self.gamesCollectionView.indexPathsForSelectedItems){
+        [self.gamesCollectionView deselectItemAtIndexPath:indexPath animated:YES];
+    }
+    
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
         // orientation is landscape
@@ -194,32 +198,44 @@ static NSString * const reuseIdentifier2 = @"GameCell";
             case 0:
             {
                 Game1ViewController *game1VC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Game1ViewController"];
+                game1VC.modalTransitionStyle = UIModalPresentationFormSheet;
                 game1VC.soundsArray = self.soundsArray;
-                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-                appDelegateTemp.window.rootViewController = game1VC;
+                game1VC.mainMenuReturnDelegate = self;
+//                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+//                appDelegateTemp.window.rootViewController = game1VC;
+                [self presentViewController:game1VC animated:YES completion:nil];
                 break;
             }
             case 1:
             {
                 Game2ViewController *game2VC = [[UIStoryboard storyboardWithName:@"Game2Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"Game2ViewController"];
                 game2VC.soundsArray = self.soundsArray;
-                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-                appDelegateTemp.window.rootViewController = game2VC;
+                game2VC.modalTransitionStyle = UIModalPresentationFormSheet;
+                game2VC.mainMenuReturnDelegate = self;
+                [self presentViewController:game2VC animated:YES completion:nil];
+//                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+//                appDelegateTemp.window.rootViewController = game2VC;
                 break;
             }
             case 2:
             {
                 DragGameViewController *dragVC = [[UIStoryboard storyboardWithName:@"DragGameStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"DragGameViewController"];
                 dragVC.soundsArray = self.soundsArray;
-                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-                appDelegateTemp.window.rootViewController = dragVC;
+                dragVC.mainMenuReturnDelegate = self;
+                dragVC.modalTransitionStyle = UIModalPresentationFormSheet;
+                [self presentViewController:dragVC animated:YES completion:nil];
+//                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+//                appDelegateTemp.window.rootViewController = dragVC;
                 break;
             }
             case 3:
             {
                 HangmanViewController * hangVC = [[UIStoryboard storyboardWithName:@"HangmanStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"HangmanViewController"];
-                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-                appDelegateTemp.window.rootViewController = hangVC;
+//                AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+//                appDelegateTemp.window.rootViewController = hangVC;
+                hangVC.MainMenuReturnDelegate = self;
+                hangVC.modalTransitionStyle = UIModalPresentationFormSheet;
+                [self presentViewController:hangVC animated:YES completion:nil];
                 break;
             }
             default:
@@ -306,5 +322,8 @@ static NSString * const reuseIdentifier2 = @"GameCell";
  }
  */
 
+-(void)returnToMainMenu:(UIViewController *)oldViewController {
+    [oldViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

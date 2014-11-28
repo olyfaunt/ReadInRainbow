@@ -19,9 +19,11 @@
 #import "Util.h"
 #import "AppDelegate.h"
 #import "DragGameDelegateProtocol.h"
+#import "MainMenuReturnProtocol.h"
 
 @interface DragGameViewController : UIViewController <DragColorViewDragDelegateProtocol>
 
+@property (nonatomic, weak) id <MainMenuReturnProtocol> mainMenuReturnDelegate;
 @property (weak, nonatomic) id<DragGameDelegateProtocol> dragDelegate; //
 @property (nonatomic) NSArray *soundsArray;
 @property (nonatomic) NSMutableArray *colorBlocksArray;

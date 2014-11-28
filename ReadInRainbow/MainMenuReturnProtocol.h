@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @protocol MainMenuReturnProtocol <NSObject>
+
+- (void)returnToMainMenu:(UIViewController *)oldViewController;
 
 @end

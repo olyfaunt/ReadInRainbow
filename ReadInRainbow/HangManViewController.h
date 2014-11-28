@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainMenuReturnProtocol.h"
 
 @interface HangmanViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, weak) id <MainMenuReturnProtocol> MainMenuReturnDelegate;
 
 @end

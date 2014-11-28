@@ -329,8 +329,9 @@ const int numberOfLives = 8;
 }
 
 - (IBAction)menuButtonPressed:(id)sender {
-    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-    appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+//    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+//    appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    [self.MainMenuReturnDelegate returnToMainMenu:self];
 }
 
 - (void)removeWordButtons {

@@ -314,8 +314,9 @@
 }
 
 - (IBAction)returnToMenu:(id)sender {
-    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-    appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+//    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+//    appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    [self.mainMenuReturnDelegate returnToMainMenu:self];
 }
 
 - (IBAction)gameOver:(id)sender {

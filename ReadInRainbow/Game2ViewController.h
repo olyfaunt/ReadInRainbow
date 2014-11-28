@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import "MainMenuReturnProtocol.h"
 
 @interface Game2ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *livesImageViewToBottom;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorBlock2ToBottom;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorBlock3ToBottom;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorBlock1ToBottom;
+
+@property (nonatomic, weak) id <MainMenuReturnProtocol> mainMenuReturnDelegate;
 
 @property (nonatomic, strong) NSArray * soundsArray;
 @property (weak, nonatomic) IBOutlet UIImageView *livesImageView;

@@ -11,8 +11,11 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "MainMenuReturnProtocol.h"
 
 @interface Game1ViewController : UIViewController
+
+@property (nonatomic, weak) id <MainMenuReturnProtocol> mainMenuReturnDelegate;
 @property (nonatomic) NSArray *soundsArray;
 @property (weak, nonatomic) IBOutlet UIButton *playWordButton;
 @property (weak, nonatomic) IBOutlet ColorBlockView *colorView;
