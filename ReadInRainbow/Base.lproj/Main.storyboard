@@ -192,7 +192,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="wjz-oJ-KhE" firstAttribute="top" secondItem="u37-VQ-b94" secondAttribute="topMargin" constant="68" id="0zX-Pm-ZlT"/>
                                             <constraint firstAttribute="centerY" secondItem="IhY-ur-ELC" secondAttribute="centerY" id="hQN-Gv-JsM"/>
@@ -270,11 +270,12 @@
                     <connections>
                         <outlet property="chartCollectionView" destination="mm1-hD-yPk" id="MNV-dN-dXK"/>
                         <outlet property="gamesCollectionView" destination="EFS-sh-mXn" id="RGp-ot-5eK"/>
+                        <outlet property="heightConstraint" destination="e3R-DD-q3y" id="FIU-JR-JYD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-548" y="1136"/>
+            <point key="canvasLocation" x="-1948" y="2440"/>
         </scene>
     </scenes>
     <resources>

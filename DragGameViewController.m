@@ -20,7 +20,7 @@
     [super viewDidLoad];
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     self.buttonsArray = [NSMutableArray new];
-    [self setPhonemeCounter];
+//    [self setPhonemeCounter];
     [self setUpAndGetReadyToPlay];
 }
 
@@ -31,6 +31,7 @@
 
 - (void)setUpAndGetReadyToPlay {
     [self setPhonemeCounter];
+    [self setUpGameSounds];
     [self removeColorBlockOptions];
     [self removeWordButtons];
     [self generateAndDisplayWord];
@@ -62,7 +63,7 @@
 - (void)generateAndDisplayWord {
     NSArray * wordArray = [[[WordLibrary sharedLibrary] wordLibrary] allValues];
     self.currentWord = wordArray[arc4random_uniform((u_int32_t)wordArray.count)];
-    self.phonemesToMatch = self.currentWord.phonemeArray.count;
+    self.phonemesToMatch = (u_int32_t)self.currentWord.phonemeArray.count;
     [self createButtonForWord:self.currentWord];
 }
 
@@ -89,7 +90,21 @@
 }
 
 - (void)buttonClicked:(UIButton *)sender {
+    
     Sound * theSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:sender.tagString];
+    NSError * error = nil;
+    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:theSound.soundURL error:&error];
+    self.soundPlayer.volume=1.0f;
+    [self.soundPlayer prepareToPlay];
+    self.soundPlayer.numberOfLoops=0; //or more if needed
+    /////////////////IF FINISHED
+    if (self.phonemesCounter>self.phonemesToMatch) {
+        [self.soundPlayer play];
+    }
+}
+
+- (void)colorBlockTouched:(DragColorView *)dragColorView{
+    Sound * theSound = [[[SoundLibrary sharedLibrary] soundLibrary] objectForKey:dragColorView.identifier];
     NSError * error = nil;
     self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:theSound.soundURL error:&error];
     self.soundPlayer.volume=1.0f;
@@ -128,6 +143,9 @@
         Sound *sound = self.colorBlockOptions[i];
         DragColorView *lastColorView;
         DragColorView *dragColorView = [[DragColorView alloc] init];
+        dragColorView.layer.masksToBounds = YES;
+        dragColorView.layer.cornerRadius = 10;
+        dragColorView.isSnapEnabled = NO;
         dragColorView.identifier = sound.identifier;
         if(sound.hasSecondaryColor){
             dragColorView.firstColor = sound.soundColor;
@@ -137,7 +155,7 @@
             dragColorView.secondColor = nil;
         }
         [dragColorView setNeedsDisplay];
-        int numberOfOptions = self.colorBlockOptions.count;
+        int numberOfOptions = (u_int32_t)self.colorBlockOptions.count;
         int numberOptionsLessThanTen = 10-numberOfOptions;
         
         if (self.colorBlocksArray.count==0) {
@@ -191,31 +209,31 @@
             
             //if all the colors in the word have been matched, display next word button
             if (self.phonemesCounter>self.phonemesToMatch) {
-                [self.soundPlayer stop];
+                [self.winPlayer stop];
                 [self playWordButtonSound];
                 [self displayNextWordButton];
             }
             
         } else {
             NSLog(@"Failure - no match.");
-            //dragColorView snaps back to original position
-            [self addDynamicBehaviour:dragColorView];
-            //more stuff to do on failure here        
+            [self.losePlayer play];
         }
-    }
-    //if color view not matched, want to snap back to original position no matter where it is dragged
-    if (!dragColorView.isMatched) {
-        [self addDynamicBehaviour:dragColorView];
     }
 }
 
 -(void)playSoundIfMatch:(Sound*)sound {
     NSError * error = nil;
-    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:sound.soundURL error:&error];
-    self.soundPlayer.volume=1.0f;
-    [self.soundPlayer prepareToPlay];
-    self.soundPlayer.numberOfLoops=0; //or more if needed
-    [self.soundPlayer play];
+//    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:sound.soundURL error:&error];
+//    self.soundPlayer.volume=1.0f;
+//    [self.soundPlayer prepareToPlay];
+//    self.soundPlayer.numberOfLoops=0; //or more if needed
+//    [self.soundPlayer play];
+    NSURL *url3 = [[NSBundle mainBundle] URLForResource:@"Win" withExtension:@"wav"];
+    self.winPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url3 error:&error];
+    self.winPlayer.numberOfLoops = 0;
+    [self.winPlayer prepareToPlay];
+    self.winPlayer.volume = 1.0f;
+    [self.winPlayer play];
 }
 
 -(void)displayNextWordButton {
@@ -228,7 +246,6 @@
     self.nextWordButton = button;
     self.nextWordButton.alpha = 0;
     [self.view addSubview:self.nextWordButton];
-//    [self.nextWordButton setNeedsDisplay];
     [self.view bringSubviewToFront:self.nextWordButton];
     self.nextWordButton.hidden = NO;
     [UIView transitionWithView:nil duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
@@ -244,7 +261,8 @@
 }
 
 - (void)addDynamicBehaviour:(DragColorView *)dragColorView {
-    
+    [self.animator removeAllBehaviors];
+    dragColorView.isSnapEnabled = YES;
     self.snapBehavior = [[UISnapBehavior alloc] initWithItem:dragColorView snapToPoint:dragColorView.originalPoint];
     [self.animator addBehavior:self.snapBehavior];
 
@@ -267,6 +285,13 @@
         [button setTitle:nil forState:UIControlStateNormal];
         [button setAttributedTitle:attributedTitle forState:UIControlStateNormal];
 
+}
+
+-(void)setUpGameSounds {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Lose" withExtension:@"wav"];
+    self.losePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    self.losePlayer.numberOfLoops = 0;
+    [self.losePlayer prepareToPlay];
 }
 
 - (IBAction)goToMenu:(id)sender {

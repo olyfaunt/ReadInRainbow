@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3LF-iR-Vcm" customClass="ColorBlockView">
-                                <rect key="frame" x="300" y="483" width="168" height="58"/>
+                                <rect key="frame" x="300" y="546" width="168" height="58"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYd-hZ-JKf">
                                         <rect key="frame" x="0.0" y="0.0" width="168" height="58"/>
@@ -59,7 +59,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYn-OV-j5d" customClass="ColorBlockView">
-                                <rect key="frame" x="508" y="483" width="168" height="58"/>
+                                <rect key="frame" x="508" y="546" width="168" height="58"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nn0-xQ-HBf">
                                         <rect key="frame" x="0.0" y="0.0" width="168" height="58"/>
@@ -94,7 +94,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9y-dY-BwB" customClass="ColorBlockView">
-                                <rect key="frame" x="92" y="483" width="168" height="58"/>
+                                <rect key="frame" x="92" y="546" width="168" height="58"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kll-2R-dVm">
                                         <rect key="frame" x="0.0" y="0.0" width="168" height="58"/>
@@ -171,14 +171,14 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="p9y-dY-BwB" secondAttribute="centerY" id="3O5-PN-UOF"/>
                             <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="vWJ-Uc-Hca" secondAttribute="bottom" constant="180" id="3PQ-Id-sod"/>
                             <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="Pfp-IC-xu7" secondAttribute="bottom" constant="20" id="43D-j7-zcS"/>
                             <constraint firstItem="Pfp-IC-xu7" firstAttribute="leading" secondItem="gH8-ym-lAX" secondAttribute="leadingMargin" constant="20" id="6Cl-xd-pDu"/>
+                            <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="3LF-iR-Vcm" secondAttribute="bottom" constant="420" id="6XQ-TA-Rye"/>
                             <constraint firstItem="Pfp-IC-xu7" firstAttribute="leading" secondItem="gH8-ym-lAX" secondAttribute="leadingMargin" constant="20" id="7f3-hI-4n3"/>
                             <constraint firstItem="3LF-iR-Vcm" firstAttribute="leading" secondItem="p9y-dY-BwB" secondAttribute="trailing" constant="40" id="95L-aj-Zpm"/>
-                            <constraint firstAttribute="centerY" secondItem="3LF-iR-Vcm" secondAttribute="centerY" id="AzK-Zd-mVz"/>
                             <constraint firstItem="IfJ-66-aX5" firstAttribute="top" secondItem="cKm-zH-Lsu" secondAttribute="bottom" constant="80" id="Fk7-V5-xGU"/>
+                            <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="eYn-OV-j5d" secondAttribute="bottom" constant="420" id="GUc-kr-rNv"/>
                             <constraint firstAttribute="centerX" secondItem="vWJ-Uc-Hca" secondAttribute="centerX" id="Kwc-Du-phC"/>
                             <constraint firstAttribute="centerY" secondItem="ZAd-OZ-3cz" secondAttribute="centerY" id="LxQ-oS-DJa"/>
                             <constraint firstItem="eYn-OV-j5d" firstAttribute="leading" secondItem="3LF-iR-Vcm" secondAttribute="trailing" constant="40" id="Pnt-HY-2EE"/>
@@ -186,8 +186,8 @@
                             <constraint firstAttribute="centerX" secondItem="Gqz-j8-J1O" secondAttribute="centerX" id="R62-XN-Vof"/>
                             <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="Pfp-IC-xu7" secondAttribute="bottom" constant="20" id="S2P-Cf-2vR"/>
                             <constraint firstItem="FIE-qo-wMX" firstAttribute="leading" secondItem="Gqz-j8-J1O" secondAttribute="trailing" constant="57" id="TdY-JM-5g2"/>
-                            <constraint firstAttribute="centerY" secondItem="eYn-OV-j5d" secondAttribute="centerY" id="a00-Sv-zL6"/>
                             <constraint firstAttribute="centerX" secondItem="IfJ-66-aX5" secondAttribute="centerX" id="d9t-Ph-FuS"/>
+                            <constraint firstItem="7si-UC-lh6" firstAttribute="top" secondItem="p9y-dY-BwB" secondAttribute="bottom" constant="420" id="hAm-Sj-Wh3"/>
                             <constraint firstAttribute="centerX" secondItem="ZAd-OZ-3cz" secondAttribute="centerX" id="nQc-C0-VIl"/>
                             <constraint firstAttribute="centerX" secondItem="3LF-iR-Vcm" secondAttribute="centerX" id="srz-bS-UYL"/>
                             <constraint firstItem="Gqz-j8-J1O" firstAttribute="top" secondItem="IfJ-66-aX5" secondAttribute="bottom" constant="45" id="xEW-91-NPM"/>
@@ -197,9 +197,13 @@
                         <outlet property="answerOptionOne" destination="p9y-dY-BwB" id="nPP-zn-gWA"/>
                         <outlet property="answerOptionThree" destination="eYn-OV-j5d" id="mbI-pm-4Ug"/>
                         <outlet property="answerOptionTwo" destination="3LF-iR-Vcm" id="K3U-XR-gvU"/>
+                        <outlet property="colorBlock1ToBottom" destination="hAm-Sj-Wh3" id="qGR-6u-h9m"/>
+                        <outlet property="colorBlock2ToBottom" destination="6XQ-TA-Rye" id="H4n-RI-0xW"/>
+                        <outlet property="colorBlock3ToBottom" destination="GUc-kr-rNv" id="ifS-KL-ZVj"/>
                         <outlet property="gameOverButton" destination="ZAd-OZ-3cz" id="jEZ-Ch-mo4"/>
                         <outlet property="isCorrectImageView" destination="Gqz-j8-J1O" id="A2S-9U-mhX"/>
                         <outlet property="livesImageView" destination="vWJ-Uc-Hca" id="z6l-qQ-k6K"/>
+                        <outlet property="livesImageViewToBottom" destination="3PQ-Id-sod" id="vmR-xe-EbA"/>
                         <outlet property="nextQuestionButton" destination="FIE-qo-wMX" id="EaW-s8-F89"/>
                     </connections>
                 </viewController>

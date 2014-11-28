@@ -47,19 +47,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpBlurView];
     [self setUpSoundAndColorAndChoices];
     [self setUpGameSounds];
-    [self setUpBlurView];
     self.livesImageView.image = [UIImage imageNamed:@"heart4"];
     self.lives = 4;
     self.gameOverButton.hidden = YES;
     self.soundHasPlayed = NO;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
+        // orientation is landscape
+        NSLog(@"init to wide");
+        [self doSameAdjust:true];
+//        [self setUpBlurView];
+        
+    }  else {
+        // orientation is portrait
+        NSLog(@"init to tall");
+        [self doSameAdjust:false];
+//        [self setUpBlurView];
+    }
+}
+
 - (void)grayButtons {
     self.answerOptionOne.alpha = 0;
+    self.answerOptionOne.layer.masksToBounds = YES;
+    self.answerOptionOne.layer.cornerRadius = 10;
     self.answerOptionTwo.alpha = 0;
+    self.answerOptionTwo.layer.masksToBounds = YES;
+    self.answerOptionTwo.layer.cornerRadius = 10;
     self.answerOptionThree.alpha = 0;
+    self.answerOptionThree.layer.masksToBounds = YES;
+    self.answerOptionThree.layer.cornerRadius = 10;
 }
 
 - (void)showOptionButtons {
@@ -318,6 +343,59 @@
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     [self.blurEffectView setFrame:self.view.bounds];
+    NSLog(@"bounds: %f, frame: %f", self.view.bounds.size.height, self.view.frame.size.height);
 }
+
+
+#pragma mark - Rotation Constraints
+
+//delegate - rotate
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    NSLog(@"transition to :%f and heigh %f",size.width, size.height);
+    BOOL transitionToWide = size.width > size.height;
+    if (transitionToWide){
+        NSLog(@"rotate to wide");
+        [self.blurEffectView sizeToFit];
+        [self doSameAdjust:true];
+    }
+    else {
+        NSLog(@"rotate to tall");
+        [self.blurEffectView sizeToFit];
+        [self doSameAdjust:false];
+    }
+}
+
+-(void)doSameAdjust:(BOOL)isWide
+{
+    if (isWide){
+        self.livesImageViewToBottom.constant = 40;
+        self.colorBlock1ToBottom.constant = 240;
+        self.colorBlock2ToBottom.constant = 240;
+        self.colorBlock3ToBottom.constant = 240;
+        [self.view setNeedsUpdateConstraints];
+//        [self.blurEffectView setFrame:self.view.bounds];
+        NSLog(@"isWide boundsWidth: %f", self.view.bounds.size.width);
+
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view layoutIfNeeded];
+        } completion:nil];
+    }
+    else {
+        
+        self.livesImageViewToBottom.constant = 180;
+        self.colorBlock1ToBottom.constant = 420;
+        self.colorBlock2ToBottom.constant = 420;
+        self.colorBlock3ToBottom.constant = 420;
+        [self.view setNeedsUpdateConstraints];
+//        [self.blurEffectView setFrame:self.view.bounds];
+        NSLog(@"isNOTWide boundsWidth: %f", self.view.bounds.size.width);
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
+}
+
+
 
 @end

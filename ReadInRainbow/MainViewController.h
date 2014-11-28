@@ -13,6 +13,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface MainViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *chartCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *gamesCollectionView;
@@ -24,6 +25,7 @@
 @property (nonatomic) NSMutableArray *vowelSounds;
 @property (nonatomic, assign) int numberOfGames;
 @property (nonatomic) NSMutableArray *gameTitlesArray;
+@property (nonatomic) NSArray *gameImagesArray;
 @property (nonatomic) AVAudioPlayer *soundPlayer;
 @end
 
