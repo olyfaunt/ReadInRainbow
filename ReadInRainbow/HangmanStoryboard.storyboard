@@ -126,6 +126,19 @@
                                     <action selector="nextWordButtonPressed:" destination="a74-UZ-Iky" eventType="touchUpInside" id="081-zG-ZVm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU2-mu-MM3">
+                                <rect key="frame" x="653" y="929" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="4eM-N0-Zcn"/>
+                                    <constraint firstAttribute="height" constant="75" id="oLz-f3-qGW"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="movie1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playMovie:" destination="a74-UZ-Iky" eventType="touchUpInside" id="udC-8Q-Xn8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -134,6 +147,7 @@
                             <constraint firstItem="sA3-Ob-jfP" firstAttribute="firstBaseline" secondItem="QWJ-N5-NzC" secondAttribute="baseline" id="B49-KC-tbv"/>
                             <constraint firstItem="uvb-XF-rtK" firstAttribute="top" secondItem="FiN-g9-cAa" secondAttribute="bottom" constant="150" id="FaH-SD-CcG"/>
                             <constraint firstItem="sA3-Ob-jfP" firstAttribute="centerX" secondItem="QWJ-N5-NzC" secondAttribute="centerX" id="Fjq-oi-tsM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qU2-mu-MM3" secondAttribute="trailing" constant="20" id="Lea-Jp-FgM"/>
                             <constraint firstAttribute="centerY" secondItem="QWJ-N5-NzC" secondAttribute="centerY" id="RBm-b9-S3q"/>
                             <constraint firstItem="FiN-g9-cAa" firstAttribute="top" secondItem="z8p-gz-rlJ" secondAttribute="bottom" constant="59" id="SLR-Gz-UTQ"/>
                             <constraint firstItem="Nhp-iQ-p7S" firstAttribute="leading" secondItem="eQo-EK-JH7" secondAttribute="trailing" constant="8" id="aBo-gd-6y5"/>
@@ -145,6 +159,7 @@
                             <constraint firstItem="eQo-EK-JH7" firstAttribute="leading" secondItem="Jbj-tJ-heB" secondAttribute="leadingMargin" id="ptj-Mn-KZi"/>
                             <constraint firstItem="FiN-g9-cAa" firstAttribute="leading" secondItem="Jbj-tJ-heB" secondAttribute="leadingMargin" id="quc-Ws-Q33"/>
                             <constraint firstItem="FiN-g9-cAa" firstAttribute="trailing" secondItem="Jbj-tJ-heB" secondAttribute="trailingMargin" id="wyD-3h-f6E"/>
+                            <constraint firstItem="uvb-XF-rtK" firstAttribute="top" secondItem="qU2-mu-MM3" secondAttribute="bottom" constant="20" id="z4d-tB-YqB"/>
                         </constraints>
                     </view>
                     <connections>
@@ -163,6 +178,7 @@
     <resources>
         <image name="heart4" width="256" height="229"/>
         <image name="menu2" width="680" height="680"/>
+        <image name="movie1" width="256" height="256"/>
         <image name="next1" width="512" height="872"/>
         <image name="play" width="256" height="256"/>
         <image name="restart1" width="256" height="256"/>

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface Game2ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *livesImageViewToBottom;
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorBlock3ToBottom;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorBlock1ToBottom;
 
+@property (strong, nonatomic) MPMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) NSArray * soundsArray;
 @property (weak, nonatomic) IBOutlet UIImageView *livesImageView;
 - (IBAction)gameOver:(id)sender;
@@ -25,5 +27,6 @@
 @property (nonatomic) AVAudioPlayer *winPlayer;
 @property (nonatomic) AVAudioPlayer *losePlayer;
 @property (nonatomic) AVAudioPlayer *gameOverPlayer;
+- (IBAction)playMovie:(id)sender;
 
 @end
