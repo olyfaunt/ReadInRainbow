@@ -58,24 +58,24 @@
     self.soundHasPlayed = NO;
 }
 
-//-(void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:YES];
-//    
-//    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-//    if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
-//        // orientation is landscape
-//        NSLog(@"init to wide");
-//        [self doSameAdjust:true];
-////        [self setUpBlurView];
-//        
-//    }  else {
-//        // orientation is portrait
-//        NSLog(@"init to tall");
-//        [self doSameAdjust:false];
-////        [self setUpBlurView];
-//    }
-//}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
+        // orientation is landscape
+        NSLog(@"init to wide");
+        [self doSameAdjust:true size:self.view.frame.size];
+//        [self setUpBlurView];
+        
+    }  else {
+        // orientation is portrait
+        NSLog(@"init to tall");
+        [self doSameAdjust:false size:self.view.frame.size];
+//        [self setUpBlurView];
+    }
+}
 
 - (void)grayButtons {
     self.answerOptionOne.alpha = 0;

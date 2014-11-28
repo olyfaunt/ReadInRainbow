@@ -251,14 +251,17 @@ static NSString * const reuseIdentifier2 = @"GameCell";
 -(void)doSameAdjust:(BOOL)isWide
 {
     if (isWide){
-        self.heightConstraint.constant = 470;
+        UICollectionViewFlowLayout *flowLayout = (id)self.gamesCollectionView.collectionViewLayout;
+        flowLayout.itemSize = CGSizeMake(120.f, 120.f);
+        self.heightConstraint.constant = 510;
         [self.view setNeedsUpdateConstraints];
         [UIView animateWithDuration:0.5 animations:^{
             [self.view layoutIfNeeded];
         } completion:nil];
     }
     else {
-        
+        UICollectionViewFlowLayout *flowLayout = (id)self.gamesCollectionView.collectionViewLayout;
+        flowLayout.itemSize = CGSizeMake(160.f, 160.f);
         self.heightConstraint.constant = 720;
         [self.view setNeedsUpdateConstraints];
         [UIView animateWithDuration:0.5 animations:^{
