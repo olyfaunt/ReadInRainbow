@@ -28,6 +28,7 @@
 @property (nonatomic) CGFloat startingXPosition;
 @property (nonatomic) NSArray *colorBlockOptions;
 @property (nonatomic) Word *currentWord;
+@property (nonatomic) UIView *wordView;
 @property (nonatomic, weak) UIButton *nextWordButton;
 @property (nonatomic, assign) int placeInPhonemeArray;
 @property (nonatomic) NSMutableArray *buttonsArray;
