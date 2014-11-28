@@ -10,6 +10,7 @@
 #import "ColorBlockView.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface Game1ViewController : UIViewController
 @property (nonatomic) NSArray *soundsArray;
@@ -19,6 +20,7 @@
 @property (assign) int currentWordIndex;
 @property (nonatomic, assign) BOOL shouldGoToSpecificSound;
 @property (nonatomic, assign) NSString * soundIdentifier;
+@property (strong, nonatomic) MPMoviePlayerViewController *moviePlayer;
 
 @property (nonatomic) AVAudioPlayer *wordPlayer;
 @property (nonatomic) AVAudioPlayer *soundPlayer;
@@ -28,5 +30,6 @@
 - (IBAction)clickedColor:(id)sender;
 - (IBAction)playBack:(id)sender;
 - (IBAction)playWord:(id)sender;
+- (IBAction)playMovie:(id)sender;
 
 @end

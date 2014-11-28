@@ -116,6 +116,8 @@
 		99F46F671A20065B00379256 /* vision.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F571A1FE40B00379256 /* vision.caf */; };
 		99F46F681A20065C00379256 /* water.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F581A1FE40B00379256 /* water.caf */; };
 		99F46F691A20065E00379256 /* you.caf in Resources */ = {isa = PBXBuildFile; fileRef = 99F46F591A1FE40B00379256 /* you.caf */; };
+		99FA98371A28F7BA0098D19E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FA98361A28F7BA0098D19E /* MediaPlayer.framework */; };
+		99FA983A1A28F8250098D19E /* gameone480.mov in Resources */ = {isa = PBXBuildFile; fileRef = 99FA98391A28F8250098D19E /* gameone480.mov */; };
 		CA60EFFD1A1D21CB001DC1D2 /* Game2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */; };
 		CA60F0001A1D21F9001DC1D2 /* Game2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA60EFFF1A1D21F9001DC1D2 /* Game2ViewController.m */; };
 		CA60F0411A1FEFC0001DC1D2 /* HangmanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60F0401A1FEFC0001DC1D2 /* HangmanStoryboard.storyboard */; };
@@ -220,6 +222,8 @@
 		99F46F571A1FE40B00379256 /* vision.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = vision.caf; sourceTree = "<group>"; };
 		99F46F581A1FE40B00379256 /* water.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = water.caf; sourceTree = "<group>"; };
 		99F46F591A1FE40B00379256 /* you.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = you.caf; sourceTree = "<group>"; };
+		99FA98361A28F7BA0098D19E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		99FA98391A28F8250098D19E /* gameone480.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameone480.mov; sourceTree = "<group>"; };
 		CA60EFFB1A1BE132001DC1D2 /* longa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = longa.caf; sourceTree = "<group>"; };
 		CA60EFFC1A1D21CB001DC1D2 /* Game2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game2Storyboard.storyboard; sourceTree = "<group>"; };
 		CA60EFFE1A1D21F9001DC1D2 /* Game2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game2ViewController.h; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99FA98371A28F7BA0098D19E /* MediaPlayer.framework in Frameworks */,
 				9966004B1A1AEC3300A52F0C /* Foundation.framework in Frameworks */,
 				996600491A1AEC2300A52F0C /* UIKit.framework in Frameworks */,
 				996600471A1AEC1800A52F0C /* AVFoundation.framework in Frameworks */,
@@ -310,6 +315,7 @@
 		0EC5CF1BC2936DBB1E794242 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99FA98361A28F7BA0098D19E /* MediaPlayer.framework */,
 				3EA6C3DDF2A81F42C3B3BC6A /* libPods-ReadInRainbow.a */,
 			);
 			name = Frameworks;
@@ -376,6 +382,7 @@
 		99885C521A1A921A0043D837 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				99FA98381A28F81C0098D19E /* Movies */,
 				991682891A25344D00336AB1 /* GameSounds */,
 				99F46F201A1D8D5400379256 /* Words */,
 				CAD608DC1A1BD57100D2E16C /* ah.caf */,
@@ -562,6 +569,14 @@
 			name = "Data Model";
 			sourceTree = "<group>";
 		};
+		99FA98381A28F81C0098D19E /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				99FA98391A28F8250098D19E /* gameone480.mov */,
+			);
+			name = Movies;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -679,6 +694,7 @@
 				99F46F021A1D655500379256 /* longe.caf in Resources */,
 				99F46F371A1D90F500379256 /* north.caf in Resources */,
 				99F46F141A1D658100379256 /* thth.caf in Resources */,
+				99FA983A1A28F8250098D19E /* gameone480.mov in Resources */,
 				99F46F1B1A1D658F00379256 /* yod.caf in Resources */,
 				99F46F031A1D655800379256 /* longi.caf in Resources */,
 				99F46F421A1E928800379256 /* DragGameStoryboard.storyboard in Resources */,
