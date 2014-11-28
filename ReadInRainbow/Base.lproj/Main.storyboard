@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMy-E1-5aA">
-                                <rect key="frame" x="688" y="602.5" width="40" height="75"/>
+                                <rect key="frame" x="688" y="602" width="40" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="TEr-Qf-jZ1"/>
                                     <constraint firstAttribute="height" constant="75" id="bdD-A0-7IC"/>
@@ -96,12 +96,27 @@
                                     <action selector="playWord:" destination="b3J-Pl-Wju" eventType="touchUpInside" id="dQL-sc-cll"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQo-7z-n03">
+                                <rect key="frame" x="653" y="929" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="e2e-x4-0hH"/>
+                                    <constraint firstAttribute="height" constant="75" id="vFB-le-3YH"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="movie1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playMovie:" destination="b3J-Pl-Wju" eventType="touchUpInside" id="Dfn-05-Ysv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="uVd-ec-FaU" secondAttribute="centerX" id="2YS-vL-ZEa"/>
                             <constraint firstItem="2W0-UV-wh7" firstAttribute="top" secondItem="0gR-tp-xxW" secondAttribute="bottom" constant="20" id="5x0-ud-1XD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FMy-E1-5aA" secondAttribute="trailing" constant="20" id="GYP-tC-q9s"/>
+                            <constraint firstItem="2W0-UV-wh7" firstAttribute="top" secondItem="qQo-7z-n03" secondAttribute="bottom" constant="20" id="QCg-Ro-oal"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qQo-7z-n03" secondAttribute="trailing" constant="20" id="TwT-tD-l0Q"/>
                             <constraint firstItem="kaQ-ki-2If" firstAttribute="leading" secondItem="xTU-WM-Ml0" secondAttribute="leadingMargin" constant="20" id="a6H-rq-Mmd"/>
                             <constraint firstItem="FMy-E1-5aA" firstAttribute="centerY" secondItem="Qsl-uQ-X3c" secondAttribute="centerY" constant="10" id="eE3-CM-qOs"/>
                             <constraint firstItem="uVd-ec-FaU" firstAttribute="top" secondItem="ntx-8A-8TT" secondAttribute="bottom" constant="250" id="egl-jq-tZz"/>
@@ -281,6 +296,7 @@
     <resources>
         <image name="back1" width="512" height="872"/>
         <image name="menu2" width="680" height="680"/>
+        <image name="movie1" width="256" height="256"/>
         <image name="next1" width="512" height="872"/>
         <image name="play1" width="512" height="512"/>
         <image name="pressplay" width="512" height="512"/>

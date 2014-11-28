@@ -15,6 +15,8 @@ static const int NumberOfButtons = 3;
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.height
 #define kScreenHeight [UIScreen mainScreen].bounds.size.width
+#define kMovieWidth 360
+#define kMovieHeight 480
 
 #define kBlockMargin 20
 #define kBlockWidth 50
