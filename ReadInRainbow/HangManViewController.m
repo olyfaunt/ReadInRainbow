@@ -183,7 +183,32 @@ const int numberOfLives = 8;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ChartCell *cell = (ChartCell*)[self.colorPickerCollectionView cellForItemAtIndexPath:indexPath];
+    UIView *newView = [[UIView alloc] init];
+    [UIView animateWithDuration:1.0
+                          delay:0
+                        options:(UIViewAnimationOptionAllowUserInteraction)
+                     animations:^
+     {
+         NSLog(@"starting animation");
+         
+         [UIView transitionFromView:cell.contentView
+                             toView:newView
+                           duration:.3
+                            options:UIViewAnimationOptionTransitionCrossDissolve
+                         completion:nil];
+     }
+                     completion:^(BOOL finished)
+     {
+         [UIView transitionFromView:newView
+                             toView:cell.contentView
+                           duration:.3
+                            options:UIViewAnimationOptionTransitionCrossDissolve
+                         completion:nil];
+     }
+     ];
     Sound * soundAtCell = self.collectionViewOptions[indexPath.item];
+    
     NSError * error = nil;
     if(self.lives > 1){
         self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundAtCell.soundURL error:&error];
