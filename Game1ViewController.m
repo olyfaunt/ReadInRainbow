@@ -39,6 +39,7 @@
     
     self.colorView.layer.masksToBounds = YES;
     self.colorView.layer.cornerRadius = 80;
+    self.colorView.center = self.view.center;
     // Do any additional setup after loading the view.
     self.buttonsArray = [NSMutableArray new];
     self.matchingWordsArray = [NSMutableArray new];
@@ -162,7 +163,6 @@
                     }completion:nil];
     
     [self createButtonForWord:self.matchingWordToPlay];
-    
 }
 
 -(void)changedColor {
@@ -369,6 +369,14 @@
                       duration:0.5f
                        options:UIViewAnimationOptionTransitionCurlDown
                     animations:nil completion:nil];
+}
+
+-(void)moveColorViewDown {
+    [UIView animateWithDuration:0.3f animations:^{
+        
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 @end
