@@ -27,6 +27,8 @@ const int numberOfLives = 8;
 @property (weak, nonatomic) IBOutlet UIImageView *heart2;
 @property (weak, nonatomic) IBOutlet UIButton *gameOverButton;
 
+@property (nonatomic) UIVisualEffectView *blurEffectView;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *colorPickerCollectionView;
 
 @property (nonatomic, strong) NSMutableArray * buttonsArray;
@@ -37,6 +39,7 @@ const int numberOfLives = 8;
 @property (weak, nonatomic) IBOutlet UIButton *nextWordButton;
 @property (assign) int NumberOfChoices;
 @property (nonatomic, assign) int placeInPhonemeArray;
+@property (nonatomic, strong) AVAudioPlayer * gameOverPlayer;
 
 - (IBAction)newGamePressed:(id)sender;
 - (IBAction)playWordPressed:(id)sender;
@@ -51,6 +54,8 @@ const int numberOfLives = 8;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.buttonsArray = [[NSMutableArray alloc] init];
+    [self setUpGameSounds];
+    [self setUpBlurView];
     [self setUpAndGetReadyToPlay];
     [self setLivesWithDisplay:numberOfLives];
     [self setUpCollectionView];
@@ -83,10 +88,27 @@ const int numberOfLives = 8;
 - (void)setLivesWithDisplay:(int)lives {
     if(lives >= 4){
         self.heart1.image = [UIImage imageNamed:@"heart4"];
-        self.heart2.image = [UIImage imageNamed:[NSString stringWithFormat:@"heart%d", (lives-4)]];
+        
+//        [UIView transitionWithView:self.heart1 duration:0.3 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+//            self.heart1.image = [UIImage imageNamed:@"heart4"];
+//        } completion:^(BOOL finished) {
+//            [self.heart1 setNeedsDisplay];
+//        }];
+        
+        //self.heart2.image = [UIImage imageNamed:[NSString stringWithFormat:@"heart%d", (lives-4)]];
+        [UIView transitionWithView:self.heart2 duration:0.3 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+            self.heart2.image = [UIImage imageNamed:[NSString stringWithFormat:@"heart%d", (lives-4)]];
+        } completion:^(BOOL finished) {
+            [self.heart2 setNeedsDisplay];
+        }];
     } else {
         self.heart2.image = nil;
-        self.heart1.image = [UIImage imageNamed:[NSString stringWithFormat:@"heart%d", lives]];
+        //self.heart1.image = [UIImage imageNamed:[NSString stringWithFormat:@"heart%d", lives]];
+        [UIView transitionWithView:self.heart1 duration:0.3 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+            self.heart1.image = [UIImage imageNamed:[NSString stringWithFormat:@"heart%d", lives]];
+        } completion:^(BOOL finished) {
+            [self.heart1 setNeedsDisplay];
+        }];
     }
     self.lives = lives;
 }
@@ -134,6 +156,7 @@ const int numberOfLives = 8;
     ChartCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     Sound * soundForCell = self.collectionViewOptions[indexPath.item];
     newCell.colourView.firstColor = soundForCell.soundColor;
+    newCell.layer.cornerRadius = 10;
     if(soundForCell.hasSecondaryColor) {
         newCell.colourView.secondColor = soundForCell.secondaryColor;
     } else {
@@ -146,11 +169,13 @@ const int numberOfLives = 8;
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Sound * soundAtCell = self.collectionViewOptions[indexPath.item];
     NSError * error = nil;
-    self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundAtCell.soundURL error:&error];
-    self.soundPlayer.volume=1.0f;
-    [self.soundPlayer prepareToPlay];
-    self.soundPlayer.numberOfLoops=0; //or more if needed
-    [self.soundPlayer play];
+    if(self.lives > 1){
+        self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundAtCell.soundURL error:&error];
+        self.soundPlayer.volume=1.0f;
+        [self.soundPlayer prepareToPlay];
+        self.soundPlayer.numberOfLoops=0; //or more if needed
+        [self.soundPlayer play];
+    }
     if(self.placeInPhonemeArray >= self.currentWord.phonemeArray.count) {
         // do nothing
     } else if([[self.currentWord.phonemeArray[self.placeInPhonemeArray] soundIdentifier] isEqualToString:soundAtCell.identifier]){
@@ -216,6 +241,8 @@ const int numberOfLives = 8;
 }
 
 - (void)gameOver {
+    [self.gameOverPlayer play];
+    [self.view addSubview:self.blurEffectView];
     [self.gameOverButton setNeedsDisplay];
     self.gameOverButton.alpha = 0;
     [self.view bringSubviewToFront:self.gameOverButton];
@@ -225,6 +252,7 @@ const int numberOfLives = 8;
     }completion:^(BOOL finished) {
         [self.gameOverButton setNeedsDisplay];
     }];
+    
 }
 
 - (void)generateAndDisplayWord {
@@ -257,6 +285,7 @@ const int numberOfLives = 8;
 
 - (IBAction)newGamePressed:(id)sender {
     self.gameOverButton.hidden = YES;
+    [self.blurEffectView removeFromSuperview];
     [self setLivesWithDisplay:numberOfLives];
     [self setUpAndGetReadyToPlay];
 }
@@ -294,6 +323,19 @@ const int numberOfLives = 8;
     [self.soundPlayer prepareToPlay];
     self.soundPlayer.numberOfLoops=0; //or more if needed
     [self.soundPlayer play];
+}
+
+-(void)setUpBlurView {
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [self.blurEffectView setFrame:self.view.bounds];
+}
+
+-(void)setUpGameSounds {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"GameOver" withExtension:@"wav"];
+    self.gameOverPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    self.gameOverPlayer.numberOfLoops = 0;
+    [self.gameOverPlayer prepareToPlay];
 }
 
 @end
