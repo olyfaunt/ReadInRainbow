@@ -97,8 +97,10 @@ static NSString * const reuseIdentifier2 = @"GameCell";
     UIImage *reviewImage = [UIImage imageNamed:@"review"];
     UIImage *gameImage = [UIImage imageNamed:@"game"];
     UIImage *puzzleImage = [UIImage imageNamed:@"puzzle"];
-    
-    self.gameImagesArray = @[reviewImage,gameImage,puzzleImage,gameImage];
+    UIImage *crayonImage = [UIImage imageNamed:@"crayon"];
+//    UIImage *legoImage = [UIImage imageNamed:@"lego"];
+//    UIImage *tictactoeImage = [UIImage imageNamed:@"tictactoe"];
+    self.gameImagesArray = @[reviewImage,puzzleImage,crayonImage,gameImage];
 
 }
 

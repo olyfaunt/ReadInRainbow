@@ -137,6 +137,18 @@
     self.colorBlockOptions = shufflingArray;
     //        [self.colorBlocksArray reloadData];
     
+    
+    ////////make a view for the color views to be in
+//    self.wordView = [[UIView alloc] init];
+//    self.wordView.userInteractionEnabled = NO;
+//    self.wordView.backgroundColor = [UIColor blackColor];
+//    [self.wordView setFrame:CGRectMake(self.view.frame.size.width/2-self.matchingWordToPlay.stringSize.width/2, self.view.frame.size.height/2-(self.matchingWordToPlay.stringSize.height/2)-300, self.matchingWordToPlay.stringSize.width, self.matchingWordToPlay.stringSize.height)];
+//    [self.view addSubview:self.wordView];
+    
+    
+    
+    ///////////////////
+    
     self.colorBlocksArray = [NSMutableArray new];
     //create color views
     for (int i=0;i<self.colorBlockOptions.count;i++) {
@@ -158,8 +170,9 @@
         int numberOfOptions = (u_int32_t)self.colorBlockOptions.count;
         int numberOptionsLessThanTen = 10-numberOfOptions;
         
+        //if it is the first color block to be added
         if (self.colorBlocksArray.count==0) {
-            
+            //if number of options is <10 we have to recalculate the starting position
             if (numberOfOptions < 10) {
                 self.startingXPosition = self.view.frame.origin.x+45+(numberOptionsLessThanTen*((kBlockMargin+kBlockWidth)/2));
                 [dragColorView setFrame:CGRectMake(self.startingXPosition,self.view.frame.size.height/2+100, kBlockWidth, kBlockHeight)];

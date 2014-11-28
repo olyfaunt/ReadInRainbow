@@ -85,6 +85,8 @@
 
 - (IBAction)playNext:(id)sender {
     [self.wordView removeFromSuperview];
+    self.wordView = nil;
+    [self.wordView removeFromSuperview];
     for (UIButton *button in self.buttonsArray) {
         [button removeFromSuperview];
     }
@@ -110,6 +112,7 @@
 
 - (IBAction)playBack:(id)sender {
     [self.wordView removeFromSuperview];
+    self.wordView = nil;
     for (UIButton *button in self.buttonsArray) {
         [button removeFromSuperview];
     }
@@ -160,8 +163,9 @@
                     animations:^{
                         self.playWordButton.alpha = 1;
                     }completion:nil];
-    
-    [self createButtonForWord:self.matchingWordToPlay];
+    if (!self.wordView) {
+        [self createButtonForWord:self.matchingWordToPlay];
+    }
     
 }
 
@@ -196,6 +200,7 @@
 /////////////////SPACING///////////////////////////////////////////////////
 ////if SPACING between the words is needed, in ELSE, just add +Spacing after lastButton.frame.size.width/2, and in IF, change word.stringSize to word.spacedStringSize
 -(void) createButtonForWord:(Word*)word {
+    
     self.wordView = [[UIView alloc] init];
     self.wordView.userInteractionEnabled = YES;
     self.wordView.backgroundColor = [UIColor clearColor];
@@ -281,6 +286,7 @@
         }
         [self.buttonsArray removeAllObjects];
         [self.wordView removeFromSuperview];
+        self.wordView = nil;
         
         self.currentWordIndex++;
         self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:self.currentWordIndex];
@@ -304,6 +310,7 @@
         }
         [self.buttonsArray removeAllObjects];
         [self.wordView removeFromSuperview];
+        self.wordView = nil;
         
         self.currentWordIndex--;
         self.matchingWordToPlay = [self.matchingWordsArray objectAtIndex:self.currentWordIndex];
@@ -323,6 +330,7 @@
 -(void) swipePageLeft {
     
     [self.wordView removeFromSuperview];
+    self.wordView = nil;
     for (UIButton *button in self.buttonsArray) {
         [button removeFromSuperview];
     }
@@ -349,6 +357,7 @@
 
 -(void) swipePageRight {
     [self.wordView removeFromSuperview];
+    self.wordView = nil;
     for (UIButton *button in self.buttonsArray) {
         [button removeFromSuperview];
     }

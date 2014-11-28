@@ -47,6 +47,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
+    self.view.autoresizesSubviews = YES;
     [self setUpBlurView];
     [self setUpSoundAndColorAndChoices];
     [self setUpGameSounds];
@@ -56,24 +58,24 @@
     self.soundHasPlayed = NO;
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
-        // orientation is landscape
-        NSLog(@"init to wide");
-        [self doSameAdjust:true];
-//        [self setUpBlurView];
-        
-    }  else {
-        // orientation is portrait
-        NSLog(@"init to tall");
-        [self doSameAdjust:false];
-//        [self setUpBlurView];
-    }
-}
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:YES];
+//    
+//    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+//    if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
+//        // orientation is landscape
+//        NSLog(@"init to wide");
+//        [self doSameAdjust:true];
+////        [self setUpBlurView];
+//        
+//    }  else {
+//        // orientation is portrait
+//        NSLog(@"init to tall");
+//        [self doSameAdjust:false];
+////        [self setUpBlurView];
+//    }
+//}
 
 - (void)grayButtons {
     self.answerOptionOne.alpha = 0;
@@ -292,6 +294,9 @@
 }
 
 - (IBAction)playCurrentSound:(id)sender {
+//    NSLog(@"width: %f, height: %f", self.view.frame.size.width, self.view.frame.size.height);
+//    return;
+    
     Sound *myCurrentSound = [[SoundLibrary sharedLibrary] soundLibrary][self.correctAnswerIdentifier];
     NSError *error;
     self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:myCurrentSound.soundURL error:&error];
@@ -342,8 +347,9 @@
 -(void)setUpBlurView {
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    [self.blurEffectView setFrame:self.view.bounds];
-    NSLog(@"bounds: %f, frame: %f", self.view.bounds.size.height, self.view.frame.size.height);
+//    [self.blurEffectView setFrame:self.view.frame];
+    self.blurEffectView.frame = self.view.bounds;
+    NSLog(@"bounds: %f, frame: %f", self.view.bounds.size.width, self.view.frame.size.height);
 }
 
 
@@ -356,17 +362,17 @@
     BOOL transitionToWide = size.width > size.height;
     if (transitionToWide){
         NSLog(@"rotate to wide");
-        [self.blurEffectView sizeToFit];
-        [self doSameAdjust:true];
+//        [self.blurEffectView sizeToFit];
+        [self doSameAdjust:true size:size];
     }
     else {
         NSLog(@"rotate to tall");
-        [self.blurEffectView sizeToFit];
-        [self doSameAdjust:false];
+//        [self.blurEffectView sizeToFit];
+        [self doSameAdjust:false size:size];
     }
 }
 
--(void)doSameAdjust:(BOOL)isWide
+-(void)doSameAdjust:(BOOL)isWide size:(CGSize)size
 {
     if (isWide){
         self.livesImageViewToBottom.constant = 40;
@@ -374,26 +380,31 @@
         self.colorBlock2ToBottom.constant = 240;
         self.colorBlock3ToBottom.constant = 240;
         [self.view setNeedsUpdateConstraints];
-//        [self.blurEffectView setFrame:self.view.bounds];
+//        [self.blurEffectView setFrame:CGRectMake(0, 0, self.view.bounds.size.height, self.view.bounds.size.width)];
+//    self.blurEffectView.frame = self.view.bounds;
         NSLog(@"isWide boundsWidth: %f", self.view.bounds.size.width);
 
         [UIView animateWithDuration:0.5 animations:^{
             [self.view layoutIfNeeded];
+//            self.blurEffectView.frame = self.view.bounds;
         } completion:nil];
     }
     else {
-        
         self.livesImageViewToBottom.constant = 180;
         self.colorBlock1ToBottom.constant = 420;
         self.colorBlock2ToBottom.constant = 420;
         self.colorBlock3ToBottom.constant = 420;
         [self.view setNeedsUpdateConstraints];
-//        [self.blurEffectView setFrame:self.view.bounds];
+//        self.blurEffectView.frame = self.view.bounds;
+//        [self.blurEffectView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
         NSLog(@"isNOTWide boundsWidth: %f", self.view.bounds.size.width);
         [UIView animateWithDuration:0.5 animations:^{
             [self.view layoutIfNeeded];
+//            self.blurEffectView.frame = self.view.bounds;
         }];
     }
+    NSLog(@"width: %f, height: %f", self.view.frame.size.width, self.view.frame.size.height);
+    [self.blurEffectView setFrame:CGRectMake(0, 0, size.width, size.height)];
 }
 
 
